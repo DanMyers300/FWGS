@@ -1,11 +1,11 @@
-import PyPDF2
+import pypdf
 
 # create file object variable
 # opening method will be rb
-pdffileobj = open('1.pdf', 'rb')
+pdffileobj = open('6001149485.pdf', 'rb')
 
 # create reader variable that will read the pdffileobj
-pdfreader = PyPDF2.PdfFileReader(pdffileobj)
+pdfreader = pypdf.PdfReader(pdffileobj)
 
 # This will store the number of pages of this pdf file
 x = pdfreader.numPages
@@ -24,5 +24,5 @@ text = pageobj.extractText()
 # click properties and copy the location path and paste it here.
 # put "\\your_txtfilename"
 file1 = open(
-    r"C:\Users\danie\.code\FORT_WORTH_GASKET_AND_SUPPLY_PROJECT\\1.txt", "a")
+    r"C:\Users\danie\.code\FORT_WORTH_GASKET_AND_SUPPLY_PROJECT\\test.txt", "a")
 file1.writelines(text)
