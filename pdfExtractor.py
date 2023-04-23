@@ -1,28 +1,24 @@
-import pypdf
+import aspose.pdf as pdf
 
-# create file object variable
-# opening method will be rb
-pdffileobj = open('6001149485.pdf', 'rb')
+# Load the license
+license = pdf.License()
+license.set_license("Aspose.Total.lic")
 
-# create reader variable that will read the pdffileobj
-pdfreader = pypdf.PdfReader(pdffileobj)
+# Load input PDF document
+document = pdf.Document("6001149485.pdf")
 
-# This will store the number of pages of this pdf file
-x = pdfreader.numPages
+# Initialize TextAbsorber object
+textAbsorber = pdf.text.TextAbsorber()
 
-# create a variable that will select the selected number of pages
-pageobj = pdfreader.getPage(x+1)
+# Call Page.Accept() method to fetch text
+document.pages.accept(textAbsorber)
 
-# (x+1) because python indentation starts with 0.
-# create text variable which will store all text datafrom pdf file
-text = pageobj.extractText()
+# Get the extracted text string
+text = textAbsorber.text
 
-# save the extracted data from pdf to a txt file
-# we will use file handling here
-# dont forget to put r before you put the file path
-# go to the file location copy the path by right clicking on the file
-# click properties and copy the location path and paste it here.
-# put "\\your_txtfilename"
-file1 = open(
-    r"C:\Users\danie\.code\FORT_WORTH_GASKET_AND_SUPPLY_PROJECT\\test.txt", "a")
-file1.writelines(text)
+# Create a TXT file and write the string
+text_file = open("PDFtoTXT.txt", "wt")
+n = text_file.write(text)
+text_file.close()
+
+print("Conversion Completed Successfully")
