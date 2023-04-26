@@ -12,7 +12,7 @@ base_model = LlamaForCausalLM.from_pretrained(
     device_map='auto',
     quantization_config=BitsAndBytesConfig(
         llm_int8_enable_fp32_cpu_offload=True),
-    offload_folder= r'c:\Users\danie\.code',
+    offload_folder=r'c:\Users\danie\.code',
 )
 
 pipe = pipeline(
@@ -27,6 +27,7 @@ pipe = pipeline(
 
 local_llm = HuggingFacePipeline(pipeline=pipe)
 
+text = r'./test.txt'
 
 template = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
@@ -39,6 +40,6 @@ prompt = PromptTemplate(template=template, input_variables=["instruction"])
 
 llm_chain = LLMChain(prompt=prompt, llm=local_llm)
 
-question = "What is the capital of England?"
+question = f"based on this text: {text}, what is the text that comes right before the seller id?"
 
 print(llm_chain.run(question))
