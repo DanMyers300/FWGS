@@ -7,7 +7,11 @@ import textwrap
 from langchain.document_loaders import TextLoader
 import requests
 import os
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "HUGGINGFACEHUB_API_TOKEN"
+from dotenv import load_dotenv
+load_dotenv()
+
+
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 
 url = "https://raw.githubusercontent.com/hwchase17/langchain/master/docs/modules/state_of_the_union.txt"
