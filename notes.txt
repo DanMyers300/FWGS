@@ -1,0 +1,3 @@
+-- GPT4ALL was able to sort the data into a sql table. That may be what I want to go after
+
+--Spacy seems like the best way to do it without a LLM. GPT4ALL is probably slow.
