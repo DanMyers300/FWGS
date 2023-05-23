@@ -29,23 +29,23 @@ with open("output.txt", encoding="utf-8") as file:
     lines = [line.strip() for line in file]
     non_empty_lines = [line for line in lines if line != ""]
 
-mystr = ", ".join(non_empty_lines)
+DATA_STRING = ", ".join(non_empty_lines)
 # print(mystr)
 # Create a string variable to hold the cleaned version of the string
-rmspecialchar = ""
+RM_SPECIAL = ""
 
 # Define a list of special characters to remove
 special_chars = ["!", ",", "#", "$", "%", "^", "&", "*", ":", ")", "("]
 
 # Iterate over each character in the string
-for char in mystr:
+for char in DATA_STRING:
     # Check if the character is a special character
     if char in special_chars:
         # If it is, skip it and move on to the next character
         continue
     else:
         # If it isn't a special character, add it to the cleaned string
-        rmspecialchar += char
+        RM_SPECIAL += char
 
 # Print the cleaned string
-print(rmspecialchar)
+print(RM_SPECIAL)

@@ -1,6 +1,13 @@
 {
+    "python.formatting.provider": "none",
+    "editor.formatOnSave": true,
+    "python.autoComplete.extraPaths": [
+        "../*"
+    ],
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "python.formatting.provider": "none"
+    "python.analysis.extraPaths": [
+        "../*"
+    ],
 }
