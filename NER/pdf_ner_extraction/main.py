@@ -13,7 +13,7 @@ from pypdf import PdfReader
 # Take in user input for what the name of the pdf is.
 # If it doesn't end in .pdf add it
 PDFFileName = input("Enter the name of the PDF file: ")
-PDFFileName = "../" + PDFFileName
+PDFFileName = "/workspaces/Fort_Worth_Gasket_And_Supply_Project/" + PDFFileName
 if not PDFFileName.endswith(".pdf"):
     PDFFileName += ".pdf"
 
@@ -78,64 +78,8 @@ matcher = Matcher(nlp.vocab)
 
 print(doc)
 
-RFQ_PATTERN = r"RFQ \d+"
-matches = re.finditer(RFQ_PATTERN, RM_SPACES)
-for match in matches:
-    print(match)
-
-DATE_PATTERN = r"\d\d/\d\d/\d\d\d\d"
-matches = re.finditer(DATE_PATTERN, RM_SPACES)
-for match in matches:
-    print(match)
-
 EMAIL_PATTERN = [{"LIKE_EMAIL": True}]
 matcher.add("EMAIL_ADDRESS", [EMAIL_PATTERN])
 Emailmatches = matcher(doc)
 for match in Emailmatches[:10]:
     print(match, doc[match[1]])
-
-#           --- SELLER INFO ---
-
-SELLER_ID_PATTERN = r"\d+ Seller ID"
-IDMatches = re.finditer(SELLER_ID_PATTERN, RM_SPACES)
-for match in IDMatches:
-    print(match)
-
-SELLER_CONTACT_PERSON_PATTERN = r"[A-Z]+ [A-Z]+ [A-Z]+ Seller Contact Person"
-sellerContactPersonMatches = re.finditer(SELLER_CONTACT_PERSON_PATTERN, RM_SPACES)
-for match in sellerContactPersonMatches:
-    print(match)
-
-SELLER_PHONE_NO_PATTERN = r"Seller Phone No \d+-\d+-\d+"
-sellerPhoneNumberMatches = re.finditer(SELLER_PHONE_NO_PATTERN, RM_SPACES)
-for match in sellerPhoneNumberMatches:
-    print(match)
-
-#           --- BUYER INFO ---
-
-#DIDN'T WORK
-BUYER_CONTACT_PATTERN = r"Purchaser Contact [A-Z, a-z]+(?= Payment)"
-purchaserContactPersonMatches = re.finditer(BUYER_CONTACT_PATTERN, RM_SPACES)
-for match in purchaserContactPersonMatches:
-    print(match)
-
-BUYER_PHONE_NO_PATTERN = r"Purchaser Phone No \d+-\d+-\d+"
-purchaserPhoneNumberMatches = re.finditer(BUYER_PHONE_NO_PATTERN, RM_SPACES)
-for match in purchaserPhoneNumberMatches:
-    print(match)
-
-# DIDN"T WORK
-BUYER_ADDRESS_PATTERN = r"Purchaser Address \d+ [A-Z, a-z]+"
-purchaserAddressMatches = re.finditer(BUYER_ADDRESS_PATTERN, RM_SPACES)
-for match in purchaserAddressMatches:
-    print(match)
-
-BUYER_GROUP_PATTERN = r"[A-Z, a-z]+\d+ Purchaser Group"
-purchaserGroupMatches = re.finditer(BUYER_GROUP_PATTERN, RM_SPACES)
-for match in purchaserGroupMatches:
-    print(match)
-
-BUYER_TITLE_PATTERN = r"[A-Z]+ [A-Z]+ [A-Z]+ \d+ Buyer Title"
-buyerTitleMatches = re.finditer(BUYER_TITLE_PATTERN, RM_SPACES)
-for match in buyerTitleMatches:
-    print(match)
