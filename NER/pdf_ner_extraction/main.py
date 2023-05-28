@@ -67,7 +67,6 @@ def reduce_multiple_spaces(text):
     return reduced_text
 
 
-# Example usage
 INPUT = RM_SPECIAL
 RM_SPACES = reduce_multiple_spaces(INPUT)
 
