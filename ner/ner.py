@@ -1,6 +1,7 @@
 """
 NER
 """
+import json
 import spacy
 from spacy.matcher import Matcher
 
@@ -22,19 +23,25 @@ base_large_doc = base_nlp_large(open_file())
 
 # --- Define entities to extract --- #
 class Emails:
-    "Extract email addresses from a corpus of text"
-
+    "Extract emails from text"
     def __init__(self):
         self.email_pattern = [{"LIKE_EMAIL": True}]
         self.matcher = Matcher(base_nlp_large.vocab)
         self.matcher.add("EMAIL_ADDRESS", [self.email_pattern])
         self.email_matches = None
 
-    def extract_emails(self, doc_object):
-        "Extract email addresses from a corpus of text"
+    def extract_emails(self, doc_object, output_file):
+        "Extract emails then dump to json"
         self.email_matches = self.matcher(doc_object)
+        results = []
         for match in self.email_matches[:10]:
-            print(match, doc_object[match[1]])
+            email_address = str(doc_object[match[1]])
+            results.append({"email": email_address})
+            print(match, email_address)
+
+        with open(output_file, "w", encoding="utf-8") as file:
+            json.dump(results, file)
+
 
 # --- Extract entities --- #
-Emails().extract_emails(base_large_doc)
+Emails().extract_emails(base_large_doc, "../data/emails.json")
