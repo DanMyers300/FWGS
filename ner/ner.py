@@ -46,7 +46,7 @@ class Emails:
 class Addresses:
     "Extract addresses from text"
     def extract_addresses(self):
-        "Extract addresses from text"
+        "Extract addresses"
         nlp=spacy.load("../data/models/address_model")
         doc=nlp(corpus)
         ent_list=[(ent.text, ent.label_) for ent in doc.ents]
