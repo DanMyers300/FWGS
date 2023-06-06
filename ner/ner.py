@@ -1,8 +1,6 @@
 """
 NER
 """
-# import json
-# import random
 import spacy
 from spacy.matcher import Matcher
 
@@ -12,8 +10,9 @@ def open_file():
         contents = file.read()
         return contents
 
-nlp = spacy.load("en_core_web_lg")
-doc = nlp(open_file())
+# --- Load the base SpaCy large model --- #
+base_nlp_large = spacy.load("en_core_web_lg")
+base_large_doc = base_nlp_large(open_file())
 
 
 # --- Print out the named entities --- #
@@ -27,7 +26,7 @@ class Emails:
 
     def __init__(self):
         self.email_pattern = [{"LIKE_EMAIL": True}]
-        self.matcher = Matcher(nlp.vocab)
+        self.matcher = Matcher(base_nlp_large.vocab)
         self.matcher.add("EMAIL_ADDRESS", [self.email_pattern])
         self.email_matches = None
 
@@ -38,4 +37,4 @@ class Emails:
             print(match, doc_object[match[1]])
 
 # --- Extract entities --- #
-Emails().extract_emails(doc)
+Emails().extract_emails(base_large_doc)
