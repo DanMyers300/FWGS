@@ -20,8 +20,8 @@ def open_file():
 corpus = open_file()
 
 # --- Load the base SpaCy large model --- #
-base_nlp_large = spacy.load("en_core_web_lg")
-base_large_doc = base_nlp_large(corpus)
+nlp = spacy.load("en_core_web_lg")
+doc = nlp(corpus)
 
 
 # --- Print out the named entities --- #
@@ -35,7 +35,7 @@ class Emails:
 
     def __init__(self):
         self.email_pattern = [{"LIKE_EMAIL": True}]
-        self.matcher = Matcher(base_nlp_large.vocab)
+        self.matcher = Matcher(nlp.vocab)
         self.matcher.add("EMAIL_ADDRESS", [self.email_pattern])
         self.email_matches = None
 
@@ -57,11 +57,11 @@ class Addresses:
 
     def extract_addresses(self):
         "Extract addresses"
-        nlp = spacy.load(
+        address_nlp = spacy.load(
             "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/models/address_model"
         )
-        doc = nlp(corpus)
-        ent_list = [(ent.text, ent.label_) for ent in doc.ents]
+        address_doc = address_nlp(corpus)
+        ent_list = [(ent.text, ent.label_) for ent in address_doc.ents]
         print("Parsed address -> " + str(ent_list))
 
 
@@ -71,7 +71,7 @@ class URLs:
     def parse_urls(self):
         "Parse URLs from text"
         urls = []
-        for token in base_large_doc:
+        for token in doc:
             if token.like_url:
                 urls.append({"label": "URL", "text": token.text})
                 print(token.text)
@@ -93,14 +93,14 @@ class Dates:
 
     def parse_dates(self):
         "Parse dates from text"
-        matcher = Matcher(base_nlp_large.vocab)
+        matcher = Matcher(nlp.vocab)
         pattern_list = [[{"TEXT": {"REGEX": self.pattern}}]]
         matcher.add("DATE", pattern_list)
-        matches = matcher(base_large_doc)
+        matches = matcher(doc)
 
         for match in matches:
             _, start, end = match
-            span = base_large_doc[start:end]
+            span = doc[start:end]
             self.dates.append({"label": "DATE", "text": span.text})
 
         with open(
@@ -115,7 +115,7 @@ class Dates:
 
 # --- Extract entities --- #
 # Emails().extract_emails(
-#     base_large_doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
+#     doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
 # )
 # Addresses().extract_addresses()
 # URLs().parse_urls()
