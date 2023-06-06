@@ -42,11 +42,17 @@ class PDFProcessor:
             lines = [line.strip() for line in file]
             self.non_empty_lines = [line for line in lines if line != ""]
         return "\n".join(self.non_empty_lines)
+  
+    def write_text_file(self):
+        "Write the non empty lines to a file"
+        with open("data/output.txt", "w", encoding="utf-8") as file:
+            file.writelines("\n".join(self.non_empty_lines))
+        return None
 
 
 # Run the pdf Processor
 processor = PDFProcessor()
 processor.get_pdf_file_name()
 processor.extract_text_from_pdf()
-OUTPUT_STRING = processor.read_text_file()
-print(OUTPUT_STRING)
+processor.read_text_file()
+processor.write_text_file()
