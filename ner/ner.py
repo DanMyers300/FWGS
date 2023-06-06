@@ -83,8 +83,10 @@ class URLs:
             json.dump(urls, file)
         return urls
 
+
 class Dates:
     "Extract dates"
+
     def __init__(self):
         self.dates = []
         self.pattern = r"\b(0[1-9]|1[0-2])/(0[1-9]|1[0-9]|2[0-9]|3[01])/(\d{4})\b"
@@ -101,7 +103,11 @@ class Dates:
             span = base_large_doc[start:end]
             self.dates.append({"label": "DATE", "text": span.text})
 
-        with open('/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/outputs_json/dates.json', 'w', encoding="utf-8") as file:
+        with open(
+            "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/outputs_json/dates.json",
+            "w",
+            encoding="utf-8",
+        ) as file:
             json.dump(self.dates, file)
 
         return self.dates
