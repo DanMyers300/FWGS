@@ -3,6 +3,9 @@
 
 ### PDF extraction using NLP library SpaCy
 
+## TO-DO:
+1. 
+
 ## Usage
 -----
 1. Put the PDF file into the /data/ directory.
@@ -26,5 +29,5 @@ Requirements:
 To use the PDF Processor, you need to have the following dependencies installed:
 - `pypdf` library
 
-2. ## NER
+2. ## Named Entity Recognition (NER)
 ---
