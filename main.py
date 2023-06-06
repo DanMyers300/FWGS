@@ -41,7 +41,7 @@ class PDFProcessor:
             self.non_empty_lines = [line for line in lines if line != ""]
         return "\n".join(self.non_empty_lines)
 
-# Usage example:
+# Run the pdf Processor
 processor = PDFProcessor()
 processor.get_pdf_file_name()
 processor.extract_text_from_pdf()
