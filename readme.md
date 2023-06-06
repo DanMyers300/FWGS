@@ -1,6 +1,10 @@
 # Intelligent PDF Extraction
 ### PDF extraction using NLP library SpaCy
 
+## Usage:
+### Put pdf into /data/
+### Run main.py
+
 ## --- Components:
 ### PDF Processor
 
