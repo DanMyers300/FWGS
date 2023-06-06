@@ -19,7 +19,8 @@ class PDFProcessor:
     def get_pdf_file_name(self):
         "Get the name of the file from the user"
         self.pdf_file_name = input("Enter the name of the PDF file: ")
-        self.pdf_file_name = "Fort_Worth_Gasket_And_Supply_Project/" + self.pdf_file_name
+        # pylint: disable=C0301
+        self.pdf_file_name = "/workspaces/Fort_Worth_Gasket_And_Supply_Project/" + self.pdf_file_name
         if not self.pdf_file_name.endswith(".pdf"):
             self.pdf_file_name += ".pdf"
 
