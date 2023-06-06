@@ -2,8 +2,7 @@
 A pdf processor
 
 
-Currently it doesn't save the /n cleaned text to output.txt and instead just saves it as a string. 
-May want to change that later.
+-- Need to make sure it only opens the file once. Right now it's fairly inefficient
 """
 from pypdf import PdfReader
 
