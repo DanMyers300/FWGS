@@ -18,6 +18,8 @@ doc = nlp(open_file())
 # for ent in doc.ents:
 #     print(ent.text, ent.label_)
 
+matcher = Matcher(nlp.vocab)
+
 EMAIL_PATTERN = [{"LIKE_EMAIL": True}]
 matcher.add("EMAIL_ADDRESS", [EMAIL_PATTERN])
 Emailmatches = matcher(doc)
