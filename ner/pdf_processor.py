@@ -31,16 +31,15 @@ class PDFProcessor:
 
         output_file = open("../data/output.txt", "w", encoding="utf-8")
 
-        for page in reader.pages:
-            text = page.extract_text()
-            text = re.sub(r"\n+", " ", text)  # Replace multiple newline characters with spaces
-            text = re.sub(r"^\s*\n", "", text, flags=re.MULTILINE)  # Remove blank lines
+        for i, page in enumerate(reader.pages):
+            if i + 1 not in [2, 3, 4]:  # Skip pages 2, 3, and 4
+                text = page.extract_text()
+                text = re.sub(r"\n+", " ", text)  # Replace multiple newline characters with spaces
+                text = re.sub(r"^\s*\n", "", text, flags=re.MULTILINE)  # Remove blank lines
 
-            output_file.write(text)
+                output_file.write(text)
 
         output_file.close()
-
-
 
 # Run the pdf Processor
 processor = PDFProcessor()
