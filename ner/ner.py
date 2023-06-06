@@ -5,11 +5,18 @@ import json
 import spacy
 from spacy.matcher import Matcher
 
+
 def open_file():
     "Open corpus of text"
-    with open("../data/corpus.txt", "r", encoding="utf-8") as file:
+    with open(
+        "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/corpus.txt",
+        "r",
+        encoding="utf-8",
+    ) as file:
         contents = file.read()
     return contents
+
+
 corpus = open_file()
 
 # --- Load the base SpaCy large model --- #
@@ -25,6 +32,7 @@ base_large_doc = base_nlp_large(corpus)
 # --- Define entities to extract --- #
 class Emails:
     "Extract emails from text"
+
     def __init__(self):
         self.email_pattern = [{"LIKE_EMAIL": True}]
         self.matcher = Matcher(base_nlp_large.vocab)
@@ -43,15 +51,36 @@ class Emails:
         with open(output_file, "w", encoding="utf-8") as file:
             json.dump(results, file)
 
+
 class Addresses:
     "Extract addresses from text"
+
     def extract_addresses(self):
         "Extract addresses"
-        nlp=spacy.load("../data/models/address_model")
-        doc=nlp(corpus)
-        ent_list=[(ent.text, ent.label_) for ent in doc.ents]
-        print("Parsed address -> "+str(ent_list))
+        nlp = spacy.load(
+            "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/models/address_model"
+        )
+        doc = nlp(corpus)
+        ent_list = [(ent.text, ent.label_) for ent in doc.ents]
+        print("Parsed address -> " + str(ent_list))
+
+
+class URLs:
+    "extract URLs from text"
+
+    def parse_urls(self):
+        "Parse URLs from text"
+        urls = []
+        for token in base_large_doc:
+            if token.like_url:
+                urls.append(token.text)
+                print(token.text)
+        return urls
+
 
 # --- Extract entities --- #
-Emails().extract_emails(base_large_doc, "../data/emails.json")
-Addresses().extract_addresses()
+# Emails().extract_emails(
+#     base_large_doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
+# )
+# Addresses().extract_addresses()
+URLs().parse_urls()
