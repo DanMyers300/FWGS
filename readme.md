@@ -21,3 +21,5 @@ The PDF Processor is a Python program that allows you to extract text from PDF f
 To use the PDF Processor, you need to have the following dependencies installed:
 
 - `pypdf` library
+
+### NER
