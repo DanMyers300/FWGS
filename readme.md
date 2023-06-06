@@ -4,7 +4,8 @@
 ### PDF extraction using NLP library SpaCy
 
 ## TO-DO:
-1. 
+1. Create models to search for specific RFQ items
+2. Create entity ruler
 
 ## Usage
 -----
