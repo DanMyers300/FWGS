@@ -4,6 +4,7 @@ NER
 # import json
 # import random
 import spacy
+from spacy.matcher import Matcher
 
 def open_file():
     "Open corpus of text"
