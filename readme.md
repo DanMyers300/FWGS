@@ -8,7 +8,7 @@
 1. Put the PDF file into the /data/ directory.
 2. Run the main.py script.
 
-## Components
+## Components {/ner/}
 ----------
 1. ## PDF Processor:
 
