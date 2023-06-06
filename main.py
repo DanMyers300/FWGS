@@ -20,7 +20,7 @@ class PDFProcessor:
         "Get the name of the file from the user"
         self.pdf_file_name = input("Enter the name of the PDF file: ")
         # pylint: disable=C0301
-        self.pdf_file_name = "/workspaces/Fort_Worth_Gasket_And_Supply_Project/" + self.pdf_file_name
+        self.pdf_file_name = "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/" + self.pdf_file_name
         if not self.pdf_file_name.endswith(".pdf"):
             self.pdf_file_name += ".pdf"
 
@@ -28,7 +28,7 @@ class PDFProcessor:
         "Extract the text"
         reader = PdfReader(self.pdf_file_name)
 
-        output_file = open("output.txt", "w", encoding="utf-8")
+        output_file = open("data/output.txt", "w", encoding="utf-8")
 
         for page in reader.pages:
             output_file.write(page.extract_text())
@@ -36,7 +36,7 @@ class PDFProcessor:
 
     def read_text_file(self):
         "Add the non empty lines to a file and a string"
-        with open("output.txt", encoding="utf-8") as file:
+        with open("data/output.txt", encoding="utf-8") as file:
             lines = [line.strip() for line in file]
             self.non_empty_lines = [line for line in lines if line != ""]
         return "\n".join(self.non_empty_lines)
