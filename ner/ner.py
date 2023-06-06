@@ -10,10 +10,11 @@ def open_file():
     with open("../data/corpus.txt", "r", encoding="utf-8") as file:
         contents = file.read()
     return contents
+corpus = open_file()
 
 # --- Load the base SpaCy large model --- #
 base_nlp_large = spacy.load("en_core_web_lg")
-base_large_doc = base_nlp_large(open_file())
+base_large_doc = base_nlp_large(corpus)
 
 
 # --- Print out the named entities --- #
@@ -42,6 +43,15 @@ class Emails:
         with open(output_file, "w", encoding="utf-8") as file:
             json.dump(results, file)
 
+class Addresses:
+    "Extract addresses from text"
+    def extract_addresses(self):
+        "Extract addresses from text"
+        nlp=spacy.load("../data/models/address_model")
+        doc=nlp(corpus)
+        ent_list=[(ent.text, ent.label_) for ent in doc.ents]
+        print("Parsed address -> "+str(ent_list))
 
 # --- Extract entities --- #
 Emails().extract_emails(base_large_doc, "../data/emails.json")
+Addresses().extract_addresses()
