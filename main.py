@@ -2,7 +2,7 @@
 NER
 """
 
-from pypdf import PdfReader
+# from pypdf import PdfReader
 
 # PDFFileName = input("Enter the name of the PDF file: ")
 # PDFFileName = "/workspaces/Fort_Worth_Gasket_And_Supply_Project/" + PDFFileName
