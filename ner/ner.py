@@ -15,13 +15,27 @@ def open_file():
 nlp = spacy.load("en_core_web_lg")
 doc = nlp(open_file())
 
+
+# --- Print out the named entities --- #
 # for ent in doc.ents:
 #     print(ent.text, ent.label_)
 
-matcher = Matcher(nlp.vocab)
 
-EMAIL_PATTERN = [{"LIKE_EMAIL": True}]
-matcher.add("EMAIL_ADDRESS", [EMAIL_PATTERN])
-Emailmatches = matcher(doc)
-for match in Emailmatches[:10]:
-    print(match, doc[match[1]])
+# --- Define entities to extract --- #
+class Emails:
+    "Extract email addresses from a corpus of text"
+
+    def __init__(self):
+        self.email_pattern = [{"LIKE_EMAIL": True}]
+        self.matcher = Matcher(nlp.vocab)
+        self.matcher.add("EMAIL_ADDRESS", [self.email_pattern])
+        self.email_matches = None
+
+    def extract_emails(self, doc_object):
+        "Extract email addresses from a corpus of text"
+        self.email_matches = self.matcher(doc_object)
+        for match in self.email_matches[:10]:
+            print(match, doc_object[match[1]])
+
+# --- Extract entities --- #
+Emails().extract_emails(doc)
