@@ -101,7 +101,9 @@ class Dates:
         for match in matches:
             _, start, end = match
             span = doc[start:end]
-            self.dates.append({"label": "DATE", "text": span.text})
+            date = {"label": "DATE", "text": span.text}
+            self.dates.append(date)
+            print(date["text"])
 
         with open(
             "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/outputs_json/dates.json",
@@ -114,9 +116,9 @@ class Dates:
 
 
 # --- Extract entities --- #
-# Emails().extract_emails(
-#     doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
-# )
-# Addresses().extract_addresses()
-# URLs().parse_urls()
+Emails().extract_emails(
+    doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
+)
+Addresses().extract_addresses()
+URLs().parse_urls()
 Dates().parse_dates()
