@@ -93,14 +93,6 @@ class Dates:
         return self.dates
 
 
-# --- Basic extraction modules --- #
-# Emails().extract_emails(
-#     "data/outputs/emails.json"
-# )
-# URLs().parse_urls()
-# Dates().parse_dates()
-
-# --- Doesn't work --- #
 class Addresses:
     "Extract addresses from text"
 
@@ -119,5 +111,10 @@ class Addresses:
         with open('data/outputs/addresses.json', 'w', encoding="utf-8") as f:
             json.dump(results, f, indent=4)
 
-
-Addresses().extract_addresses()
+# --- Basic extraction modules --- #
+# Emails().extract_emails(
+#     "data/outputs/emails.json"
+# )
+# URLs().parse_urls()
+# Dates().parse_dates()
+# Addresses().extract_addresses()
