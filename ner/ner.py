@@ -9,7 +9,7 @@ from spacy.matcher import Matcher
 def open_file():
     "Open corpus of text"
     with open(
-        "data/corpus.txt",
+        "data/base_files/corpus.txt",
         "r",
         encoding="utf-8",
     ) as file:
@@ -76,7 +76,7 @@ class URLs:
                 urls.append({"label": "URL", "text": token.text})
                 print(token.text)
         with open(
-            "data/urls.json",
+            "data/outputs/urls.json",
             "w",
             encoding="utf-8",
         ) as file:
@@ -106,7 +106,7 @@ class Dates:
             print(date["text"])
 
         with open(
-            "data/outputs_json/dates.json",
+            "data/outputs/dates.json",
             "w",
             encoding="utf-8",
         ) as file:
@@ -117,7 +117,7 @@ class Dates:
 
 # --- Extract entities --- #
 Emails().extract_emails(
-    doc, "data/emails.json"
+    doc, "data/outputs/emails.json"
 )
 Addresses().extract_addresses()
 URLs().parse_urls()
