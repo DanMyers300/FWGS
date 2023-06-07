@@ -22,13 +22,13 @@ Features:
 - Saves extracted text to an output file
 - Removes empty lines from the extracted text
 
-Requirements:
-To use the PDF Processor, you need to have the following dependencies installed:
-- `pypdf` library
-
 2. ## Named Entity Recognition (NER)
 ---
 ### The NER (Named Entity Recognition) component is responsible for extracting specific entities from the text using the SpaCy library.
+
+Description:
+
+Features:
 
 #### Working
 1. Emails
@@ -47,3 +47,6 @@ To use the PDF Processor, you need to have the following dependencies installed:
 8. Summary of hardware section
 9. APPENDICES TO HARDWARE
 10. CODED NOTES
+
+3. ## Import to database
+### To-Do
