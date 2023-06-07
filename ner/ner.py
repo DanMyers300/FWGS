@@ -3,6 +3,7 @@ NER
 """
 import json
 import spacy
+import pyap
 from spacy.matcher import Matcher
 
 
@@ -93,11 +94,11 @@ class Dates:
 
 
 # --- Basic extraction modules --- #
-Emails().extract_emails(
-    "data/outputs/emails.json"
-)
-URLs().parse_urls()
-Dates().parse_dates()
+# Emails().extract_emails(
+#     "data/outputs/emails.json"
+# )
+# URLs().parse_urls()
+# Dates().parse_dates()
 
 # --- Doesn't work --- #
 class Addresses:
@@ -105,14 +106,18 @@ class Addresses:
 
     def extract_addresses(self):
         "Extract addresses"
-        address_nlp = spacy.load("data/models/address_model")
-        address_doc = address_nlp(corpus)
-        ent_list = [(ent.text, ent.label_) for ent in address_doc.ents]
-        output_data = {
-            "parsed_address": ent_list
-        }
-        with open("data/outputs/addresses.json", "w", encoding="utf-8") as json_file:
-            json.dump(output_data, json_file)
-        print("Parsed address -> " + str(ent_list))
+        addresses = pyap.parse(corpus, country='US')
+        results = []
+        for address in addresses:
+            result = {
+                'address': str(address),
+                'address_parts': address.as_dict()
+            }
+            results.append(result)
+
+        # Save results to a JSON file
+        with open('data/outputs/addresses.json', 'w', encoding="utf-8") as f:
+            json.dump(results, f, indent=4)
+
 
 Addresses().extract_addresses()
