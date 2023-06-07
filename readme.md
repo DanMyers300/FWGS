@@ -1,7 +1,7 @@
 # Intelligent PDF Extraction
 ============================
 
-### PDF extraction using NLP library SpaCy
+### PDF extraction using NLP library `SpaCy`
 
 ## Usage
 -----
