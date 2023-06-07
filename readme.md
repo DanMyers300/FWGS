@@ -32,6 +32,8 @@ To use the PDF Processor, you need to have the following dependencies installed:
 
 2. ## Named Entity Recognition (NER)
 ---
+### The NER (Named Entity Recognition) component is responsible for extracting specific entities from the text using the SpaCy library. The current implementation focuses on extracting emails, URLs, dates, and addresses.
+
 Items that work so far:
 1. Emails
 2. URLS
