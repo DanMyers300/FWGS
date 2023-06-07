@@ -6,6 +6,9 @@ import spacy
 import pyap
 from spacy.matcher import Matcher
 
+#
+# --- Open file and load spaCy --- #
+#
 
 def open_file():
     "Open corpus of text"
@@ -20,7 +23,10 @@ corpus = open_file()
 nlp = spacy.load("en_core_web_lg")
 doc = nlp(corpus)
 
+#
 # --- Define entities to extract --- #
+#
+
 class Emails:
     "Extract emails from text"
 
@@ -112,10 +118,13 @@ class Addresses:
         with open('data/outputs/addresses.json', 'w', encoding="utf-8") as file:
             json.dump(results, file, indent=4)
 
-# --- Basic extraction modules --- #
-# Emails().extract_emails(
-#     "data/outputs/emails.json"
-# )
-# URLs().parse_urls()
-# Dates().parse_dates()
-# Addresses().extract_addresses()
+#
+# --- Run the extraction --- #
+#
+
+Emails().extract_emails(
+    "data/outputs/emails.json"
+)
+URLs().parse_urls()
+Dates().parse_dates()
+Addresses().extract_addresses()
