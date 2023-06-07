@@ -9,7 +9,7 @@ from spacy.matcher import Matcher
 def open_file():
     "Open corpus of text"
     with open(
-        "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/corpus.txt",
+        "data/corpus.txt",
         "r",
         encoding="utf-8",
     ) as file:
@@ -58,7 +58,7 @@ class Addresses:
     def extract_addresses(self):
         "Extract addresses"
         address_nlp = spacy.load(
-            "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/models/address_model"
+            "data/models/address_model"
         )
         address_doc = address_nlp(corpus)
         ent_list = [(ent.text, ent.label_) for ent in address_doc.ents]
@@ -76,7 +76,7 @@ class URLs:
                 urls.append({"label": "URL", "text": token.text})
                 print(token.text)
         with open(
-            "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/urls.json",
+            "data/urls.json",
             "w",
             encoding="utf-8",
         ) as file:
@@ -106,7 +106,7 @@ class Dates:
             print(date["text"])
 
         with open(
-            "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/outputs_json/dates.json",
+            "data/outputs_json/dates.json",
             "w",
             encoding="utf-8",
         ) as file:
@@ -117,7 +117,7 @@ class Dates:
 
 # --- Extract entities --- #
 Emails().extract_emails(
-    doc, "/workspaces/Fort_Worth_Gasket_And_Supply_Project/data/emails.json"
+    doc, "data/emails.json"
 )
 Addresses().extract_addresses()
 URLs().parse_urls()
