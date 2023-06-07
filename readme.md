@@ -5,9 +5,8 @@
 
 ## Usage
 -----
-1. Run "python -m spacy download en_core_web_lg"
-2. Put the PDF file into the /data/ directory.
-3. Run the main.py script.
+1. Put the PDF file into the /data/ directory.
+2. Run the main.py script.
 
 ## Components /ner/
 ----------
@@ -31,13 +30,13 @@ To use the PDF Processor, you need to have the following dependencies installed:
 ---
 ### The NER (Named Entity Recognition) component is responsible for extracting specific entities from the text using the SpaCy library.
 
-Items that work so far:
+#### Working
 1. Emails
 2. URLS
 3. Dates
 4. Addresses
-
-Items that don't work so far:
+---
+#### Not working
 1. RFQ
 2. Version Number
 3. Distribution Method
