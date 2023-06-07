@@ -42,19 +42,6 @@ class Emails:
             json.dump(results, file)
 
 
-class Addresses:
-    "Extract addresses from text"
-
-    def extract_addresses(self):
-        "Extract addresses"
-        address_nlp = spacy.load(
-            "data/models/address_model"
-        )
-        address_doc = address_nlp(corpus)
-        ent_list = [(ent.text, ent.label_) for ent in address_doc.ents]
-        print("Parsed address -> " + str(ent_list))
-
-
 class URLs:
     "extract URLs from text"
 
@@ -104,10 +91,28 @@ class Dates:
 
         return self.dates
 
+
 # --- Basic extraction modules --- #
 Emails().extract_emails(
     "data/outputs/emails.json"
 )
-Addresses().extract_addresses()
 URLs().parse_urls()
 Dates().parse_dates()
+
+# --- Doesn't work --- #
+class Addresses:
+    "Extract addresses from text"
+
+    def extract_addresses(self):
+        "Extract addresses"
+        address_nlp = spacy.load("data/models/address_model")
+        address_doc = address_nlp(corpus)
+        ent_list = [(ent.text, ent.label_) for ent in address_doc.ents]
+        output_data = {
+            "parsed_address": ent_list
+        }
+        with open("data/outputs/addresses.json", "w", encoding="utf-8") as json_file:
+            json.dump(output_data, json_file)
+        print("Parsed address -> " + str(ent_list))
+
+Addresses().extract_addresses()
