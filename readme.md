@@ -32,3 +32,20 @@ To use the PDF Processor, you need to have the following dependencies installed:
 
 2. ## Named Entity Recognition (NER)
 ---
+Items that work so far:
+1. Emails
+2. URLS
+3. Dates
+4. Addresses
+
+Items that don't work so far:
+1. RFQ
+2. Version Number
+3. Distribution Method
+4. NNS End Use
+5. Purchaser Group
+6. Buyer Title
+7. DPAS Rating section
+8. Summary of hardware section
+9. APPENDICES TO HARDWARE
+10. CODED NOTES
