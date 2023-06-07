@@ -1,26 +1,5 @@
 [
     {
-        "address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-        "address_parts": {
-            "full_address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-            "full_street": "ONE INTERNATIONAL INC FORT",
-            "street_number": "ONE",
-            "street_name": "INTERNATIONAL INC",
-            "street_type": "FORT",
-            "route_id": null,
-            "post_direction": null,
-            "floor": null,
-            "building_id": null,
-            "occupancy": null,
-            "city": "WORTH G",
-            "region1": "AS",
-            "postal_code": null,
-            "country_id": "US",
-            "match_start": 68,
-            "match_end": 104
-        }
-    },
-    {
         "address": "2200 GRAVEL DRIVE FORT WORTH TX 76118-7123",
         "address_parts": {
             "full_address": "2200 GRAVEL DRIVE FORT WORTH TX 76118-7123",
@@ -147,27 +126,6 @@
         }
     },
     {
-        "address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-        "address_parts": {
-            "full_address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-            "full_street": "ONE INTERNATIONAL INC FORT",
-            "street_number": "ONE",
-            "street_name": "INTERNATIONAL INC",
-            "street_type": "FORT",
-            "route_id": null,
-            "post_direction": null,
-            "floor": null,
-            "building_id": null,
-            "occupancy": null,
-            "city": "WORTH G",
-            "region1": "AS",
-            "postal_code": null,
-            "country_id": "US",
-            "match_start": 8263,
-            "match_end": 8299
-        }
-    },
-    {
         "address": "2200 GRAVEL DRIVE FORT WORTH TX 76118-7123",
         "address_parts": {
             "full_address": "2200 GRAVEL DRIVE FORT WORTH TX 76118-7123",
@@ -249,27 +207,6 @@
             "country_id": "US",
             "match_start": 12189,
             "match_end": 12239
-        }
-    },
-    {
-        "address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-        "address_parts": {
-            "full_address": "ONE INTERNATIONAL INC FORT WORTH GAS",
-            "full_street": "ONE INTERNATIONAL INC FORT",
-            "street_number": "ONE",
-            "street_name": "INTERNATIONAL INC",
-            "street_type": "FORT",
-            "route_id": null,
-            "post_direction": null,
-            "floor": null,
-            "building_id": null,
-            "occupancy": null,
-            "city": "WORTH G",
-            "region1": "AS",
-            "postal_code": null,
-            "country_id": "US",
-            "match_start": 13857,
-            "match_end": 13893
         }
     },
     {

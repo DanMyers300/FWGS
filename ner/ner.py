@@ -101,15 +101,16 @@ class Addresses:
         addresses = pyap.parse(corpus, country='US')
         results = []
         for address in addresses:
-            result = {
-                'address': str(address),
-                'address_parts': address.as_dict()
-            }
-            results.append(result)
+            if "ONE INTERNATIONAL INC" not in str(address):
+                result = {
+                    'address': str(address),
+                    'address_parts': address.as_dict()
+                }
+                results.append(result)
 
         # Save results to a JSON file
-        with open('data/outputs/addresses.json', 'w', encoding="utf-8") as f:
-            json.dump(results, f, indent=4)
+        with open('data/outputs/addresses.json', 'w', encoding="utf-8") as file:
+            json.dump(results, file, indent=4)
 
 # --- Basic extraction modules --- #
 # Emails().extract_emails(
