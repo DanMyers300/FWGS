@@ -3,14 +3,11 @@
 
 ### PDF extraction using NLP library SpaCy
 
-## TO-DO:
-1. Create training set
-2. Train custom model
-
 ## Usage
 -----
-1. Put the PDF file into the /data/ directory.
-2. Run the main.py script.
+1. Run "python -m spacy download en_core_web_lg"
+2. Put the PDF file into the /data/ directory.
+3. Run the main.py script.
 
 ## Components /ner/
 ----------
