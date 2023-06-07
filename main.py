@@ -8,6 +8,8 @@ import subprocess
 install_requirements = input("Do you want to install the requirements? (y/n): ")
 
 if install_requirements.lower() == "y":
+    # Update Pip
+    subprocess.run(["python", "-m", "pip", "install", "--upgrade", "pip"], check=True)
     # Install requirements.txt
     subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
 
