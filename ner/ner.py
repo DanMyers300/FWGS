@@ -119,6 +119,8 @@ class Addresses:
         with open('data/outputs/addresses.json', 'w', encoding="utf-8") as file:
             json.dump(results, file, indent=4)
 
+
+## This isn't going to work all the time because the RFQ is not always 10 digits
 class RFQ:
     "Extract RFQs from text"
 
@@ -147,4 +149,6 @@ class RFQ:
 # URLs().parse_urls()
 # Dates().parse_dates()
 # Addresses().extract_addresses()
+
+## not working:
 # RFQ().extract_rfq()
