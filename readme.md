@@ -35,18 +35,18 @@ Features:
 2. URLS
 3. Dates
 4. Addresses
+5. RFQ
 ---
 #### Not working
-1. RFQ
-2. Version Number
-3. Distribution Method
-4. NNS End Use
-5. Purchaser Group
-6. Buyer Title
-7. DPAS Rating section
-8. Summary of hardware section
-9. APPENDICES TO HARDWARE
-10. CODED NOTES
+1. Version Number
+2. Distribution Method
+3. NNS End Use
+4. Purchaser Group
+5. Buyer Title
+6. DPAS Rating section
+7. Summary of hardware section
+8. APPENDICES TO HARDWARE
+9. CODED NOTES
 
 3. ## Import to database
 ---
