@@ -14,7 +14,7 @@ from spacy.matcher import Matcher
 def open_file():
     "Open corpus of text"
     with open(
-        "data/base_files/corpus.txt",
+        "data/outputs/rfq_dump.txt",
         "r",
         encoding="utf-8",
     ) as file:
