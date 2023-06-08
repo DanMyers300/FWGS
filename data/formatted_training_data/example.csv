@@ -1,0 +1,5 @@
+text,start,end,label
+"The quick brown fox",4,9,ANIMAL
+"Jumped over the lazy dog",18,21,ANIMAL
+"SpaCy is great for NLP",0,5,LIBRARY
+"Named Entity Recognition",0,5,TASK
