@@ -24,8 +24,8 @@ TEXT = open_file("data/outputs/rfq_dump.txt")
 
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
-pattern = [{"TEXT": "600114XXXX"}]
-matcher.add("RFQ", [pattern])
+# pattern = [{"TEXT": "600114XXXX"}]
+matcher.add("RFQ", patterns)
 
 doc = nlp(TEXT)
 matches = matcher(doc)
