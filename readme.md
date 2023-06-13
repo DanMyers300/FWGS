@@ -124,6 +124,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ### Imediate To-Do
 1. The reason that the RFQ pattern json file isn't working is because of the way that spacy handles multiple patterns. It's looking for an instance where all the patterns show up together.
   - What I need to do to solve this problem is to figure out how to enter multiple patterns into a spacy rule based model.
+  - I think this is going to require making each pattern its own dictionary
 
 2. Once the entities have been labeled in the RFQ dump then I need to train the model
 
