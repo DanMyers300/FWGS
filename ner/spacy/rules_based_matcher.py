@@ -18,8 +18,8 @@ def open_file(input_file):
 TEXT = open_file("data/outputs/rfq_dump.txt")
 PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
 
-TEXT_OUTPUT_FILE = "data/formatted_training_data/labeled_rfqs.txt"
-ENT_OUTPUT_FILE = "data/formatted_training_data/extracted_rfqs.txt"
+TEXT_OUTPUT_FILE = "data/formatted_training_data/RFQ/labeled_rfqs.txt"
+ENT_OUTPUT_FILE = "data/formatted_training_data/RFQ/extracted_rfqs.txt"
 
 with open(PATTERNS_FILE, "r", encoding="utf-8") as file:
     patterns_data = json.load(file)
@@ -42,7 +42,7 @@ with open(TEXT_OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(token.text_with_ws)
         for start, end, label in entities:
             if i == end:
-                f.write(f" (( {start}, {end}, {label} )) ")
+                f.write(f"[({start}, {end}, {label})] ")
     f.write("\n\nExtracted RFQs:\n")
     for rfq in rfqs:
         f.write(f"{rfq}\n")
