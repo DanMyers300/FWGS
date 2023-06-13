@@ -122,8 +122,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
-1. RFQ's can be extracted using the listed patterns in RFQ.json. The problem is that I need to run through the RFQ dump and list all the texts and patterns to train the model. I want it to look something like this: ("Tokyo Tower is 333m tall.", [(0, 11, "BUILDING")]).
-2. Once the RFQ's have been extracted from the rfq_dump then I want to use that corpus to train a custom NER model. I can probably follow the tutorial online for this part.
+1. Figure out how to have the rules-based matcher extract patterns from the json file.
+  - At the moment it only works if I outline the patterns inside the code itself.
+2. Utilize the extracted entities inside the text to train a custom model.
 3. 
 
 ---
