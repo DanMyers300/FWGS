@@ -19,7 +19,7 @@ nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 # Add match ID "HelloWorld" with no callback and one pattern
 pattern = patterns
-matcher.add(TEXT, [pattern])
+matcher.add("RFQ", [pattern])
 
 doc = nlp(TEXT)
 matches = matcher(doc)
