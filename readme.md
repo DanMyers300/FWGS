@@ -122,10 +122,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
-1. Figure out how to have the rules-based matcher extract patterns from the json file.
-  - At the moment it only works if I outline the patterns inside the code itself.
-2. Utilize the extracted entities inside the text to train a custom model.
-3. 
+1. The reason that the RFQ pattern json file isn't working is because of the way that spacy handles multiple patterns. It's looking for an instance where all the patterns show up together.
+  - What I need to do to solve this problem is to figure out how to enter multiple patterns into a spacy rule based model.
+
+2. Once the entities have been labeled in the RFQ dump then I need to train the model
 
 ---
 <!-- CONTACT -->
