@@ -3,7 +3,7 @@ This is for labling the entities in the corpus of text.
 This is important for training a custom model.
 """
 
-# import json
+import json
 import spacy
 from spacy.matcher import Matcher
 
@@ -13,18 +13,18 @@ def open_file(input_file):
         open_text = opened_file.read()
     return open_text
 
-# PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
-# with open(PATTERNS_FILE, "r", encoding="utf-8") as file:
-#     patterns_data = json.load(file)
-# patterns = patterns_data["patterns"]
+PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
+with open(PATTERNS_FILE, "r", encoding="utf-8") as file:
+    patterns_data = json.load(file)
+patterns = patterns_data["patterns"]
 
 TEXT = open_file("data/outputs/rfq_dump.txt")
 
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 # Add match ID "HelloWorld" with no callback and one pattern
-pattern = [{"TEXT": "600114XXXX"}]
-matcher.add("RFQ", [pattern])
+# pattern = [{"TEXT": "600114XXXX"}]
+matcher.add("RFQ", [patterns])
 
 doc = nlp(TEXT)
 matches = matcher(doc)
