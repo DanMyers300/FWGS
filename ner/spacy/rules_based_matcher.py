@@ -1,4 +1,9 @@
-import json
+"""
+This is for labling the entities in the corpus of text. 
+This is important for training a custom model.
+"""
+
+# import json
 import spacy
 from spacy.matcher import Matcher
 
