@@ -123,6 +123,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### Imediate To-Do
 1. Use training data of RFQs to train a custom RFQ model
+    - Vectors are a problem. I don't currently have them but the model is requesting them
+        - I'll need to figure out how to either train it without vectors
+        - or create vectors to train
 
 ---
 <!-- CONTACT -->
