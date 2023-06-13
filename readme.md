@@ -122,11 +122,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
-1. Change how the rules_based_matcher.py script exports the information:
-  - Output the full text with the entities listed after they appear in the text
-  - Export that to a text file
-
-2. Once the entities have been labeled in the RFQ dump then I need to train the model
+1. Use training data of RFQs to train a custom RFQ model
 
 ---
 <!-- CONTACT -->
