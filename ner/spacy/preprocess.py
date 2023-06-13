@@ -5,7 +5,7 @@ import spacy
 from spacy.tokens import DocBin
 
 nlp = spacy.blank("en")
-TRAINING_DATA = "data/formatted_training_data/data.json"
+TRAINING_DATA = "data/formatted_training_data/RFQ.json"
 # the DocBin will store the example documents
 db = DocBin()
 for text, annotations in TRAINING_DATA:
@@ -16,4 +16,4 @@ for text, annotations in TRAINING_DATA:
         ents.append(span)
     doc.ents = ents
     db.add(doc)
-db.to_disk("./train.spacy")
+db.to_disk("./ner/spacy/train.spacy")
