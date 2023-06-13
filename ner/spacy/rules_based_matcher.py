@@ -1,13 +1,27 @@
+import json
 import spacy
 from spacy.matcher import Matcher
+
+def open_file(input_file):
+    "Open a text file"
+    with open(input_file, "r", encoding="utf-8") as opened_file:
+        open_text = opened_file.read()
+    return open_text
+
+PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
+with open(PATTERNS_FILE, "r", encoding="utf-8") as file:
+    patterns_data = json.load(file)
+patterns = patterns_data["patterns"]
+
+TEXT = open_file("data/outputs/rfq_dump.txt")
 
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 # Add match ID "HelloWorld" with no callback and one pattern
-pattern = [{"LOWER": "hello"}, {"IS_PUNCT": True}, {"LOWER": "world"}]
-matcher.add("HelloWorld", [pattern])
+pattern = patterns
+matcher.add(TEXT, [pattern])
 
-doc = nlp("Hello, world! Hello world!")
+doc = nlp(TEXT)
 matches = matcher(doc)
 for match_id, start, end in matches:
     string_id = nlp.vocab.strings[match_id]  # Get string representation
