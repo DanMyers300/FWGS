@@ -48,4 +48,3 @@ with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
     for data in formatted_data:
         json.dump(data, f)
         f.write('\n')
-
