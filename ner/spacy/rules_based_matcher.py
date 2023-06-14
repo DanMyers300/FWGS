@@ -36,7 +36,8 @@ for sent in doc.sents:
             entities.append(
                 [start - sent.start, end - sent.start - 1, doc.vocab.strings[match_id]]
             )
-    TRAIN_DATA.append((sent.text, {"entities": entities}))
+    TRAIN_DATA.extend(entities)
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
     json.dump(TRAIN_DATA, f)
+
