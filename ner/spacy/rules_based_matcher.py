@@ -1,5 +1,5 @@
 """
-This file outputs the corpus of text with the entities labeled in the training format
+Create a rules-based matcher to extract RFQs from a text file.
 """
 import json
 import spacy
