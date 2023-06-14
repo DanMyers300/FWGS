@@ -14,11 +14,11 @@ with open(TRAIN_DATA_FILE, "r", encoding="utf-8") as file:
     TRAIN_DATA = json.load(file)
 
 
-def convert(lang: str, TRAIN_DATA, output_path: Path):
+def convert(lang: str, training_data, output_path: Path):
     "For converting to the training model"
     nlp = spacy.blank(lang)
-    db = DocBin()
-    for text, annot in TRAIN_DATA:
+    docbin = DocBin()
+    for text, annot in training_data:
         doc = nlp.make_doc(text)
         ents = []
         for start, end, label in annot["entities"]:
@@ -29,8 +29,8 @@ def convert(lang: str, TRAIN_DATA, output_path: Path):
             else:
                 ents.append(span)
         doc.ents = ents
-        db.add(doc)
-    db.to_disk(output_path)
+        docbin.add(doc)
+    docbin.to_disk(output_path)
 
 
 convert("en", TRAIN_DATA, "ner/spacy/train.spacy")
