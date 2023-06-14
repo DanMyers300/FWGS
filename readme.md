@@ -122,11 +122,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
-1. Fix the RFQ model that I have created.
-    - I was able to train the model successfully but it isn't working when I try to call it.
-    - The same code works when I try to run the large model so maybe it's a problem with how I trained the model
-        - This seems to be a problem with how I formatted my training data. It should follow a format outlined in this [article](https://www.machinelearningplus.com/nlp/training-custom-ner-model-in-spacy/)
-2. When creating the spacy file I'm getting a lot of errors. I think that's a large part of why it's failing
+ - There seems to be a tokenization issue with the RFQ model. I'm not sure why it's getting errors.
 
 ---
 <!-- CONTACT -->
