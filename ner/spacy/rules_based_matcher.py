@@ -34,10 +34,9 @@ for sent in doc.sents:
     for match_id, start, end in matches:
         if start >= sent.start and end <= sent.end:
             entities.append(
-                [start - sent.start, end - sent.start - 1, doc.vocab.strings[match_id]]
+                (sent.text, {"entities": [(start - sent.start, end - sent.start - 1, doc.vocab.strings[match_id])]})
             )
     TRAIN_DATA.extend(entities)
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
     json.dump(TRAIN_DATA, f)
-
