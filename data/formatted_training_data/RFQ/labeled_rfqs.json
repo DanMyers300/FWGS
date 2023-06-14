@@ -1,0 +1,15 @@
+{
+    "TRAIN_DATA": [
+        ["Seller Email:Ordering Information RFQ 6001149485 04/20/2023 Date: 00 Version Number: Electronic Distribution Method: 04/24/2023 Quotation Deadline: NNS End Use: D0687 D0700 Buyer (Purchaser)", {"entities": [[6, 7, "RFQ"]]}],
+        ["Delivery Terms Carrier: Incoterms: Freight Terms:Invoice Information invoices@hii-nns.com Attention Address: 600114948504/20/202308:02:48 PO BARCODERFQ : 6001149485 04/20/2023 Page 5/ 9 DEFENSE PRIORITIES AND ALLOCATIONS SYSTEM (DPAS)", {"entities": [[19, 20, "RFQ"]]}],
+        ["9 10.000 EA 17447341HOSE ASSY,VAR,02 SIZE X 60.000 L,AIR HOS09/13/2023Main Distribution Center (MDC)2175 Aluminum Avenue, Building BHampton, VA 23661 APPENDICES TO HARDWARE CROSS REFERENCE A-DOD CONTRACTS NNS SUPPAPPENDICES http://supplier.huntingtoningalls.com/sourcing/appendix/A_append/App_A-DoD_Contracts_NNS_Supplement-20221215.pdf Applicable Line Items: All Items A-DOD CONTRACTS/VCSAPPENDICES http://supplier.huntingtoningalls.com/sourcing/appendix/A_append/App_A-DoD_Contracts-20221215.pdf Applicable Line Items: All ItemsRFQ : 6001149485 04/20/2023 Page 6/ 9 ALL D0700 ITEMS, SC60-11E IS INVOKED ILO SC60-11DAPPENDICES http://supplier.huntingtoningalls.com/sourcing/po_appendices.html Applicable Line Items: 2, CODED NOTES TO HARDWARE CROSS REFERENCE NOTE:", {"entities": [[58, 59, "RFQ"]]}],
+        ["By: NOT APPLICABLEInspect At:RFQ : 6001149485 04/20/2023 Page 7/ 9 Applicable Line Items: All ItemsRFQ : 6001149485 04/20/2023 Page 8/ 9 Line Item Descriptions", {"entities": [[8, 9, "RFQ"], [20, 21, "RFQ"]]}],
+        ["INFORMATION REQUESTSRFQ : 6001149485 04/20/2023 Page 9/ 9 Line Item Descriptions", {"entities": [[3, 4, "RFQ"]]}],
+        ["Ordering Information RFQ 600114XXXX", {"entities": [[3, 4, "RFQ"]]}],
+        ["Delivery Terms Carrier: Incoterms: Freight Terms:Invoice Information invoices@hii-nns.com Attention Address: 600114808504/12/202309:25:18 PO BARCODERFQ : 600114XXXX", {"entities": [[19, 20, "RFQ"]]}],
+        ["All Items ALL D0701 ITEMS, SC60-11E IS INVOKED ILO SC60-11DAPPENDICES http://supplier.huntingtoningalls.com/sourcing/po_appendices.html Applicable Line Items: All Items EB2678APPENDICES http://supplier.huntingtoningalls.com/sourcing/po_appendices.html Applicable Line Items: All ItemsRFQ : 600114XXXX", {"entities": [[31, 32, "RFQ"]]}],
+        ["All ItemsRFQ : 600114XXXX", {"entities": [[3, 4, "RFQ"]]}],
+        ["At: Applicable Line Items: All ItemsRFQ : 600114XXXX", {"entities": [[9, 10, "RFQ"]]}],
+        ["http://supplier.huntingtoningalls.com/sourcing/po_appendices.htmlRFQ : 600114XXXX", {"entities": [[2, 3, "RFQ"]]}]
+    ]
+}
