@@ -5,11 +5,13 @@ import json
 import spacy
 from spacy.matcher import Matcher
 
+
 def open_file(input_file):
     "Open a text file"
     with open(input_file, "r", encoding="utf-8") as opened_file:
         open_text = opened_file.read()
     return open_text
+
 
 TEXT = open_file("data/outputs/rfq_dump.txt")
 PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
@@ -35,13 +37,15 @@ for sent in doc.sents:
     if entities:
         TRAIN_DATA.append((sent.text, {"entities": entities}))
 
-output_data = {
-    "TRAIN_DATA": [
-        [text, {"entities": [[start, end, label] for start, end, label in entities]}]
-        for text, entities in TRAIN_DATA
-    ]
-}
+formatted_data = []
+for text, annotations in TRAIN_DATA:
+    entities = []
+    for start, end, label in annotations["entities"]:
+        entities.append((start, end, label))
+    formatted_data.append((text, {"entities": entities}))
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
-    json.dump(output_data, f, indent=4)
+    for data in formatted_data:
+        json.dump(data, f)
+        f.write('\n')
 
