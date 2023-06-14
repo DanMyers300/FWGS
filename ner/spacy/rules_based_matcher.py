@@ -45,5 +45,7 @@ for text, annotations in TRAIN_DATA:
     formatted_data.append((text, {"entities": entities}))
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
-    json.dump(formatted_data, f)
+    for data in formatted_data:
+        json.dump(data, f)
+        f.write('\n')
 
