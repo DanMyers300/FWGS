@@ -35,16 +35,10 @@ for sent in doc.sents:
         if start >= sent.start and end <= sent.end:
             entities.append((start - sent.start, end - sent.start, doc.vocab.strings[match_id]))
     if entities:
-        TRAIN_DATA.append((sent.text, {"entities": entities}))
+        TRAIN_DATA.append([sent.text, {"entities": entities}])
 
-formatted_data = []
-for text, annotations in TRAIN_DATA:
-    entities = []
-    for start, end, label in annotations["entities"]:
-        entities.append((start, end, label))
-    formatted_data.append((text, {"entities": entities}))
+output_data = {"TRAIN_DATA": TRAIN_DATA}
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
-    for data in formatted_data:
-        json.dump(data, f)
-        f.write('\n')
+    json.dump(output_data, f, ensure_ascii=False, indent=4)
+
