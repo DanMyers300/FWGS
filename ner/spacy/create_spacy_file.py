@@ -29,6 +29,7 @@ def convert(lang: str, training_data, output_path: Path):
                 entities.append(span)
         doc.ents = entities
         docbin.add(doc)
+        print(nlp.tokenizer.explain(text))
     docbin.to_disk(output_path)
 
 
