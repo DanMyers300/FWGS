@@ -122,9 +122,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
- - There seems to be a tokenization issue with the RFQ model.
- - It seems to be a problem with different items being tokenized together
-    - Don't know why I'm getting this issue
+- Getting errors when trying to create the train.spacy model
+  - This seems to be a problem with the tokenization.
+  - I'm getting errors for each of the RFQs so I'm thinking that this isn't a data format problem.
 ---
 <!-- CONTACT -->
 ## Contact
