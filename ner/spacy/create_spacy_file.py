@@ -15,6 +15,7 @@ with open(TRAIN_DATA_FILE, "r", encoding="utf-8") as file:
 
 
 def convert(lang: str, training_data, output_path: Path):
+    "Convert the training data to spaCy's binary format"
     nlp = spacy.blank(lang)
     docbin = DocBin()
     for text, annot in training_data:
@@ -23,7 +24,16 @@ def convert(lang: str, training_data, output_path: Path):
         for start, end, label in annot["entities"]:
             span = doc.char_span(start, end, label=label)
             if span is None:
-                msg = f"Skipping entity [{start}, {end}, {label}] in the following text because the character span '{doc.text[start:end]}' does not align with token boundaries:\n\n{repr(text)}\n"
+                msg = f"""
+                ------------------------------------------------
+                Skipping entity 
+                [{start}, {end}, {label}] 
+                in the following text because the character span 
+                '{doc.text[start:end]}'
+                does not align with token boundaries:
+                \n\n{repr(text)}\n
+                ------------------------------------------------
+                """
                 warnings.warn(msg)
             else:
                 entities.append(span)
@@ -34,4 +44,3 @@ def convert(lang: str, training_data, output_path: Path):
 
 
 convert("en", TRAIN_DATA["TRAIN_DATA"], Path("ner/spacy/train.spacy"))
-
