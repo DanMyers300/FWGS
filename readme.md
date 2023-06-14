@@ -122,11 +122,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 9. CODED NOTES
 
 ### Imediate To-Do
-1. Change how the rules_based_matcher.py script and the create_spacy_file.py script work together
+1. Fix the RFQ model that I have created.
+    - I was able to train the model successfully but it isn't working when I try to call it.
+    - The same code works when I try to run the large model so maybe it's a problem with how I trained the model
+2. Change how the rules_based_matcher.py script and the create_spacy_file.py script work together
     - At the moment they don't work together and the create_spacy_file script needs to be copy pasted into the rules_based_matcher file.
     - This can be avoided by exporting the TRAIN_DATA list from rules_based_matcher into the create_spacy_file
     - or I can make these into one script
-2. 
 
 ---
 <!-- CONTACT -->
