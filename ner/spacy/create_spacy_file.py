@@ -1,11 +1,18 @@
 """
 Convert the basic text file to a .spacy training file
 """
+import json
 import warnings
 from pathlib import Path
 
 import spacy
 from spacy.tokens import DocBin
+
+TRAIN_DATA_FILE = "data/formatted_training_data/RFQ/labeled_rfqs.json"
+
+with open(TRAIN_DATA_FILE, "r", encoding="utf-8") as file:
+    TRAIN_DATA = json.load(file)
+
 
 def convert(lang: str, TRAIN_DATA, output_path: Path):
     "For converting to the training model"
@@ -24,5 +31,6 @@ def convert(lang: str, TRAIN_DATA, output_path: Path):
         doc.ents = ents
         db.add(doc)
     db.to_disk(output_path)
+
 
 convert("en", TRAIN_DATA, "ner/spacy/train.spacy")
