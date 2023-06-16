@@ -1,6 +1,3 @@
-"""
-Create a rules-based matcher to extract RFQs from a text file.
-"""
 import json
 import spacy
 from spacy.matcher import Matcher
@@ -33,12 +30,18 @@ for sent in doc.sents:
     entities = []
     for match_id, start, end in matches:
         if start >= sent.start and end <= sent.end:
-            entities.append((start - sent.start, end - sent.start, doc.vocab.strings[match_id]))
+            start_char = sum(len(token.text_with_ws) for token in sent[:start - sent.start])
+            end_char = start_char + sum(len(token.text_with_ws) for token in sent[start - sent.start:end - sent.start])
+            entities.append((start_char, end_char, doc.vocab.strings[match_id]))
     if entities:
         TRAIN_DATA.append([sent.text, {"entities": entities}])
 
-output_data = {"TRAIN_DATA": TRAIN_DATA}
+output_data = {"TRAIN_DATA": []}
+for data in TRAIN_DATA:
+    sentence_text = data[0]
+    sentence_entities = data[1]["entities"]
+    entities = [[match[0], match[1], match[2]] for match in sentence_entities]
+    output_data["TRAIN_DATA"].append([sentence_text, {"entities": entities}])
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
     json.dump(output_data, f, ensure_ascii=False, indent=4)
-
