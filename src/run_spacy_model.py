@@ -3,7 +3,7 @@ Use the model that was previously created
 """
 import spacy
 
-nlp = spacy.load("ner/spacy/outputs/model-best")
+nlp = spacy.load("src/spacy/outputs/model-best")
 
 def open_file(input_file):
     "Open a text file"
