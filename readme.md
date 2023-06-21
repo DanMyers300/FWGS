@@ -1,9 +1,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">FWGS Entity Extraction</h3>
 
@@ -33,8 +33,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <!-- <li><a href="#installation">Installation</a></li> -->
+        <li><a href="#prerequisites">Prerequisites</a></li> 
       </ul>
     </li>
     <li><a href="#components">Components</a></li>
