@@ -11,7 +11,7 @@ def open_file(input_file):
 
 
 TEXT = open_file("data/outputs/rfq_dump.txt")
-PATTERNS_FILE = "data/formatted_training_data/RFQ.json"
+PATTERNS_FILE = "data/formatted_training_data/RFQ/RFQ.json"
 JSON_OUTPUT_FILE = "data/formatted_training_data/RFQ/labeled_rfqs.json"
 
 nlp = spacy.load("en_core_web_sm")
