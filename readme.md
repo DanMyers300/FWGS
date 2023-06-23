@@ -109,7 +109,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 3. Dates
 4. Addresses
 5. RFQ
-
+ - Currently the RFQ model is broken because it isn't adding the label to the model correctly.
 #### Not working
 1. Version Number
 2. Distribution Method
@@ -124,26 +124,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ---
 <!-- Files -->
 ## Files
-### config.cfg
 
-### create_spacy_file.py
-
-- Problems
-    - The tokens seem to be selected properly
-    - Unsure if I'm actually even getting an error or if my error print statement just prints every time regardless
-    - This could be an issue of characters that aren't allowed.
-
-### create_word_vectors.py
-
-### rules_based_matcher.py
-
-- Problems
-    - The matcher is selecting the correct character span
-    - The token boundaries don't seem to be working correctly
-
-### train.spacy
-
-- A binary file made to train spacy models
+### 
 
 ---
 <!-- CONTACT -->
