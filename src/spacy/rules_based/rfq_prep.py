@@ -31,7 +31,7 @@ for sent in doc.sents:
     for match_id, start, end in matches:
         if start >= sent.start and end <= sent.end:
             start_char = sum(len(token.text_with_ws) for token in sent[:start - sent.start])
-            end_char = start_char + sum(len(token.text_with_ws) for token in sent[start - sent.start:end - sent.start])
+            end_char = start_char + sum(len(token.text_with_ws) for token in sent[start - sent.start:end - sent.start]) - 1
             entities.append((start_char, end_char, doc.vocab.strings[match_id]))
     if entities:
         TRAIN_DATA.append([sent.text, {"entities": entities}])
@@ -45,3 +45,4 @@ for data in TRAIN_DATA:
 
 with open(JSON_OUTPUT_FILE, "w", encoding="utf-8") as f:
     json.dump(output_data, f, ensure_ascii=False, indent=4)
+
