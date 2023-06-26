@@ -109,7 +109,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 3. Dates
 4. Addresses
 5. RFQ
- - Currently the RFQ model is broken because it isn't adding the label to the model correctly.
+
 #### Not working
 1. Version Number
 2. Distribution Method
@@ -125,7 +125,22 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- Files -->
 ## Files
 
-### 
+### main.py
+
+### src/pdf_processor.py
+
+### src/create_spacy_file.py
+
+- Converts a .json file containing training information into a binary format called .spacy
+
+### Spacy Files
+
+    - config.cfg
+        - A configuration file to train a custom spacy model
+    - train.spacy
+        - Converted training data .json to a binary format that spacy can understand
+
+### src/run_ner.py
 
 ---
 <!-- CONTACT -->
