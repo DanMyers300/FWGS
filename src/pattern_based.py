@@ -119,24 +119,8 @@ class Addresses:
         with open('data/outputs/addresses.json', 'w', encoding="utf-8") as file:
             json.dump(results, file, indent=4)
 
-
-## This isn't going to work all the time because the RFQ is not always 10 digits
-class RFQ:
-    "Extract RFQs from text"
-
-    def extract_rfq(self):
-        "Extract RFQs"
-        rfqs = []
-        for i, token in enumerate(doc):
-            if token.text == "RFQ":
-                if i + 1 < len(doc):
-                    next_token = doc[i + 1]
-                    if re.match("^[a-zA-Z0-9]{10}$", next_token.text):
-                        rfqs.append({"label": "RFQ", "text": next_token.text})
-                        print(next_token.text)
-        with open("data/outputs/rfqs.json", "w", encoding="utf-8") as file:
-            json.dump(rfqs, file)
-        return rfqs
+class RFQ
+    "Run RFQ model"
 
 
 #
@@ -150,5 +134,3 @@ class RFQ:
 # Dates().parse_dates()
 # Addresses().extract_addresses()
 
-## not working:
-# RFQ().extract_rfq()
