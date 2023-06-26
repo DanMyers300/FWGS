@@ -1,0 +1,12 @@
+class RFQ:
+    "Run RFQ model"
+    
+    def extract_rfq(self):
+        "Extract RFQs"
+        rfq_nlp = spacy.load("data/models/rfq_model/model-best")
+        rfq_doc = rfq_nlp(corpus)
+        for ent in rfq_doc.ents:
+            print(ent.text, ent.label_)
+
+        with open('data/outputs/rfq.json', 'w', encoding="utf-8") as file:
+            json.dump(rfq_doc.ents, file, indent=4)
