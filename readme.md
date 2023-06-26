@@ -127,6 +127,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### main.py
 
+- Runs the rest of the files neccessary to complete a full ner from a pdf.
+
 ### src/pdf_processor.py
 
 ### src/create_spacy_file.py
@@ -135,13 +137,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### Spacy Files
 
-    - config.cfg
-        - A configuration file to train a custom spacy model
-    - train.spacy
-        - Converted training data .json to a binary format that spacy can understand
+- config.cfg
+    - A configuration file to train a custom spacy model
+- train.spacy
+    - Converted training data .json to a binary format that spacy can understand
 
 ### src/run_ner.py
-
+- The main ner file. This one condenses all the different items into one file
 ---
 <!-- CONTACT -->
 ## Contact
