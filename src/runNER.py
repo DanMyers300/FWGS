@@ -124,7 +124,7 @@ class RFQ:
 
     def extract_rfq(self):
         "Extract RFQs"
-        rfq_nlp = spacy.load("data/models/rfq_model/model-best")
+        rfq_nlp = spacy.load("data/models/rfq_model/test/model-best")
         rfq_doc = rfq_nlp(corpus)
 
         entities = []
