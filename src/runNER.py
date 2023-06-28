@@ -123,10 +123,10 @@ class RFQ:
     def extract_rfq(self):
         rfq_nlp = spacy.load("data/models/rfq_model/model-best")
         rfq_doc = rfq_nlp(corpus)
-        
+
         entities = []
         for ent in rfq_doc.ents:
-            if ent.text.isdigit():  # Select only digits
+            if ent.text.isalnum() and not ent.text.isalpha():  # Select alphanumeric entities with at least one digit
                 entities.append({'text': ent.text, 'label': ent.label_})
                 print(ent.text, ent.label_)
 
