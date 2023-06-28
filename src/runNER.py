@@ -120,17 +120,15 @@ class Addresses:
             json.dump(results, file, indent=4)
 
 class RFQ:
-    "Run RFQ model"
-
     def extract_rfq(self):
-        "Extract RFQs"
         rfq_nlp = spacy.load("data/models/rfq_model/model-best")
         rfq_doc = rfq_nlp(corpus)
-
+        
         entities = []
         for ent in rfq_doc.ents:
-            entities.append({'text': ent.text, 'label': ent.label_})
-            print(ent.text, ent.label_)
+            if ent.text.isdigit():  # Select only digits
+                entities.append({'text': ent.text, 'label': ent.label_})
+                print(ent.text, ent.label_)
 
         with open('data/outputs/rfq.json', 'w', encoding="utf-8") as file:
             json.dump(entities, file, indent=4)
