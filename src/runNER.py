@@ -123,12 +123,21 @@ class RFQ:
     def extract_rfq(self):
         rfq_nlp = spacy.load("data/models/rfq_model/model-best")
         rfq_doc = rfq_nlp(corpus)
+        
+        with open('data/outputs/addresses.json', 'r', encoding="utf-8") as file:
+            addresses = json.load(file)
 
         entities = []
         for ent in rfq_doc.ents:
             if ent.text.isalnum() and not ent.text.isalpha():  # Select alphanumeric entities with at least one digit
-                entities.append({'text': ent.text, 'label': ent.label_})
-                print(ent.text, ent.label_)
+                is_street_number = False
+                for address in addresses:
+                    if ent.text == address['address_parts']['street_number']:
+                        is_street_number = True
+                        break
+                if not is_street_number or len(ent.text) > len(address['address_parts']['street_number']):
+                    entities.append({'text': ent.text, 'label': ent.label_})
+                    print(ent.text, ent.label_)
 
         with open('data/outputs/rfq.json', 'w', encoding="utf-8") as file:
             json.dump(entities, file, indent=4)
