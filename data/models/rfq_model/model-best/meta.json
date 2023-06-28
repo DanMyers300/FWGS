@@ -10,22 +10,43 @@
   "license":"",
   "spacy_git_version":"Unknown",
   "vectors":{
-    "width":10,
-    "vectors":477,
-    "keys":477,
-    "name":"rfq_model",
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null,
     "mode":"default"
   },
   "labels":{
+    "tok2vec":[
 
+    ],
+    "ner":[
+      "RFQ"
+    ]
   },
   "pipeline":[
-
+    "tok2vec",
+    "ner"
   ],
   "components":[
-
+    "tok2vec",
+    "ner"
   ],
   "disabled":[
 
-  ]
+  ],
+  "performance":{
+    "ents_f":1.0,
+    "ents_p":1.0,
+    "ents_r":1.0,
+    "ents_per_type":{
+      "RFQ":{
+        "p":1.0,
+        "r":1.0,
+        "f":1.0
+      }
+    },
+    "tok2vec_loss":0.0000000001,
+    "ner_loss":0.0000000002
+  }
 }
