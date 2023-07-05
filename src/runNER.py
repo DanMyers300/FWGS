@@ -144,17 +144,29 @@ class RFQ:
 
 class CODED_NOTES:
     def extract_coded_notes(self):
-        notes_nlp = spacy.load("data/models/coded_notes/model-best")
-        notes_doc = notes_nlp(corpus)
+        codes = []
+        
+        with open('data/base_files/coded_notes.csv', 'r') as file:
+            lines = file.readlines()[1:]  # Skip the header line
+            for line in lines:
+                code = line.split(',')[0]
+                codes.append(code.strip())
 
-        with open('data/outputs/coded_notes.json', 'r', encoding="utf-8") as file:
-            notes = json.load(file)
+        # Remove "APPENDICES" from the list
+        codes = [code for code in codes if code != "APPENDICES"]
 
-        entities = []
-        for ent in notes_doc.ents:
-            print(ent.text, ent.label_)
+        # Extract the codes from rfq_dump.txt
+        extracted_codes = []
+        with open("data/corpus.txt", 'r') as file:
+            rfq_dump_content = file.read()
+            for code in codes:
+                matches = re.findall(code, rfq_dump_content)
+                extracted_codes.extend(matches)
+        
+        # Write extracted_codes to coded_notes.json
+        with open('data/outputs/coded_notes.json', 'w') as output_file:
+            json.dump(extracted_codes, output_file)
 
-#
 # --- Run the extraction --- #
 #
 
