@@ -14,9 +14,9 @@ if install_requirements.lower() == "y":
     subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
 
 # Run pdf_processor.py
-PDF_PROCESSOR = "./ner/pdf_processor.py"
+PDF_PROCESSOR = "src/pdf_processor.py"
 subprocess.run(["python", PDF_PROCESSOR], check=True)
 
 # Run ner.py
-NER = "./ner/ner.py"
+NER = "src/runNER.py"
 subprocess.run(["python", NER], check=True)
