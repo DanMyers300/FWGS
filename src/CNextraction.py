@@ -15,7 +15,7 @@ nlp = spacy.load('en_core_web_sm')
 ruler = nlp.add_pipe("entity_ruler")
 
 patterns = load_json('data/formatted_training_data/coded_notes.json')
-text = load_text('data/outputs/rfq_dump.txt')
+text = load_text('data/corpus.txt')
 ruler.add_patterns(patterns)
 
 doc = nlp(text)
@@ -33,7 +33,7 @@ for sent in doc.sents:
 
 output = {"TRAIN_DATA": train_data}
 
-output_path = 'data/outputs/coded_notes.json'
+output_path = 'data/formatted_training_data/coded_notes.json'
 with open(output_path, 'w') as f:
     json.dump(output, f, indent=4)
 
