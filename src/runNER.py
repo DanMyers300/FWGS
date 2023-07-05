@@ -53,7 +53,7 @@ class Emails:
 class URLs:
     "extract URLs from text"
 
-    def parse_urls(self):
+    def extract_urls(self):
         "Parse URLs from text"
         urls = []
         for token in doc:
@@ -76,7 +76,7 @@ class Dates:
         self.dates = []
         self.pattern = r"\b(0[1-9]|1[0-2])/(0[1-9]|1[0-9]|2[0-9]|3[01])/(\d{4})\b"
 
-    def parse_dates(self):
+    def extract_dates(self):
         "Parse dates from text"
         matcher = Matcher(nlp.vocab)
         pattern_list = [[{"TEXT": {"REGEX": self.pattern}}]]
@@ -167,14 +167,15 @@ class CODED_NOTES:
         with open('data/outputs/coded_notes.json', 'w') as output_file:
             json.dump(extracted_codes, output_file)
 
+#
 # --- Run the extraction --- #
 #
 
 # Emails().extract_emails(
 #     "data/outputs/emails.json"
 # )
-# URLs().parse_urls()
-# Dates().parse_dates()
+# URLs().extract_urls()
+# Dates().extract_dates()
 # Addresses().extract_addresses()
-#RFQ().extract_rfq()
-CODED_NOTES().extract_coded_notes()
+# RFQ().extract_rfq()
+# CODED_NOTES().extract_coded_notes()
