@@ -109,6 +109,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 3. Dates
 4. Addresses
 5. RFQ
+6. CODED NOTES
 
 #### Not working
 1. Version Number
@@ -119,7 +120,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 6. DPAS Rating section
 7. Summary of hardware section
 8. APPENDICES TO HARDWARE
-9. CODED NOTES
 
 ---
 <!-- Files -->
