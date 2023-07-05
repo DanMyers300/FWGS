@@ -1,6 +1,7 @@
 """
 NER
 """
+import os
 import re
 import json
 import spacy
@@ -23,6 +24,27 @@ def open_file():
 corpus = open_file()
 nlp = spacy.load("en_core_web_lg")
 doc = nlp(corpus)
+
+#
+# --- Combine outputs  --- #
+#
+
+class COMBINE_OUTPUTS:
+    def __init__(self):
+        self.directory = "data/outputs/"
+        self.input_files = os.listdir(self.directory)
+        self.combined_data = {}
+
+    def combine_outputs(self):
+        for file_name in self.input_files:
+            with open(os.path.join(self.directory, file_name), "r") as file:
+                data = json.load(file)
+
+        self.combined_data[file_name.split('.')[0]] = data
+
+        output_path = os.path.join(self.directory, "outputs.json")
+        with open(output_path, "w") as file:
+            json.dump(self.combined_data, file, indent=4)
 
 #
 # --- Define entities to extract --- #
@@ -208,6 +230,10 @@ class CODED_NOTES:
 #        "data/base_files/csv/coded_notes.csv",
 #        "data/outputs/coded_notes.json",
 #)
+
+#------------------------------
+
+#COMBINE_OUTPUTS().combine_outputs()
 
 #------------------------------
 
