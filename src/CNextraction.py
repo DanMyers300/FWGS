@@ -20,7 +20,22 @@ ruler.add_patterns(patterns)
 
 doc = nlp(text)
 
-for ent in doc.ents:
-    if ent.label_ == 'Coded Note' and len(ent.text) <= 5:
-        print(ent.text)
+train_data = []
+for sent in doc.sents:
+    coded_notes = []
+    for i, ent in enumerate(sent.ents):
+        if ent.label_ == 'Coded Note' and len(ent.text) <= 5:
+            span_start = ent.start_char - sent.start_char
+            span_end = ent.end_char - sent.start_char - 1  # Subtract 1 from the end character
+            coded_notes.append([span_start, span_end, "Coded Note"])
+    if coded_notes:
+        train_data.append([sent.text, {"entities": coded_notes}])
+
+output = {"TRAIN_DATA": train_data}
+
+output_path = 'data/outputs/coded_notes.json'
+with open(output_path, 'w') as f:
+    json.dump(output, f, indent=4)
+
+print(f"Output saved to {output_path}")
 
