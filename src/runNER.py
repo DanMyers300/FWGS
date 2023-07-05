@@ -44,7 +44,6 @@ class Emails:
         for match in self.email_matches[:10]:
             email_address = str(doc[match[1]])
             results.append({"label": "email", "text": email_address})
-            print(match, email_address)
 
         with open(output_file, "w", encoding="utf-8") as file:
             json.dump(results, file)
