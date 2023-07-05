@@ -44,7 +44,7 @@ class PDFProcessor:
     def extract_text_from_pdf(self):
         "Extract the text from all PDF files"
         output_file = open(
-            "data/outputs/output.txt",
+            "data/corpus.txt",
             "w",
             encoding="utf-8",
         )
