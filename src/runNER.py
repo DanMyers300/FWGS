@@ -37,15 +37,18 @@ class COMBINE_OUTPUTS:
 
     def combine_outputs(self):
         for file_name in self.input_files:
+            # Skip the file if its name is "outputs.json"
+            if file_name == "outputs.json":
+                continue
+
             with open(os.path.join(self.directory, file_name), "r") as file:
                 data = json.load(file)
-
-        self.combined_data[file_name.split('.')[0]] = data
+            self.combined_data[file_name.split('.')[0]] = data
 
         output_path = os.path.join(self.directory, "outputs.json")
         with open(output_path, "w") as file:
-            json.dump(self.combined_data, file, indent=4)
-
+            json.dump(self.combined_data, file, indent=4
+)
 #
 # --- Define entities to extract --- #
 #
@@ -194,46 +197,46 @@ class CODED_NOTES:
 
 #------------------------------
 
-#EMAILS().extract_emails(
-#   "data/outputs/emails.json"
-#)
+EMAILS().extract_emails(
+   "data/outputs/emails.json"
+)
 
 #------------------------------
 
-#URLs().extract_urls(
-#        "data/outputs/urls.json"
-#)
+URLs().extract_urls(
+        "data/outputs/urls.json"
+)
 
 #------------------------------
 
-#DATES().extract_dates(
-#        "data/outputs/dates.json",
-#)
+DATES().extract_dates(
+        "data/outputs/dates.json",
+)
 
 #------------------------------
 
-#ADDRESSES().extract_addresses(
-#        "data/outputs/addresses.json",
-#)
+ADDRESSES().extract_addresses(
+        "data/outputs/addresses.json",
+)
 
 #------------------------------
 
-#RFQ().extract_rfq(
-#        "data/models/rfq_model/model-best",
-#        "data/outputs/addresses.json",
-#        "data/outputs/rfq.json",
-#)
+RFQ().extract_rfq(
+        "data/models/rfq_model/model-best",
+        "data/outputs/addresses.json",
+        "data/outputs/rfq.json",
+)
 
 #------------------------------
 
-#CODED_NOTES().extract_coded_notes(
-#        "data/base_files/csv/coded_notes.csv",
-#        "data/outputs/coded_notes.json",
-#)
+CODED_NOTES().extract_coded_notes(
+        "data/base_files/csv/coded_notes.csv",
+        "data/outputs/coded_notes.json",
+)
 
 #------------------------------
 
-#COMBINE_OUTPUTS().combine_outputs()
+COMBINE_OUTPUTS().combine_outputs()
 
 #------------------------------
 
