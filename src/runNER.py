@@ -50,7 +50,7 @@ class COMBINE_OUTPUTS:
 # --- Define entities to extract --- #
 #
 
-class Emails:
+class EMAILS:
     "Extract emails from text"
 
     def __init__(self):
@@ -89,7 +89,7 @@ class URLs:
         return urls
 
 
-class Dates:
+class DATES:
     "Extract dates"
 
     def __init__(self):
@@ -119,7 +119,7 @@ class Dates:
         return self.dates
 
 
-class Addresses:
+class ADDRESSES:
     "Extract addresses from text"
 
     def extract_addresses(self, output_file):
@@ -194,7 +194,7 @@ class CODED_NOTES:
 
 #------------------------------
 
-#Emails().extract_emails(
+#EMAILS().extract_emails(
 #   "data/outputs/emails.json"
 #)
 
@@ -206,13 +206,13 @@ class CODED_NOTES:
 
 #------------------------------
 
-#Dates().extract_dates(
+#DATES().extract_dates(
 #        "data/outputs/dates.json",
 #)
 
 #------------------------------
 
-#Addresses().extract_addresses(
+#ADDRESSES().extract_addresses(
 #        "data/outputs/addresses.json",
 #)
 
