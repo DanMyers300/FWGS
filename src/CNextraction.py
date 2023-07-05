@@ -26,7 +26,7 @@ for sent in doc.sents:
     for i, ent in enumerate(sent.ents):
         if ent.label_ == 'Coded Note' and len(ent.text) <= 5:
             span_start = ent.start_char - sent.start_char
-            span_end = ent.end_char - sent.start_char - 1  # Subtract 1 from the end character
+            span_end = ent.end_char - sent.start_char
             coded_notes.append([span_start, span_end, "Coded Note"])
     if coded_notes:
         train_data.append([sent.text, {"entities": coded_notes}])

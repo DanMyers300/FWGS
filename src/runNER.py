@@ -142,6 +142,18 @@ class RFQ:
         with open('data/outputs/rfq.json', 'w', encoding="utf-8") as file:
             json.dump(entities, file, indent=4)
 
+class CODED_NOTES:
+    def extract_coded_notes(self):
+        notes_nlp = spacy.load("data/models/coded_notes/model-best")
+        notes_doc = notes_nlp(corpus)
+
+        with open('data/outputs/coded_notes.json', 'r', encoding="utf-8") as file:
+            notes = json.load(file)
+
+        entities = []
+        for ent in notes_doc.ents:
+            print(ent.text, ent.label_)
+
 #
 # --- Run the extraction --- #
 #
@@ -152,4 +164,5 @@ class RFQ:
 # URLs().parse_urls()
 # Dates().parse_dates()
 # Addresses().extract_addresses()
-RFQ().extract_rfq()
+#RFQ().extract_rfq()
+CODED_NOTES().extract_coded_notes()
