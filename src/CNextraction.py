@@ -21,4 +21,6 @@ ruler.add_patterns(patterns)
 doc = nlp(text)
 
 for ent in doc.ents:
-    print(ent.text, ent.label_)
+    if ent.label_ == 'Coded Note' and len(ent.text) <= 5:
+        print(ent.text)
+
