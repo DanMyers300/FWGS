@@ -8,7 +8,7 @@ from pathlib import Path
 import spacy
 from spacy.tokens import DocBin
 
-TRAIN_DATA_FILE = "data/formatted_training_data/RFQ/labeled_rfqs.json"
+TRAIN_DATA_FILE = "data/formatted_training_data/labeled_rfqs.json"
 
 with open(TRAIN_DATA_FILE, "r", encoding="utf-8") as file:
     TRAIN_DATA = json.load(file)
