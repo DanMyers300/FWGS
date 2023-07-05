@@ -4,7 +4,7 @@ from collections import defaultdict
 from gensim.models.word2vec import Word2Vec
 from gensim.models.phrases import Phrases, Phraser
 
-file = 'data/outputs/rfq_dump.txt'
+file = 'data/corpus.txt'
 def open_file(file):
     with open(file, 'r') as f:
         text = f.read()
