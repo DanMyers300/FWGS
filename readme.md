@@ -10,14 +10,9 @@
   <p align="center">
     Named Entity Extraction for Forth-Worth Gasket and Supply
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/DanMyers300/FWGS/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/DanMyers300/FWGS/issues">Request Feature</a>
   </p>
 </div>
 
@@ -30,19 +25,11 @@
     <li>
       <a href="#about-the-project">About The Project</a>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li> 
-      </ul>
-    </li>
-    <li><a href="#components">Components</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#files">File Contents</li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -51,51 +38,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 PDF extraction using NLP library [Spacy](https://spacy.io/api)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* spacy
-  ```sh
-  pip install spacy
-  ```
-
-<!-- ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
----
-<!-- Components -->
-## Components
-* PDF Processor
-* Basic rule matching
-* Custom NER models
 
 ---
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-1. Run
+1. Place .pdf files to extract in data folder
+2. Run
    ```sh
    python main.py
    ```
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+3. If you've never ran the program before then press "y" when it prompts you.
+4. Extracted items with be placed in data/outputs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,6 +88,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ### src/pdf_processor.py
 
+- A simple script that extracts information from a pdf file into a txt file.
+
 ### src/create_spacy_file.py
 
 - Converts a .json file containing training information into a binary format called .spacy
@@ -143,7 +102,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - Converted training data .json to a binary format that spacy can understand
 
 ### src/run_ner.py
-- The main ner file. This one condenses all the different items into one file
+- This is the main script. This contains objects for each of the items to extract.
+
 ---
 <!-- CONTACT -->
 ## Contact
@@ -159,40 +119,3 @@ Daniel Myers - contact@danmyers.net
 Distributed under the MIT License. See `License.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
----
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
----
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
