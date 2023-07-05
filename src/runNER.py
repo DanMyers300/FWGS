@@ -53,15 +53,14 @@ class Emails:
 class URLs:
     "extract URLs from text"
 
-    def extract_urls(self):
+    def extract_urls(self, output_file):
         "Parse URLs from text"
         urls = []
         for token in doc:
             if token.like_url:
                 urls.append({"label": "URL", "text": token.text})
-                print(token.text)
         with open(
-            "data/outputs/urls.json",
+            output_file,
             "w",
             encoding="utf-8",
         ) as file:
@@ -76,7 +75,7 @@ class Dates:
         self.dates = []
         self.pattern = r"\b(0[1-9]|1[0-2])/(0[1-9]|1[0-9]|2[0-9]|3[01])/(\d{4})\b"
 
-    def extract_dates(self):
+    def extract_dates(self, output_file):
         "Parse dates from text"
         matcher = Matcher(nlp.vocab)
         pattern_list = [[{"TEXT": {"REGEX": self.pattern}}]]
@@ -88,10 +87,9 @@ class Dates:
             span = doc[start:end]
             date = {"label": "DATE", "text": span.text}
             self.dates.append(date)
-            print(date["text"])
 
         with open(
-            "data/outputs/dates.json",
+            output_file,
             "w",
             encoding="utf-8",
         ) as file:
@@ -103,7 +101,7 @@ class Dates:
 class Addresses:
     "Extract addresses from text"
 
-    def extract_addresses(self):
+    def extract_addresses(self, output_file):
         "Extract addresses"
         addresses = pyap.parse(corpus, country='US')
         results = []
@@ -116,15 +114,19 @@ class Addresses:
                 results.append(result)
 
         # Save results to a JSON file
-        with open('data/outputs/addresses.json', 'w', encoding="utf-8") as file:
+        with open(
+                 output_file, 
+                 'w',
+                 encoding="utf-8"
+                 ) as file:
             json.dump(results, file, indent=4)
 
 class RFQ:
-    def extract_rfq(self):
-        rfq_nlp = spacy.load("data/models/rfq_model/model-best")
+    def extract_rfq(self, model_path, addresses_file, output_file):
+        rfq_nlp = spacy.load(model_path)
         rfq_doc = rfq_nlp(corpus)
         
-        with open('data/outputs/addresses.json', 'r', encoding="utf-8") as file:
+        with open(addresses_file, 'r', encoding="utf-8") as file:
             addresses = json.load(file)
 
         entities = []
@@ -137,16 +139,16 @@ class RFQ:
                         break
                 if not is_street_number or len(ent.text) > len(address['address_parts']['street_number']):
                     entities.append({'text': ent.text, 'label': ent.label_})
-                    print(ent.text, ent.label_)
 
-        with open('data/outputs/rfq.json', 'w', encoding="utf-8") as file:
+        with open(output_file, 'w', encoding="utf-8") as file:
             json.dump(entities, file, indent=4)
 
+
 class CODED_NOTES:
-    def extract_coded_notes(self):
+    def extract_coded_notes(self, input_file, output_file):
         codes = []
         
-        with open('data/base_files/coded_notes.csv', 'r') as file:
+        with open(input_file, 'r') as file:
             lines = file.readlines()[1:]  # Skip the header line
             for line in lines:
                 code = line.split(',')[0]
@@ -157,25 +159,56 @@ class CODED_NOTES:
 
         # Extract the codes from rfq_dump.txt
         extracted_codes = []
-        with open("data/corpus.txt", 'r') as file:
-            rfq_dump_content = file.read()
-            for code in codes:
-                matches = re.findall(code, rfq_dump_content)
-                extracted_codes.extend(matches)
+        for code in codes:
+            matches = re.findall(code, corpus)
+            extracted_codes.extend(matches)
         
         # Write extracted_codes to coded_notes.json
-        with open('data/outputs/coded_notes.json', 'w') as output_file:
+        with open(output_file, 'w') as output_file:
             json.dump(extracted_codes, output_file)
 
 #
 # --- Run the extraction --- #
 #
 
-# Emails().extract_emails(
-#     "data/outputs/emails.json"
-# )
-# URLs().extract_urls()
-# Dates().extract_dates()
-# Addresses().extract_addresses()
-# RFQ().extract_rfq()
-# CODED_NOTES().extract_coded_notes()
+#------------------------------
+
+#Emails().extract_emails(
+#   "data/outputs/emails.json"
+#)
+
+#------------------------------
+
+#URLs().extract_urls(
+#        "data/outputs/urls.json"
+#)
+
+#------------------------------
+
+#Dates().extract_dates(
+#        "data/outputs/dates.json",
+#)
+
+#------------------------------
+
+#Addresses().extract_addresses(
+#        "data/outputs/addresses.json",
+#)
+
+#------------------------------
+
+#RFQ().extract_rfq(
+#        "data/models/rfq_model/model-best",
+#        "data/outputs/addresses.json",
+#        "data/outputs/rfq.json",
+#)
+
+#------------------------------
+
+#CODED_NOTES().extract_coded_notes(
+#        "data/base_files/csv/coded_notes.csv",
+#        "data/outputs/coded_notes.json",
+#)
+
+#------------------------------
+
