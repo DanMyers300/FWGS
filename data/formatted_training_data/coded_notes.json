@@ -1,0 +1,1734 @@
+[
+    {
+        "label": "Coded Note",
+        "pattern": "09-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "09-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "09-7"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-107"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-11"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-110"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-122"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-123"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-126"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-129"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-131"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-15"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-18"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-32"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-51"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-52"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-53"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-54"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-65"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-67"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-68"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-69"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-70"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-71"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-84"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-87N"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-87S"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-87V"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-87W"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-87WV"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-96"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "10-99"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "11-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "11-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "11-8"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-15"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-19"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-22"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-26"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-3"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-34"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "12-41"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-101"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-102"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-113"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-115"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-116"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "15-57"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "16-14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "16-15"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "16-16"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "16-21"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "16-37"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "17-20"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-19"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-21"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-3"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-3CP"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "37-8B"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "38-4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-25"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-26"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-27"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-37"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-39"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-40"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-41"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-46"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-5"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-50"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-51"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-63"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-64"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-8"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "45-9"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "50-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-13"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-16"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-19"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-22"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-35"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-5"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-7"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "53-8"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-11D"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-11E"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-18"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-25"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-29"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-33"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-44"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-45"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-46"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-5"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-58"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-65"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-67"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-77"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-78"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-84"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "60-87"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "72-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "72-7"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "73-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "73-10"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "73-11"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "73-2"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-11"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-128"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-147"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-148"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-150"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-151"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-20"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22B"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22C"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22E"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22H"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-22J"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-24"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-25"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-27"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-37"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-54"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-57"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-68"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-75"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-81"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-81A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-81B"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-83"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-87"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-95"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-98"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9AD"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9AF"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9AL"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9AY"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9B"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9BG"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9BM"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9C"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9DF"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9DG"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9DJ"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9E"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9EL"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9ER"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9EX"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9FE"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9FN"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9GB"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9GJ"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9GK"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9HD"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9HR"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9KF"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9KI"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9KZ"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9L"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9LU"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9M"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9MA"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9MC"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "76-9N"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "78-1"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "APPENDICES"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "B2000"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C1030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C1090"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2200"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2350"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2380"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2480"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2530"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2550"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2560"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2720"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2730"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2740"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2750"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2780"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C2990"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C3040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "C3120"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "D1180"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "D1190"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "D1200"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "D1320"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "D1390"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "E1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "E1030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB1289"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3092"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3602"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3701"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3737"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3753"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3785"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3790"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3792"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "EB3900"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "F1050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "F1060"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1120"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1140"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1700"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1701"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1702"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "H1703"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC013"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC014"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC019"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC029"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC033"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC043"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC063"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC071"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC079"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC086"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC090"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC091"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC0F4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC0I4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC109"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC138"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC151"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC166"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC181"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC187"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC189"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC190"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC191"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC194"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC196"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC197"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC200"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC202"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC204"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC226"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC227"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "IC229"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICA19"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICB12"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICB29"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICB40"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICC12"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICC14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICC29"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICD14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICD29"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICE14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICF12"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ICH14"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LEVEL A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI002"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI004"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI006"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI021"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI022"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI061"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI068"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI069"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI081"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI083"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI0A4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI0B4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI0G4"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI113"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "LI117"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M1350"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M1360"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M1490"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M1500"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M2050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M2160"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M3010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M3020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M4130"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M4300"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M4430"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M6040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "M6070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MILC20079"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MILI242441"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MILI242442"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK001"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK002"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK005"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK006"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK012"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK014"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK015"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK017"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK018"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "MK019"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "N2940"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "N3100"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "N3120"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "N3130"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "N3180"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P1050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P3570"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P4112"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P5121"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P5123"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "P5956"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q1070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q1080"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q1290"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q2030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q2040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q2050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q2060"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q3010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q3080"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Q3090"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "R1130"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "R1140"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "R1150"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S2030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S2110"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S2160"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S2170"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S2180"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5080"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5085"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "S5091"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SC1020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SC2240"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SD1040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SE1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SEA_APPX-A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SEA_APPX-B"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SEA_APPX-D"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SEA_APPX-K"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SEA_APPX-Q"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SH1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SH1100"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SM00A"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SM2010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SM2040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SM3010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SN2970"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SP1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SQ2020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SQ2030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SS2030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SS3040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ST1060"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ST1180"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ST1190"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "ST1270"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SV1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW1040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW1130"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW1280"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW1290"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW1330"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "SW3020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1040"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1260"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1340"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1350"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1440"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1460"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1530"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1570"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1580"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1680"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1740"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1750"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1780"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "T1800"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "V1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "V3010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1120"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1340"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1350"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1380"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1400"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W1450"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W3030"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W3050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W3060"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W3090"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W3100"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W4020"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "W4050"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1010"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1160"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1390"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1520"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1550"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1670"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1690"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1810"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1920"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1950"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1960"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y1970"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2070"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2100"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2170"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2180"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2190"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2200"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2210"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2230"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2340"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y2475"
+    },
+    {
+        "label": "Coded Note",
+        "pattern": "Y3000"
+    }
+]
