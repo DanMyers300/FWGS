@@ -111,11 +111,3 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 Daniel Myers - contact@danmyers.net
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-<!-- License -->
-## License
-
-Distributed under the MIT License. See `License.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
