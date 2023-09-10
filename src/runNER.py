@@ -10,8 +10,9 @@ from spacy.matcher import Matcher
 from pdf_processor import PDFProcessor
 
 # Run pdf_processor.py
-PDFProcessor().get_pdf_file_names()
-PDFProcessor().extract_text_from_pdf()
+processor = PDFProcessor()
+processor.get_pdf_file_names()
+processor.extract_text_from_pdf()
 
 #
 # --- Open file and load spaCy --- #
