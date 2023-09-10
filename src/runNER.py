@@ -1,5 +1,5 @@
 """
-NER
+Methods to extract entities from text
 """
 import os
 import re
@@ -49,6 +49,7 @@ class COMBINE_OUTPUTS:
         with open(output_path, "w") as file:
             json.dump(self.combined_data, file, indent=4
 )
+
 #
 # --- Define entities to extract --- #
 #
