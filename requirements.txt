@@ -1,4 +1,5 @@
 spacy
+spacy.matcher
 pypdf
 pyap
 gensim
