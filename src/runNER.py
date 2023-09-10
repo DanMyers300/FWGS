@@ -22,6 +22,7 @@ def open_file():
         contents = file.read()
     return contents
 corpus = open_file()
+spacy.cli.download("en_core_web_lg")
 nlp = spacy.load("en_core_web_lg")
 doc = nlp(corpus)
 
