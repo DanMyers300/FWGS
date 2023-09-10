@@ -6,8 +6,6 @@ from src.pdf_processor import PDFProcessor
 from src.runNER import EMAILS, URLs, DATES, ADDRESSES, RFQ, CODED_NOTES, COMBINE_OUTPUTS
 
 
-spacy.cli.download("en_core_web_lg")
-
 # Run pdf_processor.py
 processor = PDFProcessor()
 processor.get_pdf_file_names()
