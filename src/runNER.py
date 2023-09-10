@@ -7,7 +7,7 @@ import json
 import spacy
 import pyap
 from spacy.matcher import Matcher
-from src.pdf_processor import PDFProcessor
+from pdf_processor import PDFProcessor
 
 # Run pdf_processor.py
 PDFProcessor().get_pdf_file_names()
