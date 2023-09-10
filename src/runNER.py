@@ -7,6 +7,11 @@ import json
 import spacy
 import pyap
 from spacy.matcher import Matcher
+from src.pdf_processor import PDFProcessor
+
+# Run pdf_processor.py
+PDFProcessor().get_pdf_file_names()
+PDFProcessor().extract_text_from_pdf()
 
 #
 # --- Open file and load spaCy --- #
@@ -192,4 +197,31 @@ class CODED_NOTES:
         # Write extracted_codes to coded_notes.json
         with open(output_file, 'w') as output_file:
             json.dump(extracted_codes, output_file)
+
+#
+# --- Run the extraction --- #
+#
+
+EMAILS().extract_emails(
+   "data/outputs/emails.json"
+)
+URLs().extract_urls(
+        "data/outputs/urls.json"
+)
+DATES().extract_dates(
+        "data/outputs/dates.json",
+)
+ADDRESSES().extract_addresses(
+        "data/outputs/addresses.json",
+)
+RFQ().extract_rfq(
+        "data/models/rfq_model/model-best",
+        "data/outputs/addresses.json",
+        "data/outputs/rfq.json",
+)
+CODED_NOTES().extract_coded_notes(
+        "data/base_files/csv/coded_notes.csv",
+        "data/outputs/coded_notes.json",
+)
+COMBINE_OUTPUTS().combine_outputs()
 
