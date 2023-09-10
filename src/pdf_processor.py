@@ -16,17 +16,25 @@ class PDFProcessor:
         self.non_empty_lines = None
 
     def get_pdf_file_names(self):
-        "Get the names of all PDF files in the directory"
+        "Get the names of all PDF files in the current directory and the 'data' folder"
         try:
+            current_folder = os.getcwd()  # Get the current operating folder
             pdf_files = [
                 file
-                for file in os.listdir("data/")
+                for file in os.listdir(current_folder)  # List files in the current folder
                 if file.endswith(".pdf")
             ]
-            self.pdf_file_names = [
-                os.path.join("data/", file)
-                for file in pdf_files
-            ]
+            data_folder = os.path.join(current_folder, "data")  # Create a path to the 'data' folder
+            if os.path.exists(data_folder) and os.path.isdir(data_folder):
+                data_pdf_files = [
+                    os.path.join(data_folder, file)
+                    for file in os.listdir(data_folder)  # List files in the 'data' folder
+                    if file.endswith(".pdf")
+                ]
+            else:
+                data_pdf_files = []
+        
+            self.pdf_file_names = pdf_files + data_pdf_files  # Combine the lists of PDF files
         except OSError as e:
             print(f"Error while getting PDF file names: {e}")
 
