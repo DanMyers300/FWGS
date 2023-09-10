@@ -2,23 +2,59 @@
 1) Run pdf processor
 2) Run NER applications
 """
-
-import subprocess
-
-def run_subprocess(command, description):
-    try:
-        subprocess.run(command, check=True)
-        print(f"{description} completed successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error while running {description}: {e}")
-        raise Exception(f"{description} failed")
-
+from src.pdf_processor import PDFProcessor
+from src import runNER
 # Run pdf_processor.py
-PDF_PROCESSOR = "src/pdf_processor.py"
-run_subprocess(["python", PDF_PROCESSOR], "PDF Processor")
+processor = PDFProcessor()
+processor.get_pdf_file_names()
+processor.extract_text_from_pdf()
 
-# Run ner.py
-NER = "src/runNER.py"
-run_subprocess(["python", NER], "NER")
+#
+# --- Run the extraction --- #
+#
 
-# If NER fails, an exception has already been raised in the `run_subprocess` function.
+#------------------------------
+
+EMAILS().extract_emails(
+   "data/outputs/emails.json"
+)
+
+#------------------------------
+
+URLs().extract_urls(
+        "data/outputs/urls.json"
+)
+
+#------------------------------
+
+DATES().extract_dates(
+        "data/outputs/dates.json",
+)
+
+#------------------------------
+
+ADDRESSES().extract_addresses(
+        "data/outputs/addresses.json",
+)
+
+#------------------------------
+
+RFQ().extract_rfq(
+        "data/models/rfq_model/model-best",
+        "data/outputs/addresses.json",
+        "data/outputs/rfq.json",
+)
+
+#------------------------------
+
+CODED_NOTES().extract_coded_notes(
+        "data/base_files/csv/coded_notes.csv",
+        "data/outputs/coded_notes.json",
+)
+
+#------------------------------
+
+COMBINE_OUTPUTS().combine_outputs()
+
+#------------------------------
+
