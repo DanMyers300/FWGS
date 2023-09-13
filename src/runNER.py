@@ -1,5 +1,5 @@
 """
-NER
+Methods to extract entities from text
 """
 import os
 import re
@@ -7,6 +7,12 @@ import json
 import spacy
 import pyap
 from spacy.matcher import Matcher
+from pdf_processor import PDFProcessor
+
+# Run pdf_processor.py
+processor = PDFProcessor()
+processor.get_pdf_file_names()
+processor.extract_text_from_pdf()
 
 #
 # --- Open file and load spaCy --- #
@@ -22,6 +28,7 @@ def open_file():
         contents = file.read()
     return contents
 corpus = open_file()
+spacy.cli.download("en_core_web_lg")
 nlp = spacy.load("en_core_web_lg")
 doc = nlp(corpus)
 
@@ -49,6 +56,7 @@ class COMBINE_OUTPUTS:
         with open(output_path, "w") as file:
             json.dump(self.combined_data, file, indent=4
 )
+
 #
 # --- Define entities to extract --- #
 #
@@ -195,48 +203,26 @@ class CODED_NOTES:
 # --- Run the extraction --- #
 #
 
-#------------------------------
-
 EMAILS().extract_emails(
    "data/outputs/emails.json"
 )
-
-#------------------------------
-
 URLs().extract_urls(
         "data/outputs/urls.json"
 )
-
-#------------------------------
-
 DATES().extract_dates(
         "data/outputs/dates.json",
 )
-
-#------------------------------
-
 ADDRESSES().extract_addresses(
         "data/outputs/addresses.json",
 )
-
-#------------------------------
-
 RFQ().extract_rfq(
         "data/models/rfq_model/model-best",
         "data/outputs/addresses.json",
         "data/outputs/rfq.json",
 )
-
-#------------------------------
-
 CODED_NOTES().extract_coded_notes(
         "data/base_files/csv/coded_notes.csv",
         "data/outputs/coded_notes.json",
 )
-
-#------------------------------
-
 COMBINE_OUTPUTS().combine_outputs()
-
-#------------------------------
 

@@ -43,4 +43,4 @@ def convert(lang: str, training_data, output_path: Path):
     docbin.to_disk(output_path)
 
 
-convert("en", TRAIN_DATA["TRAIN_DATA"], Path("src/train.spacy"))
+convert("en", TRAIN_DATA["TRAIN_DATA"], Path("src/spacy_files/train.spacy"))
