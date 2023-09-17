@@ -48,3 +48,42 @@ body {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+#upload-container {
+    width: 300px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+#upload-container h2 {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+#upload-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#file-upload {
+    margin-bottom: 10px;
+}
+
+#upload-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#upload-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
