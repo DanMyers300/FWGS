@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const userMessage = userMessageInput.value;
         addUserMessage(userMessage);
 
-        // Simulate a bot response (replace with your actual bot logic)
         setTimeout(() => {
             const botResponse = "You said: " + userMessage;
             addBotMessage(botResponse);

@@ -46,13 +46,7 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Place .pdf files to extract in data folder
-2. Run
-   ```sh
-   python main.py
-   ```
-3. If you've never ran the program before then press "y" when it prompts you.
-4. Extracted items with be placed in data/outputs
+Run start.bat
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
