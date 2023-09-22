@@ -46,14 +46,20 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Run start.bat
+- Currently only usable via command line
+	1) Create python VENV
+	2) Run `pip install -r requirements.txt`
+	3) Run `python src/runNER.py`
 
+Reference [[#Road map]] for UI information
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ---
-<!-- ROADMAP -->
-## Roadmap
+<!-- ROAD MAP -->
+## Road map
+
+## Extraction:
 #### Working
 1. Emails
 2. URLS
@@ -72,36 +78,48 @@ Run start.bat
 7. Summary of hardware section
 8. APPENDICES TO HARDWARE
 
+### UI
+#### Form
+- Give the front page a face lift, change themes and establish the "look and feel".
+#### Function
+- Connect chat api LLM for queries on database.
+
+### Language Models
+- Create custom models from FWGS data to extract all items.
+#### LLM
+- Set up language model on extracted items to query on inputted pdf file.
+- *Long term:* Set up language model on entire database.
 ---
 <!-- Files -->
 ## Files
 
-### main.py
-
-- Runs the rest of the files neccessary to complete a full ner from a pdf.
-
-### src/pdf_processor.py
-
-- A simple script that extracts information from a pdf file into a txt file.
-
-### src/create_spacy_file.py
-
-- Converts a .json file containing training information into a binary format called .spacy
-
-### Spacy Files
-
-- config.cfg
-    - A configuration file to train a custom spacy model
-- train.spacy
-    - Converted training data .json to a binary format that spacy can understand
-
-### src/run_ner.py
-- This is the main script. This contains objects for each of the items to extract.
+### `/data`
+- `/base_files`
+	- Original files given for training.
+- `/models`
+	- Trained SpaCy models.
+- `/outputs`
+	- Extracted items are dumped here.
+- `/training_data`
+	- Formatted training data to train the spacy models.
+- `corpus.txt`
+	- The raw text that is dumped from pdf_processor.py.
+### `/src`
+- `/spacy`
+- `pdf_processor.py`
+	- Dumps text from one or more pdf files into `/data/corpus.txt`.
+- `runNER.py`
+	- The main python file that executes all the extraction modules.
+### `/ui`
+- `/static`
+	- Contains files for website UI.
+- `__init__.py`
+	- Runs the flask app and handles the api.
 
 ---
 <!-- CONTACT -->
 ## Contact
 
-Daniel Myers - contact@danmyers.net
+Dan Myers - contact@danmyers.net
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
