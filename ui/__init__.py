@@ -32,6 +32,10 @@ def create_app(test_config=None):
     @app.route('/send_message', methods=['POST'])
     def send_message():
         user_message = request.form['user_message']
-    
+   
+    @app.route('/readme')
+    def readme():
+        return render_template('readme.html')
+
     return app
 
