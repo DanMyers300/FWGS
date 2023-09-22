@@ -51,7 +51,7 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 	2) Run `pip install -r requirements.txt`
 	3) Run `python src/runNER.py`
 
-Reference [[#Road map]] for UI information
+Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> for UI information
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
