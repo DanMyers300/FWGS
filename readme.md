@@ -93,6 +93,7 @@ Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> fo
 - Create custom models from FWGS data to extract all items.
 #### LLM
 - Set up language model on extracted items to query on inputted pdf file.
+    - Utilizing the llm python library and langchain feed the data from the outputs into the llm
 - *Long term:* Set up language model on entire database.
 ---
 <!-- Files -->
