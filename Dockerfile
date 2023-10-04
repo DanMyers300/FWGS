@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:latest
+FROM python:latest-slim
 
 # Set the working directory to /FWGS
 WORKDIR /FWGS
