@@ -59,6 +59,11 @@ Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> fo
 <!-- ROAD MAP -->
 ## Road map
 
+- Train extraction models on data provided by FWGS
+- Set up a LLM on documents upload
+- Set up a LLM on entire database
+- Connect extraction functionality with UI
+
 ## Extraction:
 #### Working
 1. Emails
@@ -83,18 +88,10 @@ Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> fo
 12. mount/Msc NNS Docs\NNS Quality\VIR
 13. mount/Gov Specs & STDs
 
-### UI
-#### Form
-- Give the front page a face lift, change themes and establish the "look and feel".
-#### Function
-- Connect chat api LLM for queries on database.
-
-### Language Models
-- Create custom models from FWGS data to extract all items.
-#### LLM
-- Set up language model on extracted items to query on inputted pdf file.
-    - Utilizing the llm python library and langchain feed the data from the outputs into the llm
-- *Long term:* Set up language model on entire database.
+## UI
+- Connect LLM and chatbot UI
+- Establish functionality for upload button
+- Give UI a facelift so it looks better
 ---
 <!-- Files -->
 ## Files
