@@ -13,8 +13,6 @@ ENV PATH="/usr/app/venv/bin:$PATH"
 COPY requirements.txt .
 RUN /usr/app/venv/bin/pip install -r requirements.txt
 
-WORKDIR /usr/app
-
 COPY . .
 
 # Final stage
