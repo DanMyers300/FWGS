@@ -28,4 +28,4 @@ COPY --from=build /usr/app/venv ./venv
 COPY . .
 
 ENV PATH="/usr/app/venv/bin:$PATH"
-CMD [ "python", "-m", "flask", "--app", "ui", "run" ]
+CMD [ "python", "./app.py"]
