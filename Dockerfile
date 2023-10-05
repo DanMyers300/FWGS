@@ -24,5 +24,5 @@ WORKDIR /usr/app
 EXPOSE 5000
 
 ENV PATH="/usr/app/venv/bin:$PATH"
-
+CMD ["ls"]
 CMD ["python", "app.py"]
