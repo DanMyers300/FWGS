@@ -21,8 +21,8 @@ WORKDIR /usr/app
 
 COPY --from=build /usr/app/venv ./venv
 
-EXPOSE 5000
-
 ENV PATH="/usr/app/venv/bin:$PATH"
+
+EXPOSE 5000
 
 CMD ["python", "app.py"]
