@@ -1,3 +1,4 @@
+# Build stage
 FROM python:3.11-slim as build
 
 RUN apt-get update && \
@@ -13,16 +14,15 @@ RUN /usr/app/venv/bin/pip install -r requirements.txt
 
 COPY . .
 
+# Final stage
 FROM python:3.11-slim
 
-WORKDIR /usr/app/venv
+WORKDIR /usr/app
 
 COPY --from=build /usr/app/venv ./venv
-
-WORKDIR /usr/app
 
 EXPOSE 5000
 
 ENV PATH="/usr/app/venv/bin:$PATH"
-CMD ["ls"]
+
 CMD ["python", "app.py"]
