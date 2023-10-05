@@ -27,5 +27,7 @@ COPY --from=build /usr/app/venv ./venv
 
 COPY . .
 
+EXPOSE 5000
+
 ENV PATH="/usr/app/venv/bin:$PATH"
 CMD [ "python", "./app.py"]
