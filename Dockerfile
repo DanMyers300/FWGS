@@ -10,7 +10,7 @@ ENV PATH="/usr/app/venv/bin:$PATH"
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-
+RUN pip install Flask
 COPY . .
 
 FROM python:3.11-slim
