@@ -11,7 +11,7 @@ ENV PATH="/usr/app/venv/bin:$PATH"
 COPY requirements.txt .
 RUN /usr/app/venv/bin/pip install -r requirements.txt
 
-COPY . /usr/app/
+COPY . .
 
 FROM python:3.11-slim
 
