@@ -25,4 +25,4 @@ ENV PATH="/usr/app/venv/bin:$PATH"
 
 EXPOSE 5000
 
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["python3", "-m", "flask", "--app", "ui", "run", "--host=0.0.0.0"]
