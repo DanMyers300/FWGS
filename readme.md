@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-PDF extraction using NLP library [Spacy](https://spacy.io/api)
+A python app to intelligently extract items from documents and allow the user to perform queries on the docuemnts using a large language model.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
