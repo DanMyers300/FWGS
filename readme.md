@@ -93,33 +93,6 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 - Establish functionality for upload button
 - Give UI a facelift so it looks better
 ---
-<!-- Files -->
-## Files
-
-### `/data`
-- `/base_files`
-	- Original files given for training.
-- `/models`
-	- Trained SpaCy models.
-- `/outputs`
-	- Extracted items are dumped here.
-- `/training_data`
-	- Formatted training data to train the spacy models.
-- `corpus.txt`
-	- The raw text that is dumped from pdf_processor.py.
-### `/src`
-- `/spacy`
-- `pdf_processor.py`
-	- Dumps text from one or more pdf files into `/data/corpus.txt`.
-- `runNER.py`
-	- The main python file that executes all the extraction modules.
-### `/ui`
-- `/static`
-	- Contains files for website UI.
-- `__init__.py`
-	- Runs the flask app and handles the api.
-
----
 <!-- CONTACT -->
 ## Contact
 
