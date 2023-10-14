@@ -46,10 +46,8 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-- Currently only usable via command line
-	1) Create python VENV
-	2) Run `pip install -r requirements.txt`
-	3) Run `python src/runNER.py`
+- Install docker
+- Run `Sudo docker run --rm -v /mnt/{EXTERNAL FILES}:/usr/app/data/external danmyers300/fwgs:latest`
 
 Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> for UI information
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -59,6 +57,7 @@ Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> fo
 <!-- ROAD MAP -->
 ## Road map
 
+- Rewrite PDF processor
 - Train extraction models on data provided by FWGS
 - Set up a LLM on documents upload
 - Set up a LLM on entire database
