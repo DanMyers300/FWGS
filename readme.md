@@ -40,11 +40,12 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 <!-- ROAD MAP -->
 ## Road map
 
+- Connect langchain to extracted data
 - Rewrite PDF processor
-- Train extraction models on data provided by FWGS
-- Set up a LLM on documents upload
-- Set up a LLM on entire database
-- Connect extraction functionality with UI
+- Connect LLM to UI
+- Make a UI button that will refresh the models
+- Freshen up UI
+- Open up VM to network
 
 ## Extraction
 #### Working
