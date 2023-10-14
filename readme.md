@@ -42,6 +42,8 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 
 - Connect langchain to extracted data
 - Rewrite PDF processor
+- Train models on FWGS data
+- Ensure all items are being properly extracted
 - Connect LLM to UI
 - Make a UI button that will refresh the models
 - Freshen up UI
