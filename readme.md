@@ -73,25 +73,19 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 5. RFQ
 6. CODED NOTES
 
-#### Not working
-1. Version Number
-2. Distribution Method
-3. NNS End Use
-4. Purchaser Group
-5. Buyer Title
-6. DPAS Rating section
-7. Summary of hardware section
-8. APPENDICES TO HARDWARE
-9. mount/Purchase Orders
-10. mount/Msc NNS Docs\POs from Exostar
-11. mount/Msc NNS Docs\RFQs from Exostar
-12. mount/Msc NNS Docs\NNS Quality\VIR
-13. mount/Gov Specs & STDs
+#### To-Do
+1. Purchase Orders
+2. Msc NNS Docs\POs from Exostar
+3. Msc NNS Docs\RFQs from Exostar
+4. Msc NNS Docs\NNS Quality\VIR
+5. Gov Specs & STDs
 
 ## UI
-- Connect LLM and chatbot UI
 - Establish functionality for upload button
 - Give UI a facelift so it looks better
+
+## AI
+- Set up langchain with llama 2 for Q and A on extracted documents
 ---
 <!-- CONTACT -->
 ## Contact
