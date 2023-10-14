@@ -50,7 +50,7 @@ PDF extraction using NLP library [Spacy](https://spacy.io/api)
 - `Sudo docker pull danmyers300/fwgs:latest`
 - `Sudo docker run --rm -v /mnt/{EXTERNAL FILES}:/usr/app/data/external danmyers300/fwgs:latest`
 
-Reference <a href="https://github.com/danmyers300/fwgs#road-map">Road Map</a> for UI information
+Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs/general)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
