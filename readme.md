@@ -64,7 +64,7 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 - Set up a LLM on entire database
 - Connect extraction functionality with UI
 
-## Extraction:
+## Extraction
 #### Working
 1. Emails
 2. URLS
