@@ -5,8 +5,8 @@ gensim
 pandas
 openpyxl
 flask
-torch
 langchain
 transformers
 sentence_transformers
-auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+gpt4all
+llm
