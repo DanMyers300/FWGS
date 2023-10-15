@@ -43,7 +43,7 @@ Ollama
   - Serve documents to model W/ langchain
   - figure out how to run it in docker
       - They have thier own docker container maybe I can use that in parallel with my own docker container
-
+---
 - Connect langchain to extracted data
 - Rewrite PDF processor
 - Train models on FWGS data
