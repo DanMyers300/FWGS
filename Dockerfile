@@ -23,6 +23,16 @@ COPY --from=build /usr/app .
 
 ENV PATH="/usr/app/venv/bin:$PATH"
 
-EXPOSE 5000
+RUN apt-get -y update; apt-get -y install curl; apt-get -y install screen
 
-CMD ["python3", "-m", "flask", "--app", "ui", "run", "--host=0.0.0.0"]
+RUN curl -L https://ollama.ai/download/ollama-linux-amd64 -o /usr/bin/ollama
+RUN chmod +x /usr/bin/ollama
+
+EXPOSE 11434
+ENV OLLAMA_HOST 0.0.0.0
+CMD ["./d.sh"]
+
+# -- FLASK -- #
+#EXPOSE 5000
+
+#CMD ["python3", "-m", "flask", "--app", "ui", "run", "--host=0.0.0.0"]
