@@ -30,7 +30,7 @@ RUN chmod +x /usr/bin/ollama
 
 EXPOSE 11434
 ENV OLLAMA_HOST 0.0.0.0
-CMD ["./d.sh"]
+CMD ["python3", "t.py"]
 
 # -- FLASK -- #
 #EXPOSE 5000
