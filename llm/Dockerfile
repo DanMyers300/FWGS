@@ -9,9 +9,6 @@ WORKDIR /usr/app
 RUN python -m venv /usr/app/venv
 ENV PATH="/usr/app/venv/bin:$PATH"
 
-COPY ./requirements.txt .
-RUN /usr/app/venv/bin/pip install -r requirements.txt
-
 COPY . .
 
 # Final stage
