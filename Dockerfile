@@ -23,7 +23,7 @@ COPY --from=build /usr/app .
 
 ENV PATH="/usr/app/venv/bin:$PATH"
 
-RUN apt-get -y update; apt-get -y install curl; apt-get -y install screen
+RUN apt-get -y update; apt-get -y install curl
 
 RUN curl -L https://ollama.ai/download/ollama-linux-amd64 -o /usr/bin/ollama
 RUN chmod +x /usr/bin/ollama
