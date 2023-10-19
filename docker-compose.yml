@@ -1,2 +1,8 @@
-FWGS:
-   image: danmyers300/fwgs
+version: '3'
+
+services:
+  llm:
+    build: ./llm
+    image: danmyers300/fwgs:llm
+    ports:
+      - 11434:11434
