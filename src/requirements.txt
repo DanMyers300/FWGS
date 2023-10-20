@@ -4,9 +4,7 @@ pyap
 gensim
 pandas
 openpyxl
-flask
 langchain
-transformers
-sentence_transformers
+langchainhub
+chromadb
 gpt4all
-llm
