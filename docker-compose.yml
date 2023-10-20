@@ -9,7 +9,5 @@ services:
   src:
     build: ./src
     image: danmyers300/fwgs:src
-    ports:
-      - 11434:11434
     depends_on:
       - llm
