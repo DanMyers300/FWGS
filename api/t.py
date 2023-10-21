@@ -1,10 +1,10 @@
 "Download model and run RAG"
 
 import subprocess
-from langchain.llms import Ollama
+from langchain.llms.ollama import Ollama
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain.vectorstores.chroma import Chroma
 from langchain import hub
 from langchain.embeddings import GPT4AllEmbeddings
 from langchain.callbacks.manager import CallbackManager
