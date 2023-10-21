@@ -5,9 +5,9 @@ services:
     build: ./llm
     image: danmyers300/fwgs:llm
     network_mode: host
-  src:
-    build: ./src
-    image: danmyers300/fwgs:src
+  api:
+    build: ./api
+    image: danmyers300/fwgs:api
     depends_on:
       - llm
     network_mode: host
