@@ -8,7 +8,7 @@
   <h3 align="center">FWGS Entity Extraction</h3>
 
   <p align="center">
-    Named Entity Extraction for Forth-Worth Gasket and Supply
+    NER and RAG for Forth-Worth Gasket and Supply
     <br />
     <a href="https://github.com/DanMyers300/FWGS/issues">Report Bug</a>
     ·
