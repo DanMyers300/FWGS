@@ -39,10 +39,6 @@ Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs
 ---
 <!-- ROAD MAP -->
 ## Road map
-Ollama
-  - Serve documents to model W/ langchain
-  - figure out how to run it in docker
-      - They have thier own docker container maybe I can use that in parallel with my own docker container
 ---
 - Connect langchain to extracted data
 - Rewrite PDF processor
@@ -70,11 +66,14 @@ Ollama
 5. Gov Specs & STDs
 
 ## UI
-- Establish functionality for upload button
+- Establish functionality for upload button for documents?
 - Give UI a facelift so it looks better
+- Connect chat session with LLM
 
 ## AI
-- Set up langchain with llama 2 for Q and A on extracted documents
+- Create a custom RAG prompt
+- Model needs to be feed more data from FWGS database to get the answers to be more accurate
+- GPU acceleration
 ---
 <!-- CONTACT -->
 ## Contact
