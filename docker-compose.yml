@@ -11,3 +11,9 @@ services:
     depends_on:
       - llm
     network_mode: host
+  ui:
+    build: ./ui
+    image: danmyers300/fwgs:ui
+    depends_on:
+      - llm
+    network_mode: host
