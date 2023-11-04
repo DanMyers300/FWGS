@@ -28,13 +28,9 @@ A python app to intelligently extract items from documents and allow the user to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-- `Sudo apt-get install docker`
-- `Sudo docker pull danmyers300/fwgs:latest`
-- `Sudo docker run --rm -v /mnt/{EXTERNAL FILES}:/usr/app/data/external danmyers300/fwgs:latest`
+- Run `./start.sh`
 
-Reference [Docker Hub](https://hub.docker.com/repository/docker/danmyers300/fwgs/general)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ---
 <!-- ROAD MAP -->
