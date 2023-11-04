@@ -48,6 +48,6 @@
 		"marked": "^9.1.0",
 		"svelte-french-toast": "^1.2.0",
 		"uuid": "^9.0.1",
-		"langchain": "^1.0.0",
+		"langchain": "^1.0.0"
 	}
 }
