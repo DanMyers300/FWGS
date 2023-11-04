@@ -4,3 +4,5 @@ __pycache__/*
 ui/__pycache__/*
 .venv
 .vscode
+ui/node_modules
+ui/.svelte-kit

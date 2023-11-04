@@ -22,6 +22,8 @@
 	let API_BASE_URL = BUILD_TIME_API_BASE_URL;
 	let suggestions = ''; // $page.url.searchParams.get('suggestions');
 
+	const documents = ["My name is Daniel Myers"];
+
 	let models = [];
 	let textareaElement;
 
@@ -60,6 +62,8 @@
   			model: selectedModel,
   			baseUrl: API_BASE_URL,
 		});
+		
+		const documentEmbeddings = await embeddings.embedDocuments(documents); // Never used
 
 		db = await openDB('Chats', 1, {
 			upgrade(db) {
@@ -74,10 +78,6 @@
 		chats = await db.getAllFromIndex('chats', 'timestamp');
 		console.log(chats);
 		console.log(chatId);
-		
-		const documents = ["My name is Daniel Myers"];
-
-		const documentEmbeddings = await embeddings.embedDocuments(documents);
 	});
 
 	//////////////////////////
