@@ -17,6 +17,8 @@
 	import SettingsModal from '$lib/components/chat/SettingsModal.svelte';
 	import Suggestions from '$lib/components/chat/Suggestions.svelte';
 
+	import { OllamaEmbeddings } from "langchain/embeddings/ollama";
+
 	let API_BASE_URL = BUILD_TIME_API_BASE_URL;
 	let suggestions = ''; // $page.url.searchParams.get('suggestions');
 
