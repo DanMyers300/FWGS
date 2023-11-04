@@ -14,6 +14,7 @@ RUN echo $PUBLIC_API_BASE_URL
 RUN npm install langchain
 
 COPY package.json package-lock.json ./ 
+RUN npm install langchain
 RUN npm ci
 
 COPY . .
