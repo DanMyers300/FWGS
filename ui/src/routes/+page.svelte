@@ -56,6 +56,11 @@
 				? settings.model
 				: '';
 
+		const embeddings = new OllamaEmbeddings({
+  			model: selectedModel,
+  			baseUrl: API_BASE_URL,
+		});
+
 		db = await openDB('Chats', 1, {
 			upgrade(db) {
 				const store = db.createObjectStore('chats', {
@@ -69,6 +74,10 @@
 		chats = await db.getAllFromIndex('chats', 'timestamp');
 		console.log(chats);
 		console.log(chatId);
+		
+		const documents = ["My name is Daniel Myers"];
+
+		const documentEmbeddings = await embeddings.embedDocuments(documents);
 	});
 
 	//////////////////////////
