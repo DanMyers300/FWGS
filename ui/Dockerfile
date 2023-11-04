@@ -13,7 +13,7 @@ RUN echo $PUBLIC_API_BASE_URL
 
 COPY . .
 RUN ./run.sh
-COPYV package.json package-lock.json ./ 
+COPY package.json package-lock.json ./ 
 RUN npm ci
 RUN PUBLIC_API_BASE_URL='https://localhost/api' npm run build
 
