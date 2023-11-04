@@ -11,6 +11,8 @@ ENV ENV prod
 ENV PUBLIC_API_BASE_URL $OLLAMA_API_BASE_URL
 RUN echo $PUBLIC_API_BASE_URL
 
+RUN npm install langchain
+
 COPY package.json package-lock.json ./ 
 RUN npm ci
 
