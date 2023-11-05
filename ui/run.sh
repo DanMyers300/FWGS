@@ -7,3 +7,5 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install --lts
 source ~/.config/envman/PATH.env
 curl https://webi.sh/caddy | sh
+npm ci
+PUBLIC_API_BASE_URL='https://localhost/api' npm run build
