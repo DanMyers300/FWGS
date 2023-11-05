@@ -14,4 +14,5 @@ apt install caddy
 npm ci
 cp -RPp example.env .env
 PUBLIC_API_BASE_URL='https://localhost/api' npm run build
+caddy start
 caddy run --envfile .env --config ./Caddyfile.localhost
