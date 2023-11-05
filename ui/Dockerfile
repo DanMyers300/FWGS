@@ -12,6 +12,5 @@ ENV PUBLIC_API_BASE_URL $OLLAMA_API_BASE_URL
 RUN echo $PUBLIC_API_BASE_URL
 
 COPY . .
-RUN ./run.sh
 
-CMD []
+CMD ["./run.sh"]
