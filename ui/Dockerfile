@@ -14,4 +14,4 @@ RUN echo $PUBLIC_API_BASE_URL
 COPY . .
 RUN ./run.sh
 
-CMD [ "caddy", "run", "--envfile", ".env", "--config", "./Caddyfile.localhost"]
+CMD []
