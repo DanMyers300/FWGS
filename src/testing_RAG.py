@@ -12,7 +12,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.chains import RetrievalQA
 
 MODEL_NAME = "llama2"
-QUESTION = "What's the RFQ number from the corpus document? ..."
+QUESTION = "What was ? ..."
 
 # Load documents
 loader = TextLoader("./corpus.txt")
