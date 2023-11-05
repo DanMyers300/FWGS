@@ -1,9 +1,9 @@
 #!/bin/bash
 
-apt-get update -y
-apt-get upgrade -y
-apt-get install -y curl
-apt install nodejs npm
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install -y curl
+sudo apt-get install -y nodejs npm
 source ~/.config/envman/PATH.env
 curl https://webi.sh/caddy | sh
 npm ci
