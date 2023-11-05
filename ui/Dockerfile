@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM debian:12-slim
+FROM node:alpine
 WORKDIR /app
 
 ARG OLLAMA_API_BASE_URL=''
@@ -11,6 +11,10 @@ ENV ENV prod
 ENV PUBLIC_API_BASE_URL $OLLAMA_API_BASE_URL
 RUN echo $PUBLIC_API_BASE_URL
 
-COPY . .
+COPY package.json package-lock.json ./ 
+RUN npm ci
 
-CMD ["./run.sh"]
+COPY . .
+RUN npm run build
+
+CMD [ "npm", "run", "start"]

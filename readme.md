@@ -36,14 +36,6 @@ A python app to intelligently extract items from documents and allow the user to
 <!-- ROAD MAP -->
 ## Road map
 ---
-- Connect langchain to extracted data
-- Rewrite PDF processor
-- Train models on FWGS data
-- Ensure all items are being properly extracted
-- Connect LLM to UI
-- Make a UI button that will refresh the models
-- Freshen up UI
-- Open up VM to network
 
 ## Extraction
 #### Working
