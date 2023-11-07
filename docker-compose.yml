@@ -3,11 +3,20 @@ version: '3'
 services:
   llm:
     build: ./llm
-    image: danmyers300/fwgs:llm
     network_mode: host
-  ui:
-    build: ./ui
-    image: danmyers300/fwgs:ui
-    depends_on:
-      - llm
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  src:
+    build: ./src
     network_mode: host
+    volumes:
+      - ./data:/usr/app/data
+
+volumes:
+  data: {}
