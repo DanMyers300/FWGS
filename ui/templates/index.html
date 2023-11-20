@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Web UI</title>
+</head>
+<body>
+    <h1>QA Web UI</h1>
+    <form action="/ask" method="post">
+        <label for="query">Enter a query:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Ask</button>
+    </form>
+    {% if query %}
+        <h2>Question:</h2>
+        <p>{{ query }}</p>
+    {% endif %}
+    {% if answer %}
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+    {% endif %}
+    {% if documents %}
+        <h2>Source Documents:</h2>
+        {% for document in documents %}
+            <h3>{{ document.metadata.source }}</h3>
+            <p>{{ document.page_content }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
