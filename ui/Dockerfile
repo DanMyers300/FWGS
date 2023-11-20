@@ -23,4 +23,4 @@ COPY --from=build /usr/app .
 
 ENV PATH="/usr/app/venv/bin:$PATH"
 
-CMD ["python3", "privateGPT.py"]
+CMD ["./ui.sh"]
