@@ -28,4 +28,4 @@ sudo systemctl start docker
 
 
 # Build and run docker containers
-sudo docker compose up --build
+sudo docker compose up --build -d
