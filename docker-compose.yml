@@ -16,6 +16,8 @@ services:
   ui:
     build: ./ui
     network_mode: host
+    depends_on:
+      - llm
     volumes:
       - ./data/source_documents:/usr/app/source_documents
 
