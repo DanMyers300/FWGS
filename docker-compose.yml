@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   llm:
     build: ./llm
     network_mode: host
@@ -11,6 +12,14 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+
+  ui:
+    build: ./ui
+    network_mode: host
+    depends_on:
+      - llm
+    volumes:
+      - ./data/source_documents:/usr/app/source_documents
 
   src:
     build: ./src
