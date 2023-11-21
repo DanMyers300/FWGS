@@ -20,7 +20,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A python app to intelligently extract items from documents and allow the user to perform queries on the docuemnts using a large language model.
+A application to extract information from documents using NER. Then performing RAG with open source language models to allow the user to query the documents.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
