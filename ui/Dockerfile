@@ -27,4 +27,4 @@ RUN chmod +x /usr/bin/ollama
 
 ENV PATH="/usr/app/venv/bin:$PATH"
 
-CMD ["python", "flask_ui.py"]
+CMD ["python", "loop.py"]
