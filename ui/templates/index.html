@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA Web UI</title>
+
+    <style>
+        /* Add some basic styling for the collapsible box */
+        .collapsible-box {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow: auto;
+            max-height: 300px;
+            display: none;  /* Hide the box by default */
+        }
+
+        /* Style the button that will be used to toggle the box */
+        .collapsible-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>QA Web UI</h1>
@@ -20,12 +50,26 @@
         <h2>Answer:</h2>
         <p>{{ answer }}</p>
     {% endif %}
+
+    <!-- Add the button to toggle the collapsible box -->
+    <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
+
     {% if documents %}
-        <h2>Source Documents:</h2>
-        {% for document in documents %}
-            <h3>{{ document.metadata.source }}</h3>
-            <p>{{ document.page_content }}</p>
-        {% endfor %}
+        <!-- Add the collapsible box for source documents -->
+        <div class="collapsible-box" id="source-documents">
+            <h2>Source Documents:</h2>
+            {% for document in documents %}
+                <h3>{{ document.metadata.source }}</h3>
+                <p>{{ document.page_content }}</p>
+            {% endfor %}
+        </div>
     {% endif %}
+
+    <script>
+        function toggleCollapsibleBox() {
+            var box = document.getElementById('source-documents');
+            box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>
