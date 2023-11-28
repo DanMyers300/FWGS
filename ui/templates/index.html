@@ -6,7 +6,49 @@
     <title>QA Web UI</title>
 
     <style>
-        /* Add some basic styling for the collapsible box */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         .collapsible-box {
             position: fixed;
             top: 10px;
@@ -17,10 +59,9 @@
             padding: 10px;
             overflow: auto;
             max-height: 300px;
-            display: none;  /* Hide the box by default */
+            display: none;
         }
 
-        /* Style the button that will be used to toggle the box */
         .collapsible-button {
             background-color: #4CAF50;
             color: white;
@@ -37,11 +78,7 @@
 </head>
 <body>
     <h1>QA Web UI</h1>
-    <form action="/ask" method="post">
-        <label for="query">Enter a query:</label>
-        <input type="text" id="query" name="query" required>
-        <button type="submit">Ask</button>
-    </form>
+
     {% if query %}
         <h2>Question:</h2>
         <p>{{ query }}</p>
@@ -51,19 +88,26 @@
         <p>{{ answer }}</p>
     {% endif %}
 
-    <!-- Add the button to toggle the collapsible box -->
-    <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
-
-    {% if documents %}
-        <!-- Add the collapsible box for source documents -->
-        <div class="collapsible-box" id="source-documents">
-            <h2>Source Documents:</h2>
+    <div class="collapsible-box" id="source-documents">
+        <h2>Source Documents:</h2>
+        {% if documents %}
             {% for document in documents %}
                 <h3>{{ document.metadata.source }}</h3>
                 <p>{{ document.page_content }}</p>
             {% endfor %}
-        </div>
-    {% endif %}
+        {% else %}
+            <p>No documents available.</p>
+        {% endif %}
+    </div>
+
+    <form action="/ask" method="post">
+        <label for="query">Enter a query:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Ask</button>
+    </form>
+
+    <!-- Add the button to toggle the collapsible box -->
+    <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
 
     <script>
         function toggleCollapsibleBox() {
