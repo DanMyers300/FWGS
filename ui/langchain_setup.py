@@ -23,7 +23,7 @@ callbacks = [StreamingStdOutCallbackHandler()]
 llm = Ollama(model=model, callbacks=callbacks)
 
 # Run "ollama pull llama2" command
-subprocess.run(["ollama", "pull", "llama2"])
+subprocess.run(["ollama", "pull", model])
 
 qa = RetrievalQA.from_chain_type(
     llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
