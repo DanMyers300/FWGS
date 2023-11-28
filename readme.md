@@ -20,7 +20,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A application to extract information from documents using NER. Then performing RAG with open source language models to allow the user to query the documents.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
