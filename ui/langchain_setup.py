@@ -22,7 +22,6 @@ retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 callbacks = [StreamingStdOutCallbackHandler()]
 llm = Ollama(model=model, callbacks=callbacks)
 
-# Run "ollama pull llama2" command
 subprocess.run(["ollama", "pull", model])
 
 qa = RetrievalQA.from_chain_type(
