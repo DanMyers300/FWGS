@@ -8,7 +8,7 @@ from langchain.llms import Ollama
 import chromadb
 import os
 
-model = os.environ.get("MODEL", "llama2")
+model = os.environ.get("MODEL", "llama2:7b-chat")
 embeddings_model_name = os.environ.get("EMBEDDINGS_MODEL_NAME", "all-MiniLM-L6-v2")
 persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
 target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
