@@ -3,7 +3,7 @@ version: '3'
 services:
 
   llm:
-    build: ./llm
+    image: ollama/ollama
     network_mode: host
 
   src:
