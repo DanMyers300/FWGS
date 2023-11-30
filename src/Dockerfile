@@ -21,5 +21,10 @@ WORKDIR /usr/app
 
 COPY --from=build /usr/app .
 
+RUN apt-get -y update; apt-get -y install curl
+RUN curl -L https://ollama.ai/download/ollama-linux-amd64 -o /usr/bin/ollama
+RUN chmod +x /usr/bin/ollama
+
 ENV PATH="/usr/app/venv/bin:$PATH"
 
+CMD ["python", "flask_ui.py"]

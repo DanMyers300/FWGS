@@ -6,19 +6,13 @@ services:
     build: ./llm
     network_mode: host
 
-  ui:
-    build: ./ui
+  src:
+    build: ./src
     network_mode: host
     depends_on:
       - llm
     volumes:
       - ./data/source_documents:/usr/app/source_documents
-
-  src:
-    build: ./src
-    network_mode: host
-    volumes:
-      - ./data:/usr/app/data
 
 volumes:
   data: {}
