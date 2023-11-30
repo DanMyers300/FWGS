@@ -1,10 +1,3 @@
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
-
   <h3 align="center">FWGS Entity Extraction</h3>
 
   <p align="center">
@@ -14,23 +7,11 @@
     ·
     <a href="https://github.com/DanMyers300/FWGS/issues">Request Feature</a>
   </p>
-</div>
 
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 - Run `./start.sh`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 <!-- CONTACT -->
