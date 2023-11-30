@@ -7,12 +7,6 @@ import json
 import spacy
 import pyap
 from spacy.matcher import Matcher
-from pdf_processor import PDFProcessor
-
-# Run pdf_processor.py
-processor = PDFProcessor()
-processor.get_pdf_file_names()
-processor.extract_text_from_pdf()
 
 #
 # --- Open file and load spaCy --- #

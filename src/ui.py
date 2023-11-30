@@ -24,7 +24,7 @@ def ask_question():
 def run_setup():
     if request.method == "POST":
         try:
-            subprocess.run(["python3", "langchain_setup.py"], check=True)
+            subprocess.run(["python3", "start_llm.py"], check=True)
             message = "Setup script executed successfully!"
         except subprocess.CalledProcessError as e:
             message = f"Error executing setup script: {e}"
