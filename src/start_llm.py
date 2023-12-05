@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import subprocess
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
@@ -21,8 +20,6 @@ db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 callbacks = [StreamingStdOutCallbackHandler()]
 llm = Ollama(model=model, callbacks=callbacks)
-
-subprocess.run(["ollama", "pull", model])
 
 qa = RetrievalQA.from_chain_type(
     llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
