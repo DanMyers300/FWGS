@@ -18,6 +18,7 @@ def ask_question():
     res = qa(query)
     answer, docs = res["result"], res["source_documents"]
 
+    # Render the template without redirecting
     return render_template("index.html", query=query, answer=answer, documents=docs)
 
 @app.route("/run_setup", methods=["GET", "POST"])
@@ -28,9 +29,9 @@ def run_setup():
             message = "Setup script executed successfully!"
         except subprocess.CalledProcessError as e:
             message = f"Error executing setup script: {e}"
-        
+
         return render_template("setup_result.html", message=message)
-    
+
     return render_template("run_setup.html")
 
 if __name__ == "__main__":
