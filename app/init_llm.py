@@ -15,7 +15,7 @@ target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
 
 from constants import CHROMA_SETTINGS
 
-def pull_model(model):
+def pull_model():
     url = "http://localhost:11434/api/pull"
     data = {
         "name": model
