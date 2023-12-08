@@ -14,9 +14,10 @@ persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
 target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
 
 from constants import CHROMA_SETTINGS
+from constants import BASE_URL
 
 def pull_model():
-    url = "https://ddca254a49d814d87a3a52871db84276c.clg07azjl.paperspacegradient.com/api/pull"
+    url = f"{BASE_URL}/api/pull"
     data = {
         "name": model
     }
@@ -34,7 +35,7 @@ embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
 db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 callbacks = [StreamingStdOutCallbackHandler()]
-llm = Ollama(model=model, callbacks=callbacks)
+llm = Ollama(model=model, callbacks=callbacks, base_url=BASE_URL)
 
 qa = RetrievalQA.from_chain_type(
     llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
