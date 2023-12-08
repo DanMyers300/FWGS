@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-from app.init_llm import qa
-import subprocess
+from init_llm import qa
 
 app = Flask(__name__)
 
@@ -20,19 +19,6 @@ def ask_question():
 
     # Render the template without redirecting
     return render_template("index.html", query=query, answer=answer, documents=docs)
-
-@app.route("/run_setup", methods=["GET", "POST"])
-def run_setup():
-    if request.method == "POST":
-        try:
-            subprocess.run(["python3", "start_llm.py"], check=True)
-            message = "Setup script executed successfully!"
-        except subprocess.CalledProcessError as e:
-            message = f"Error executing setup script: {e}"
-
-        return render_template("setup_result.html", message=message)
-
-    return render_template("run_setup.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
