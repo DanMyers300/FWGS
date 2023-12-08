@@ -5,14 +5,19 @@ services:
   llm:
     image: ollama/ollama
     network_mode: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
-  src:
-    build: ./src
+  app:
+    build: ./app
     network_mode: host
     depends_on:
       - llm
-    volumes:
-      - ./data/source_documents:/usr/app/source_documents
 
 volumes:
   data: {}
