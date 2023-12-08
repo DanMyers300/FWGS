@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-from init_llm import qa
+from init_llm import qa, pull_model
 
 app = Flask(__name__)
 
@@ -19,6 +19,12 @@ def ask_question():
 
     # Render the template without redirecting
     return render_template("index.html", query=query, answer=answer, documents=docs)
+
+@app.route('/init', methods=['POST'])
+def init():
+    pull_model()
+    return render_template("index.html", result="Model pulled.")
+    
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

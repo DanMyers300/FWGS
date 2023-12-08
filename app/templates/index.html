@@ -83,6 +83,11 @@
 <body>
     <h1>QA Web UI</h1>
 
+    <h1>Welcome to the Flask Button Example</h1>
+    <form action="/init" method="post">
+        <button type="submit">Pull model</button>
+    </form>
+
     {% if query %}
         <h2>Question:</h2>
         <p>{{ query }}</p>
