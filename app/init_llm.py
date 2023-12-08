@@ -16,7 +16,7 @@ target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
 from constants import CHROMA_SETTINGS
 
 def pull_model():
-    url = "http://localhost:11434/api/pull"
+    url = "https://ddca254a49d814d87a3a52871db84276c.clg07azjl.paperspacegradient.com/api/pull"
     data = {
         "name": model
     }
