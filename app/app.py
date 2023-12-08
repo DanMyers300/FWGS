@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-from start_llm import qa
+from app.init_llm import qa
 import subprocess
 
 app = Flask(__name__)
