@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +11,67 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
         }
 
-        h1 {
-            margin-top: 20px;
+        .chat-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+        .chat-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
         }
 
-        label {
-            margin-bottom: 8px;
+        .chat-display {
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 300px;
         }
 
-        input[type="text"] {
-            padding: 10px;
+        .message {
             margin-bottom: 10px;
+        }
+
+        .user-message {
+            text-align: right;
+            color: #333;
+        }
+
+        .bot-message {
+            text-align: left;
+            color: #555;
+        }
+
+        .chat-form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+        }
+
+        #query {
+            flex-grow: 1;
+            padding: 10px;
+            margin-right: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            width: 80%;
             box-sizing: border-box;
         }
 
-        button {
+        #ask-btn {
             background-color: #4CAF50;
             color: white;
             padding: 10px;
@@ -48,81 +79,74 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
-        .collapsible-box {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            width: 300px;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            padding: 10px;
-            overflow: auto;
-            max-height: 300px;
-            display: none;
-        }
-
-        .collapsible-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-        
-        .collapsible-box * {
-        word-wrap: break-word;
-        }
     </style>
 </head>
+
+
 <body>
-    <h1>QA Web UI</h1>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>QA Web UI</h1>
+        </div>
 
-    <h1>Welcome to the Flask Button Example</h1>
-    <form action="/init" method="post">
-        <button type="submit">Pull model</button>
-    </form>
+        <div class="chat-display" id="chat-display">
+            <!-- Existing message display content -->
+        </div>
 
-    {% if query %}
-        <h2>Question:</h2>
-        <p>{{ query }}</p>
-    {% endif %}
-    {% if answer %}
-        <h2>Answer:</h2>
-        <p>{{ answer }}</p>
-    {% endif %}
-
-    <div class="collapsible-box" id="source-documents">
-        <h2>Source Documents:</h2>
-        {% if documents %}
-            {% for document in documents %}
-                <h3>{{ document.metadata.source }}</h3>
-                <p>{{ document.page_content }}</p>
-            {% endfor %}
-        {% else %}
-            <p>No documents available.</p>
-        {% endif %}
+        <form class="chat-form" id="chat-form" action="{{ url_for('ask_question') }}" method="post">
+            <input type="text" id="query" name="query" required>
+            <button type="submit" id="ask-btn">Ask</button>
+        </form>
     </div>
 
-    <form action="/ask" method="post">
-        <label for="query">Enter a query:</label>
-        <input type="text" id="query" name="query" required>
-        <button type="submit">Ask</button>
+    <form action="/ingest" method="post">
+        <button type="submit">Ingest Documents</button>
     </form>
 
-    <!-- Add the button to toggle the collapsible box -->
-    <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
-
     <script>
-        function toggleCollapsibleBox() {
-            var box = document.getElementById('source-documents');
-            box.style.display = (box.style.display === 'none') ? 'block' : 'none';
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var chatForm = document.getElementById('chat-form');
+            var chatDisplay = document.getElementById('chat-display');
+
+            chatForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var queryInput = document.getElementById('query');
+                var query = queryInput.value.trim();
+
+                if (query !== '') {
+                    appendMessage('user', query);
+
+                    // Perform AJAX request to Flask route
+                    fetch('/ask', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            'query': query,
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        var answer = data.answer || 'No answer available';
+                        appendMessage('bot', answer);
+
+                        queryInput.value = ''; // Clear the input field
+                    })
+                    .catch(error => console.error('Error:', error));
+                }
+            });
+
+            function appendMessage(sender, message) {
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'message ' + sender + '-message';
+                messageDiv.innerHTML = '<strong>' + sender.charAt(0).toUpperCase() + sender.slice(1) + ':</strong> ' + message;
+
+                chatDisplay.appendChild(messageDiv);
+                chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the bottom
+            }
+        });
     </script>
 </body>
+
 </html>
