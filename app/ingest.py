@@ -133,6 +133,29 @@ def does_vectorstore_exist(persist_directory: str) -> bool:
                 return True
     return False
 
+def delete_vectorstores():
+    """
+    Deletes all vector stores from the specified directory.
+    """
+    index_directory = os.path.join(persist_directory, 'index')
+    collections_file = os.path.join(persist_directory, 'chroma-collections.parquet')
+    embeddings_file = os.path.join(persist_directory, 'chroma-embeddings.parquet')
+
+    # Remove index files
+    if os.path.exists(index_directory):
+        shutil.rmtree(index_directory)
+
+    # Remove collections file
+    if os.path.exists(collections_file):
+        os.remove(collections_file)
+
+    # Remove embeddings file
+    if os.path.exists(embeddings_file):
+        os.remove(embeddings_file)
+
+    return (f"All vector stores deleted from {persist_directory}")
+
+
 def main():
     # Create embeddings
     embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
@@ -154,8 +177,7 @@ def main():
     db.persist()
     db = None
 
-    print(f"Ingestion complete! You can now run privateGPT.py to query your documents")
-
+    print(f"Ingestion complete!")
 
 if __name__ == "__main__":
 

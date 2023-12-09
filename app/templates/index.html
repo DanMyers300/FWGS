@@ -103,6 +103,28 @@
         <button type="submit">Ingest Documents</button>
     </form>
 
+    <form action="/init" method="post">
+        <button type="submit">Pull Model</button>
+    </form>
+
+    <form action="/cleardb" method="post">
+        <button type="submit">Clear DB</button>
+    </form>
+
+    <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
+
+    <div class="collapsible-box" id="source-documents">
+        <h2>Source Documents:</h2>
+        {% if documents %}
+            {% for document in documents %}
+                <h3>{{ document.metadata.source }}</h3>
+                <p>{{ document.page_content }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No documents available.</p>
+        {% endif %}
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var chatForm = document.getElementById('chat-form');
@@ -128,7 +150,7 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        var answer = data.answer || 'No answer available';
+                        var answer = data.answer || 'Error: No answer provided';
                         appendMessage('bot', answer);
 
                         queryInput.value = ''; // Clear the input field
@@ -146,6 +168,11 @@
                 chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the bottom
             }
         });
+
+        function toggleCollapsibleBox() {
+            var box = document.getElementById('source-documents');
+            box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+        }
     </script>
 </body>
 

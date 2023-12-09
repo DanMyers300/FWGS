@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+import os
 import json
+import subprocess
 from flask import Flask, render_template, request, jsonify
 from init_llm import qa, pull_model
-import subprocess
+from ingest import delete_vectorstores
 
 app = Flask(__name__)
 
@@ -39,7 +41,17 @@ def init():
 
 @app.route('/ingest', methods=['POST'])
 def ingest():
-    subprocess.run(['python', 'ingest.py'])
+    try:
+        subprocess.run(['python', 'ingest.py'])
+        return jsonify({'status': 'success', 'message': 'Ingestion completed successfully'})
+    except Exception as e:
+        error_message = f'Error during ingestion: {str(e)}'
+        print(error_message)
+        return jsonify({'status': 'error', 'message': error_message}), 500
+
+@app.route('/cleardb', methods=['POST'])
+def clear_chromadb_route():
+    return delete_vectorstores()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
