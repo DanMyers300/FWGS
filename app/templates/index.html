@@ -71,6 +71,10 @@
             background-color: #555;
         }
 
+        .collapsible-box {
+            display: none;
+        }
+
         #query {
             flex-grow: 1;
             padding: 10px;
@@ -172,8 +176,9 @@
                     clearQueryBox();
                 }
             }
-    
-            function clearQueryBox() {
+        });
+        
+        function clearQueryBox() {
                 document.getElementById('query').value = ''; // Clear the query input field
             }
     
@@ -188,9 +193,12 @@
     
             function toggleCollapsibleBox() {
                 var box = document.getElementById('source-documents');
-                box.style.display = 'block';
+                if (box.style.display === 'none' || box.style.display === '') {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
             }
-        });
     </script>
 </body>
 
