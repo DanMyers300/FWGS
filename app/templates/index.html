@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FWGS bot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
 
     <style>
         body {
@@ -129,51 +130,52 @@
             <!-- Existing message display content -->
         </div>
 
-        <form class="chat-form" id="chat-form" action="{{ url_for('ask_question') }}" method="post">
+        <form class="chat-form" id="chat-form" onsubmit="submitForm(event)">
             <input type="text" id="query" name="query" required>
             <button type="submit" id="ask-btn">Ask</button>
-        </form>
+        </form>        
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            toggleCollapsibleBox(); // Hide the source documents by default
-            clearQueryBox(); // Clear the query box when the page is loaded
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+    
+            socket.on('connect', function () {
+                console.log('Connected to the server');
+            });
+    
+            socket.on('disconnect', function () {
+                console.log('Disconnected from the server');
+            });
+    
+            socket.on('answer', function (data) {
+                var answer = data.answer || 'Error: No answer provided';
+                appendMessage('bot', answer);
+                toggleCollapsibleBox(); // Show the source documents when a new answer is received
+            });
     
             var chatForm = document.getElementById('chat-form');
             var chatDisplay = document.getElementById('chat-display');
     
             chatForm.addEventListener('submit', function (e) {
                 e.preventDefault();
+                submitForm();
+            });
+    
+            function submitForm() {
                 var queryInput = document.getElementById('query');
                 var query = queryInput.value.trim();
     
                 if (query !== '') {
                     appendMessage('user', query);
     
-                    // Perform AJAX request to Flask route
-                    fetch('/ask', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams({
-                            'query': query,
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        var answer = data.answer || 'Error: No answer provided';
-                        appendMessage('bot', answer);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    })
-                    .finally(() => {
-                        clearQueryBox(); // Clear the query box after submitting the message
-                    });
+                    // Perform WebSocket request instead of AJAX
+                    socket.emit('ask', {'query': query});
+    
+                    // Clear the query box after submitting the message
+                    clearQueryBox();
                 }
-            });
+            }
     
             function clearQueryBox() {
                 document.getElementById('query').value = ''; // Clear the query input field
@@ -190,7 +192,7 @@
     
             function toggleCollapsibleBox() {
                 var box = document.getElementById('source-documents');
-                box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+                box.style.display = 'block';
             }
         });
     </script>

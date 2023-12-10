@@ -3,10 +3,12 @@ import os
 import json
 import subprocess
 from flask import Flask, render_template, request, jsonify
+from flask_socketio import SocketIO
 from llm import qa, pull_model
 from ingest import delete_vectorstores
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 class DocumentEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -20,19 +22,26 @@ app.json_encoder = DocumentEncoder
 def index():
     return render_template("index.html")
 
-@app.route("/ask", methods=["POST"])
-def ask_question():
-    query = request.form.get("query")
-    if not query.strip():
-        return jsonify({"error": "Please enter a non-empty query"})
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
 
-    res = qa(query)
-    answer, docs = res["result"], res["source_documents"]
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
 
-    # Serialize Document objects
-    serialized_docs = [doc.__dict__ for doc in docs]
+@socketio.on('ask')
+def handle_ask(data):
+    query = data.get('query')
+    if query:
+        res = qa(query)
+        answer, docs = res["result"], res["source_documents"]
 
-    return jsonify({"query": query, "answer": answer, "documents": serialized_docs})
+        # Serialize Document objects
+        serialized_docs = [doc.__dict__ for doc in docs]
+
+        # Emit the result to the connected WebSocket clients
+        socketio.emit('answer', {"query": query, "answer": answer, "documents": serialized_docs})
 
 @app.route('/init', methods=['POST'])
 def init():
@@ -54,4 +63,4 @@ def clear_chromadb_route():
     return delete_vectorstores()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)

@@ -2,6 +2,7 @@ langchain
 gpt4all
 chromadb
 llama-cpp-python
+flask-socketio
 urllib3
 PyMuPDF
 python-dotenv
