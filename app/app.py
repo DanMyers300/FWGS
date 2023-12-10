@@ -15,6 +15,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.vectorstores import Chroma
 from langchain.llms import Ollama
 
+BASE_URL = os.environ.get('BASE_URL', 'http://localhost:11434')
 model = os.environ.get("MODEL", "llama2:7b-chat")
 embeddings_model_name = os.environ.get("EMBEDDINGS_MODEL_NAME", "all-MiniLM-L6-v2")
 persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
