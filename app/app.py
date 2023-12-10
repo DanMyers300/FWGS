@@ -4,10 +4,8 @@ import json
 import subprocess
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
-from llm import qa
 from utilities import pull_model
 from utilities import delete_vectorstores
-from constants import BASE_URL
 
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
