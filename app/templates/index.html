@@ -136,17 +136,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             toggleCollapsibleBox(); // Hide the source documents by default
+            clearQueryBox(); // Clear the query box when the page is loaded
+    
             var chatForm = document.getElementById('chat-form');
             var chatDisplay = document.getElementById('chat-display');
-
+    
             chatForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var queryInput = document.getElementById('query');
                 var query = queryInput.value.trim();
-
+    
                 if (query !== '') {
                     appendMessage('user', query);
-
+    
                     // Perform AJAX request to Flask route
                     fetch('/ask', {
                         method: 'POST',
@@ -161,27 +163,34 @@
                     .then(data => {
                         var answer = data.answer || 'Error: No answer provided';
                         appendMessage('bot', answer);
-
-                        queryInput.value = ''; // Clear the input field
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => {
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        clearQueryBox(); // Clear the query box after submitting the message
+                    });
                 }
             });
-
+    
+            function clearQueryBox() {
+                document.getElementById('query').value = ''; // Clear the query input field
+            }
+    
             function appendMessage(sender, message) {
                 var messageDiv = document.createElement('div');
                 messageDiv.className = 'message ' + sender + '-message';
                 messageDiv.innerHTML = '<strong>' + sender.charAt(0).toUpperCase() + sender.slice(1) + ':</strong> ' + message;
-
+    
                 chatDisplay.appendChild(messageDiv);
                 chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the bottom
             }
+    
+            function toggleCollapsibleBox() {
+                var box = document.getElementById('source-documents');
+                box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+            }
         });
-
-        function toggleCollapsibleBox() {
-            var box = document.getElementById('source-documents');
-            box.style.display = (box.style.display === 'none') ? 'block' : 'none';
-        }
     </script>
 </body>
 
