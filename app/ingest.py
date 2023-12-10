@@ -135,25 +135,16 @@ def does_vectorstore_exist(persist_directory: str) -> bool:
 
 def delete_vectorstores():
     """
-    Deletes all vector stores from the specified directory.
+    Deletes the ./db folder using a subprocess call.
     """
-    index_directory = os.path.join(persist_directory, 'index')
-    collections_file = os.path.join(persist_directory, 'chroma-collections.parquet')
-    embeddings_file = os.path.join(persist_directory, 'chroma-embeddings.parquet')
+    db_folder = './db'
 
-    # Remove index files
-    if os.path.exists(index_directory):
-        shutil.rmtree(index_directory)
-
-    # Remove collections file
-    if os.path.exists(collections_file):
-        os.remove(collections_file)
-
-    # Remove embeddings file
-    if os.path.exists(embeddings_file):
-        os.remove(embeddings_file)
-
-    return (f"All vector stores deleted from {persist_directory}")
+    try:
+        # Use the rm command to recursively remove the folder
+        subprocess.run(['rm', '-r', db_folder], check=True)
+        print(f"The {db_folder} folder has been deleted.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error: Unable to delete {db_folder}. {e}")
 
 
 def main():
