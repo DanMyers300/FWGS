@@ -9,7 +9,7 @@
     <style>
         body {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
@@ -19,10 +19,8 @@
         }
 
         .util-container {
-            position: fixed;
-            left: 0px;
-            height: 100vh;
-            background-color: black;
+            min-height: 100vh;
+            background-color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,25 +28,22 @@
         }
 
         .chat-container {
-            width: 80%;
-            max-width: 600px;
+            width: 100%;
+            min-height: 100vh;
             background-color: #fff;
-            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .chat-header {
-            background-color: #4CAF50;
+            background-color: #28882c;
             color: white;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
         }
 
         .chat-display {
-            padding: 15px;
             overflow-y: auto;
-            max-height: 300px;
+            min-height: 82vh;
         }
 
         .message {
@@ -95,21 +90,6 @@
 
 
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>FWGS bot</h1>
-        </div>
-
-        <div class="chat-display" id="chat-display">
-            <!-- Existing message display content -->
-        </div>
-
-        <form class="chat-form" id="chat-form" action="{{ url_for('ask_question') }}" method="post">
-            <input type="text" id="query" name="query" required>
-            <button type="submit" id="ask-btn">Ask</button>
-        </form>
-    </div>
-
     <div class="util-container">
         <form action="/ingest" method="post">
             <button type="submit">Ingest Documents</button>
@@ -136,6 +116,21 @@
                 <p>No documents available.</p>
             {% endif %}
         </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>FWGS bot</h1>
+        </div>
+
+        <div class="chat-display" id="chat-display">
+            <!-- Existing message display content -->
+        </div>
+
+        <form class="chat-form" id="chat-form" action="{{ url_for('ask_question') }}" method="post">
+            <input type="text" id="query" name="query" required>
+            <button type="submit" id="ask-btn">Ask</button>
+        </form>
     </div>
 
     <script>
