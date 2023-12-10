@@ -3,7 +3,7 @@ import os
 import json
 import subprocess
 from flask import Flask, render_template, request, jsonify
-from init_llm import qa, pull_model
+from llm import qa, pull_model
 from ingest import delete_vectorstores
 
 app = Flask(__name__)
