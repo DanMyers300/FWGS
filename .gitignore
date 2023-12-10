@@ -6,3 +6,4 @@ ui/__pycache__/*
 .vscode
 ui/node_modules
 ui/.svelte-kit
+.env
