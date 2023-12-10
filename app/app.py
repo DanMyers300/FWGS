@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-import os
 import json
 import subprocess
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 from utilities import pull_model
-from utilities import delete_vectorstores
 
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -13,22 +11,10 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.vectorstores import Chroma
 from langchain.llms import Ollama
 
-BASE_URL = os.environ.get('BASE_URL', 'http://localhost:11434')
-model = os.environ.get("MODEL", "llama2:7b-chat")
-embeddings_model_name = os.environ.get("EMBEDDINGS_MODEL_NAME", "all-MiniLM-L6-v2")
-persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
-target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
+from utilities import BASE_URL, model, embeddings_model_name, persist_directory, target_source_chunks
 
 app = Flask(__name__)
 socketio = SocketIO(app)
-
-class DocumentEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, Document):
-            return obj.__dict__
-        return json.JSONEncoder.default(self, obj)
-
-app.json_encoder = DocumentEncoder
 
 embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
 db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
@@ -77,10 +63,6 @@ def ingest():
         error_message = f'Error during ingestion: {str(e)}'
         print(error_message)
         return jsonify({'status': 'error', 'message': error_message}), 500
-
-@app.route('/cleardb', methods=['POST'])
-def clear_chromadb_route():
-    return delete_vectorstores()
 
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0', port=5000, debug=True)

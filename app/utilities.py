@@ -1,21 +1,12 @@
-def delete_vectorstores():
-    """
-    Deletes the ./db folder using a subprocess call.
-    """
-    # Get the absolute path to the current script's directory
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+import os
+import subprocess
+from flask import jsonify
 
-    # Construct the absolute path to the db folder
-    db_folder = os.path.join(script_dir, 'db')
-
-    try:
-        # Use the rm command to recursively remove the folder
-        subprocess.run(['rm', '-r', db_folder], check=True)
-        print(f"The {db_folder} folder has been deleted.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error: Unable to delete {db_folder}. {e}")
-
-    return jsonify({'status': 'success', 'message': 'Vectorstore deleted successfully'})
+BASE_URL = os.environ.get('BASE_URL', 'http://localhost:11434')
+model = os.environ.get("MODEL", "llama2:7b-chat")
+embeddings_model_name = os.environ.get("EMBEDDINGS_MODEL_NAME", "all-MiniLM-L6-v2")
+persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
+target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
 
 def pull_model():
     url = f"{BASE_URL}/api/pull"
