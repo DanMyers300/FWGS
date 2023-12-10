@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import subprocess
 import glob
 from typing import List
 from multiprocessing import Pool
@@ -23,6 +24,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
+from flask import jsonify
 from constants import CHROMA_SETTINGS
 
 
@@ -137,7 +139,11 @@ def delete_vectorstores():
     """
     Deletes the ./db folder using a subprocess call.
     """
-    db_folder = './db'
+    # Get the absolute path to the current script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Construct the absolute path to the db folder
+    db_folder = os.path.join(script_dir, 'db')
 
     try:
         # Use the rm command to recursively remove the folder
@@ -145,6 +151,8 @@ def delete_vectorstores():
         print(f"The {db_folder} folder has been deleted.")
     except subprocess.CalledProcessError as e:
         print(f"Error: Unable to delete {db_folder}. {e}")
+
+    return jsonify({'status': 'success', 'message': 'Vectorstore deleted successfully'})
 
 
 def main():
