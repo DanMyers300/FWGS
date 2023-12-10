@@ -13,6 +13,12 @@
 
 - Run `./start.sh`
 
+<!-- Version -->
+## Version
+V0.1.0
+- Basic RAG functionality
+- Basic UI
+
 ---
 <!-- CONTACT -->
 ## Contact
