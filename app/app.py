@@ -4,8 +4,21 @@ import json
 import subprocess
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
-from llm import qa, pull_model
-from ingest import delete_vectorstores
+from llm import qa
+from utilities import pull_model
+from utilities import delete_vectorstores
+from constants import BASE_URL
+
+from langchain.chains import RetrievalQA
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.vectorstores import Chroma
+from langchain.llms import Ollama
+
+model = os.environ.get("MODEL", "llama2:7b-chat")
+embeddings_model_name = os.environ.get("EMBEDDINGS_MODEL_NAME", "all-MiniLM-L6-v2")
+persist_directory = os.environ.get("PERSIST_DIRECTORY", "db")
+target_source_chunks = int(os.environ.get("TARGET_SOURCE_CHUNKS", 4))
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -17,6 +30,16 @@ class DocumentEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 app.json_encoder = DocumentEncoder
+
+embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
+db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
+callbacks = [StreamingStdOutCallbackHandler()]
+llm = Ollama(model=model, callbacks=callbacks, base_url=BASE_URL)
+
+qa = RetrievalQA.from_chain_type(
+    llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
+)
 
 @app.route("/")
 def index():

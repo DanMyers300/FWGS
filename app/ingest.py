@@ -135,26 +135,6 @@ def does_vectorstore_exist(persist_directory: str) -> bool:
                 return True
     return False
 
-def delete_vectorstores():
-    """
-    Deletes the ./db folder using a subprocess call.
-    """
-    # Get the absolute path to the current script's directory
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Construct the absolute path to the db folder
-    db_folder = os.path.join(script_dir, 'db')
-
-    try:
-        # Use the rm command to recursively remove the folder
-        subprocess.run(['rm', '-r', db_folder], check=True)
-        print(f"The {db_folder} folder has been deleted.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error: Unable to delete {db_folder}. {e}")
-
-    return jsonify({'status': 'success', 'message': 'Vectorstore deleted successfully'})
-
-
 def main():
     # Create embeddings
     embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
