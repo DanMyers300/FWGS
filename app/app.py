@@ -37,10 +37,8 @@ def handle_ask(data):
         res = qa(query)
         answer, docs = res["result"], res["source_documents"]
 
-        # Serialize Document objects
         serialized_docs = [doc.__dict__ for doc in docs]
 
-        # Emit the result to the connected WebSocket clients
         socketio.emit('answer', {"query": query, "answer": answer, "documents": serialized_docs})
 
 @app.route('/init', methods=['POST'])
