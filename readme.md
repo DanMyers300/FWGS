@@ -11,6 +11,7 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+- Ensure that nvidia-container-toolkit and nvidia-cuda-toolkit are installed to use the GPU
 - Run `./start.sh`
 
 <!-- Version -->
