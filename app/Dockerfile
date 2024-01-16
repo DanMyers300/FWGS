@@ -1,5 +1,5 @@
 # Build stage
-FROM python:3.12-slim as build
+FROM python:3.11-slim as build
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential gcc
@@ -15,7 +15,7 @@ RUN /usr/app/venv/bin/pip install -r requirements.txt
 COPY . .
 
 # Final stage
-FROM python:3.12-slim
+FROM python:3.11-slim
 
 WORKDIR /usr/app
 
