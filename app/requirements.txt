@@ -12,7 +12,6 @@ tabulate
 pandoc
 pypandoc
 tqdm
-torch
 sentence_transformers
 flask
 spacy
