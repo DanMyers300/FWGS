@@ -1,5 +1,5 @@
 # Build stage
-FROM python:3.11-slim@sha256:8fcf215ec209b0cba4048197d3a78544faa69561b03a35528899fd9b93fe2990 as build
+FROM python:3.12-slim as build
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential gcc
@@ -15,7 +15,7 @@ RUN /usr/app/venv/bin/pip install -r requirements.txt
 COPY . .
 
 # Final stage
-FROM python:3.11-slim@sha256:8fcf215ec209b0cba4048197d3a78544faa69561b03a35528899fd9b93fe2990
+FROM python:3.12-slim
 
 WORKDIR /usr/app
 
