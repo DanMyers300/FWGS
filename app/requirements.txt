@@ -21,4 +21,3 @@ gensim
 pandas
 openpyxl
 langchainhub
-dotenv
