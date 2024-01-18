@@ -1,4 +1,4 @@
-FROM ollama/ollama:0.1.20@sha256:80ed5afc9183bcf3b6c14d38f5b695472bb8af44f2d5fcfba5bbbb4a1a012e72
+FROM ollama/ollama@sha256:ab06232d21138c714721602c19e128baba1345b43abdc78c512abecc78ed867d
 
 COPY . .
 
