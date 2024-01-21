@@ -3,7 +3,7 @@ version: '3'
 services:
 
   llm:
-    image: ollama/ollama
+    image: fwgasket/llm
     network_mode: host
     deploy:
       resources:
@@ -14,6 +14,7 @@ services:
               capabilities: [gpu]
 
   app:
+    image: fwgasket/app
     build: ./app
     network_mode: host
     depends_on:
