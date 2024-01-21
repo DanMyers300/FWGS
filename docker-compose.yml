@@ -5,7 +5,6 @@ services:
   llm:
     image: fwgasket/llm
     build: ./llm
-    network_mode: host
     ports:
       - "11434:11434"
     deploy:
@@ -19,7 +18,8 @@ services:
   app:
     image: fwgasket/app
     build: ./app
-    network_mode: host
+    ports:
+      - "5000:5000"
     depends_on:
       - llm
 
