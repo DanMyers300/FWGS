@@ -4,7 +4,10 @@ services:
 
   llm:
     image: fwgasket/llm
+    build: ./llm
     network_mode: host
+    ports:
+      - "11434:11434"
     deploy:
       resources:
         reservations:
