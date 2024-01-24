@@ -5,21 +5,19 @@ services:
   llm:
     image: fwgasket/llm
     build: ./llm
-    ports:
-      - "11434:11434"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    network_mode: "host"
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: 1
+    #          capabilities: [gpu]
 
   app:
     image: fwgasket/app
     build: ./app
-    ports:
-      - "5000:5000"
+    network_mode: "host"
     depends_on:
       - llm
 

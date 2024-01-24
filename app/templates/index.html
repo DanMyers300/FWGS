@@ -1,205 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FWGS bot</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
-
+    <title>Chatbot Interface</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .util-container {
-            min-height: 100vh;
-            background-color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-
         .chat-container {
-            height: 100vh;
-            width: 100%;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-header {
-            background-color: #28882c;
-            color: white;
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
             padding: 10px;
-            text-align: center;
+            overflow-y: scroll;
         }
-
-        .chat-display {
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .message {
+        .user-message {
+            background-color: #f1f1f1;
+            padding: 10px;
             margin-bottom: 10px;
         }
-
-        .user-message {
-            text-align: right;
-            color: #333;
-        }
-
         .bot-message {
-            text-align: left;
-            color: #555;
-        }
-
-        .chat-form {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background-color: #555;
-        }
-
-        .collapsible-box {
-            display: none;
-        }
-
-        #query {
-            flex-grow: 1;
+            background-color: #e1e1e1;
             padding: 10px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
+            margin-bottom: 10px;
         }
-
-        #ask-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .input-container {
+            margin-top: 10px;
+        }
+        .input-container input {
+            width: 300px;
+            padding: 5px;
+        }
+        .input-container button {
+            padding: 5px 10px;
         }
     </style>
 </head>
-
-
 <body>
-    <div class="util-container">
-        <form action="/init" method="post">
-            <button type="submit">Pull Model</button>
-        </form>
-        
-        <form action="/ingest" method="post">
-            <button type="submit">Ingest Documents</button>
-        </form>
-
-        <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
-
-        <div class="collapsible-box" id="source-documents">
-            <h2>Source Documents:</h2>
-            {% if documents %}
-                {% for document in documents %}
-                    <h3>{{ document.metadata.source }}</h3>
-                    <p>{{ document.page_content }}</p>
-                {% endfor %}
-            {% else %}
-                <p>No documents available.</p>
-            {% endif %}
-        </div>
-    </div>
-
     <div class="chat-container">
-        <div class="chat-header">
-            <h1>FWGS bot</h1>
-        </div>
-
-        <div class="chat-display" id="chat-display">
-            <!-- Existing message display content -->
-        </div>
-
-        <form class="chat-form" id="chat-form" onsubmit="submitForm(event)">
-            <input type="text" id="query" name="query" required>
-            <button type="submit" id="ask-btn">Ask</button>
-        </form>        
+        <div class="bot-message">Hello! How can I assist you today?</div>
+    </div>
+    <div class="input-container">
+        <form action="/chat" method="POST">
+            <input type="text" name="user-input" placeholder="Type your message here">
+            <button type="submit">Send</button>
+        </form>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var socket = io.connect('http://' + document.domain + ':' + location.port);
-    
-            socket.on('connect', function () {
-                console.log('Connected to the server');
-            });
-    
-            socket.on('disconnect', function () {
-                console.log('Disconnected from the server');
-            });
-    
-            socket.on('answer', function (data) {
-                var answer = data.answer || 'Error: No answer provided';
-                appendMessage('bot', answer);
-                toggleCollapsibleBox(); // Show the source documents when a new answer is received
-            });
-    
-            var chatForm = document.getElementById('chat-form');
-            var chatDisplay = document.getElementById('chat-display');
-    
-            chatForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                submitForm();
-            });
-    
-            function submitForm() {
-                var queryInput = document.getElementById('query');
-                var query = queryInput.value.trim();
-    
-                if (query !== '') {
-                    appendMessage('user', query);
-    
-                    // Perform WebSocket request instead of AJAX
-                    socket.emit('ask', {'query': query});
-    
-                    // Clear the query box after submitting the message
-                    clearQueryBox();
-                }
-            }
-        });
-        
-        function clearQueryBox() {
-                document.getElementById('query').value = ''; // Clear the query input field
-            }
-    
-            function appendMessage(sender, message) {
-                var messageDiv = document.createElement('div');
-                messageDiv.className = 'message ' + sender + '-message';
-                messageDiv.innerHTML = '<strong>' + sender.charAt(0).toUpperCase() + sender.slice(1) + ':</strong> ' + message;
-    
-                chatDisplay.appendChild(messageDiv);
-                chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the bottom
-            }
-    
-            function toggleCollapsibleBox() {
-                var box = document.getElementById('source-documents');
-                if (box.style.display === 'none' || box.style.display === '') {
-                    box.style.display = 'block';
-                } else {
-                    box.style.display = 'none';
-                }
-            }
+        function sendMessage() {
+            var userInput = document.querySelector("input[name='user-input']").value;
+            var chatContainer = document.querySelector(".chat-container");
+
+            // Create user message element
+            var userMessage = document.createElement("div");
+            userMessage.classList.add("user-message");
+            userMessage.textContent = userInput;
+
+            // Append user message to chat container
+            chatContainer.appendChild(userMessage);
+
+            // Clear input field
+            document.querySelector("input[name='user-input']").value = "";
+
+            // Simulate bot response
+            setTimeout(function() {
+                var botMessage = document.createElement("div");
+                botMessage.classList.add("bot-message");
+                botMessage.textContent = "I'm sorry, I'm just a basic chatbot. I don't have the capability to respond intelligently.";
+                chatContainer.appendChild(botMessage);
+
+                // Scroll to the bottom of the chat container
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 500);
+        }
     </script>
 </body>
-
 </html>
