@@ -22,7 +22,7 @@ from langchain.document_loaders import (
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.embeddings import OllamaEmbeddings
 from langchain.docstore.document import Document
 from flask import jsonify
 from constants import CHROMA_SETTINGS
@@ -31,7 +31,7 @@ from constants import CHROMA_SETTINGS
 # Load environment variables
 persist_directory = os.environ.get('PERSIST_DIRECTORY', 'db')
 source_directory = os.environ.get('SOURCE_DIRECTORY', 'source_documents')
-embeddings_model_name = os.environ.get('EMBEDDINGS_MODEL_NAME', 'all-MiniLM-L6-v2')
+embeddings_model_name = os.environ.get('EMBEDDINGS_MODEL_NAME', 'llama2:7b')
 chunk_size = 500
 chunk_overlap = 50
 
@@ -137,7 +137,7 @@ def does_vectorstore_exist(persist_directory: str) -> bool:
 
 def main():
     # Create embeddings
-    embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
+    embeddings = OllamaEmbeddings(model=embeddings_model_name)
 
     if does_vectorstore_exist(persist_directory):
         # Update and store locally vectorstore

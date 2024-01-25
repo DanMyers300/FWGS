@@ -1,15 +1,26 @@
-import ollama
 from ollama import Client
+from utilities import BASE_URL, model, embeddings_model_name, persist_directory, target_source_chunks
 from flask import Flask, render_template
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain.vectorstores import Chroma
 
 app = Flask(__name__)
 client = Client(host='http://localhost:11434')
+db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
+callbacks = [StreamingStdOutCallbackHandler()]
+llm = Ollama(model=model, callbacks=callbacks, base_url=BASE_URL)
+
+qa = RetrievalQA.from_chain_type(
+    llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
+)
 
 def chat_generator():
     stream = client.chat(
         model='llama2',
         messages=[{'role': 'user', 'content': 'Why is the sky blue?'}],
         stream=True,
+        context=True,
     )
     for chunk in stream:
         yield chunk['message']['content']
@@ -18,16 +29,8 @@ def chat_generator():
 def index():
     return render_template("index.html")
 
-@app.route('/pull')
-def pull():
-    ollama.pull('llama2')
-    return 'Pulled model'
-
 @app.route('/chat')
 def chat():
-    message_content = ''.join(chat_generator())
-    app.logger.info(message_content)
-    return message_content
 
 @app.route('/embed')
 def embed_documents():  
