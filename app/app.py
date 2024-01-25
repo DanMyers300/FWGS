@@ -1,9 +1,8 @@
 import ollama
 from ollama import Client
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
-
 client = Client(host='http://localhost:11434')
 
 def chat_generator():
@@ -14,6 +13,10 @@ def chat_generator():
     )
     for chunk in stream:
         yield chunk['message']['content']
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 @app.route('/pull')
 def pull():

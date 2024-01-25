@@ -7,3 +7,4 @@ ui/__pycache__/*
 ui/node_modules
 ui/.svelte-kit
 .env
+llm/models
