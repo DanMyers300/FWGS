@@ -164,7 +164,9 @@
                 .then(data => {
                     // Handle the response from the server
                     if (data.response) {
-                        appendMessage('bot', data.response);
+                        data.response.forEach(message => {
+                            appendMessage('bot', message);
+                        });
                     } else {
                         console.error('Error:', data.error);
                     }
