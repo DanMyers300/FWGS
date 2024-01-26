@@ -1,2 +1,4 @@
 ollama
 flask
+langchain-community
+chromadb

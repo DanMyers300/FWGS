@@ -1,11 +1,8 @@
+from flask import Flask, render_template, request, jsonify
 from ollama import Client
-from flask import Flask, render_template
-
-from langchain.chains import RetrievalQA
-from langchain.embeddings import OllamaEmbeddings
-from langchain.vectorstores import Chroma
-from langchain.llms import Ollama
-
+from langchain_community.llms import Ollama
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import Chroma
 from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY, target_source_chunks
 
 app = Flask(__name__)
@@ -16,39 +13,21 @@ db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings)
 retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 llm = Ollama(model=model, base_url=BASE_URL)
 
-qa = RetrievalQA.from_chain_type(
-    llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
-)
-
-# Without langchain
-def chat_generator():
-    stream = client.chat(
-        model='llama2',
-        messages=[{'role': 'user', 'content': 'Why is the sky blue?'}],
-        stream=True,
-        context=True,
-    )
-    for chunk in stream:
-        yield chunk['message']['content']
-
-# With langchain
-def handle_chat(data):
-    query = data.get('query')
-    if query:
-        res = qa(query)
-        answer, docs = res["result"], res["source_documents"]
-
-        serialized_docs = [doc.__dict__ for doc in docs]
-
-        return {"query": query, "answer": answer, "documents": serialized_docs}
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route('/chat')
+@app.route('/chat', methods=['POST'])
 def chat():
-    return handle_chat(request.args)
+    data = request.json
+    query = data.get('query', '')
+
+    if query:
+        response = list(llm.stream(query))
+        return jsonify({'response': response})
+    else:
+        return jsonify({'error': 'Invalid query'}), 400
+
 
 @app.route('/embed')
 def embed_documents():  
