@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 from ollama import Client
 from langchain_community.llms import Ollama
 from langchain_community.embeddings import OllamaEmbeddings
@@ -6,6 +7,7 @@ from langchain_community.vectorstores import Chroma
 from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY, target_source_chunks
 
 app = Flask(__name__)
+CORS(app)
 client = Client(host=BASE_URL)
 
 embeddings = Ollama(model=embeddings_model_name)
