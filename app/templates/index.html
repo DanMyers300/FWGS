@@ -164,7 +164,8 @@
                 .then(data => {
                     // Handle the response from the server
                     if (data.response) {
-                        data.response.forEach(message => {
+                        data.response.forEach(tokens => {
+                            const message = tokens.join(' '); // Join tokens into a sentence
                             appendMessage('bot', message);
                         });
                     } else {
