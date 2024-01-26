@@ -8,12 +8,14 @@ services:
     ports:
       - "11434:11434"
     deploy:
-     resources:
-       reservations:
-         devices:
-           - driver: nvidia
-             count: 1
-             capabilities: [gpu]
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - fwgasketAI
 
   app:
     image: fwgasket/app
@@ -22,6 +24,12 @@ services:
       - "5000:5000"
     depends_on:
       - llm
+    networks:
+      - fwgasketAI
+
+networks:
+  fwgasketAI:
+    driver: bridge
 
 volumes:
   data: {}
