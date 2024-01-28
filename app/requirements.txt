@@ -1,5 +1,6 @@
 ollama
 flask
+langchain
 langchain-community
 chromadb
 flask-cors
