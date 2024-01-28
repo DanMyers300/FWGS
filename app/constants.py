@@ -11,7 +11,7 @@ embeddings_model_name = os.environ.get('EMBEDDINGS_MODEL_NAME', 'llama2:7b')
 # Define the folder for storing database
 PERSIST_DIRECTORY = os.environ.get('PERSIST_DIRECTORY', 'db')
 
-BASE_URL = os.environ.get('BASE_URL', 'http://172.19.0.2:11434')
+BASE_URL = os.environ.get('BASE_URL', 'http://llm:11434')
 
 # Define the Chroma settings
 CHROMA_SETTINGS = Settings(

@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 from flask_cors import CORS
-from ollama import Client
 from langchain_community.llms import Ollama
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
@@ -8,7 +7,6 @@ from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY,
 
 app = Flask(__name__)
 CORS(app)
-client = Client(host=BASE_URL)
 
 embeddings = Ollama(model=embeddings_model_name)
 db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings)
@@ -21,15 +19,14 @@ def index():
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    data = request.json
-    query = data.get('query', '')
-
+    data = request.get_json()
+    query = data.get('query')
+    
     if query:
-        response = list(llm.stream(query))
-        return jsonify({'response': response})
+        response = "".join(llm.stream(query))
+        return jsonify({"query": query, "response": response})
     else:
         return jsonify({'error': 'Invalid query'}), 400
-
 
 @app.route('/embed')
 def embed_documents():  

@@ -11,14 +11,14 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-- Ensure that nvidia-container-toolkit and nvidia-cuda-toolkit are installed to use the GPU
-- Run `./start.sh`
 
 <!-- Version -->
 ## Version
 V0.1.0
 - Basic RAG functionality
 - Basic UI
+
+<!-- To-Do -->
 
 ---
 <!-- CONTACT -->

@@ -152,7 +152,6 @@
                 appendMessage('user', query);
                 clearQueryBox();
     
-                // Send the query to the server using fetch
                 fetch('/chat', {
                     method: 'POST',
                     headers: {
@@ -162,12 +161,8 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Handle the response from the server
                     if (data.response) {
-                        data.response.forEach(tokens => {
-                            const message = tokens.join(' '); // Join tokens into a sentence
-                            appendMessage('bot', message);
-                        });
+                        appendMessage('bot', data.response);
                     } else {
                         console.error('Error:', data.error);
                     }
