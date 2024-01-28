@@ -25,7 +25,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.docstore.document import Document
 from flask import jsonify
-from constants import CHROMA_SETTINGS
+from constants import CHROMA_SETTINGS, BASE_URL
 
 
 # Load environment variables
