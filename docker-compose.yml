@@ -24,11 +24,8 @@ services:
     networks:
       - fwgasketAI
     volumes:
-      - data:/mnt/d/ai_data
+      - /mnt/d/ai_data:/usr/app/data
 
 networks:
   fwgasketAI:
     driver: bridge
-
-volumes:
-  data:
