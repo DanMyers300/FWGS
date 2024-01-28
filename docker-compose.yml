@@ -24,7 +24,7 @@ services:
     networks:
       - fwgasketAI
     volumes:
-      - /usr/app/data:/mnt/d/ai_data
+      - /mnt/d/ai_data:/usr/app/data
 
 networks:
   fwgasketAI:
