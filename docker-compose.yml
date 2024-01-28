@@ -1,5 +1,4 @@
 services:
-
   llm:
     image: fwgasket/llm
     build: ./llm
@@ -30,3 +29,6 @@ services:
 networks:
   fwgasketAI:
     driver: bridge
+
+volumes:
+  data:
