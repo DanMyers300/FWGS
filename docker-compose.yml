@@ -30,4 +30,4 @@ networks:
     driver: bridge
 
 volumes:
-  data: {}
+  /mnt/d/ai_data: {}
