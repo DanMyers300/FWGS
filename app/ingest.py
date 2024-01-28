@@ -20,7 +20,7 @@ from langchain_community.document_loaders import (
     UnstructuredWordDocumentLoader,
 )
 
-from langchain_community.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.docstore.document import Document
