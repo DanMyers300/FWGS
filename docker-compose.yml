@@ -24,10 +24,9 @@ services:
       - llm
     networks:
       - fwgasketAI
+    volumes:
+      - data:/mnt/d/ai_data
 
 networks:
   fwgasketAI:
     driver: bridge
-
-volumes:
-  /mnt/d/ai_data: {}
