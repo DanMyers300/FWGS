@@ -30,7 +30,7 @@ from constants import CHROMA_SETTINGS
 
 # Load environment variables
 persist_directory = os.environ.get('PERSIST_DIRECTORY', 'db')
-source_directory = os.environ.get('SOURCE_DIRECTORY', 'source_documents')
+source_directory = os.environ.get('SOURCE_DIRECTORY', 'data/source_documents')
 embeddings_model_name = os.environ.get('EMBEDDINGS_MODEL_NAME', 'llama2:7b')
 chunk_size = 500
 chunk_overlap = 50

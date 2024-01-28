@@ -2,5 +2,7 @@ ollama
 flask
 langchain
 langchain-community
+unstructured
 chromadb
 flask-cors
+pymupdf
