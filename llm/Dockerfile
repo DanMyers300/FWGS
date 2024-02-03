@@ -1,4 +1,4 @@
-FROM ollama/ollama@sha256:ab06232d21138c714721602c19e128baba1345b43abdc78c512abecc78ed867d
+FROM ollama/ollama@sha256:3f2db54ed0eb615d75fd83c0f10b6e5d196e95e4550cde383f6be410b3deb74b
 
 COPY ./models /root/.ollama/models
 
