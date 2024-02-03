@@ -3,6 +3,7 @@ from flask_cors import CORS
 from langchain_community.llms import Ollama
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
+from langchain.chains import RetrievalQA
 from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY, target_source_chunks, CHROMA_SETTINGS
 from ingest import process_documents, does_vectorstore_exist, persist_directory
 
@@ -14,6 +15,10 @@ db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings)
 retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 llm = Ollama(model=model, base_url=BASE_URL)
 
+qa = RetrievalQA.from_chain_type(
+    llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
+)
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -24,7 +29,10 @@ def chat():
     query = data.get('query')
     
     if query:
-        response = "".join(llm.stream(query))
+        res = qa(query)
+        answer, docs = res["result"], res["source_documents"]
+        serialized_docs = [doc.__dict__ for doc in docs]
+        response = {"query": query, "answer": answer, "documents": serialized_docs}
         return jsonify({"query": query, "response": response})
     else:
         return jsonify({'error': 'Invalid query'}), 400
