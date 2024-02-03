@@ -30,7 +30,7 @@ def chat():
         return jsonify({'error': 'Invalid query'}), 400
 
 @app.route('/embed', methods=['POST'])
-def embed_documents(embeddings):
+def embed_documents():
     if does_vectorstore_exist(persist_directory):
         # Update and store locally vectorstore
         print(f"Appending to existing vectorstore at {persist_directory}")
