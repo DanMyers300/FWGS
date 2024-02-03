@@ -9,7 +9,7 @@ from ingest import process_documents, does_vectorstore_exist, persist_directory
 app = Flask(__name__)
 CORS(app)
 
-embeddings = Ollama(model=embeddings_model_name)
+embeddings = OllamaEmbeddings(model=embeddings_model_name)
 db = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embeddings)
 retriever = db.as_retriever(search_kwargs={"k": target_source_chunks})
 llm = Ollama(model=model, base_url=BASE_URL)
@@ -30,7 +30,7 @@ def chat():
         return jsonify({'error': 'Invalid query'}), 400
 
 @app.route('/embed', methods=['POST'])
-def embed_documents():
+def embed_documents(embeddings):
     if does_vectorstore_exist(persist_directory):
         # Update and store locally vectorstore
         print(f"Appending to existing vectorstore at {persist_directory}")
