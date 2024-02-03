@@ -160,10 +160,13 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.response) {
-                        appendMessage('bot', data.response);
+                    if (data[0] === 'answer') {
+                        appendMessage('bot', data[1].answer);
+                        if (data[1].documents && data[1].documents.length > 0) {
+                            displaySourceDocuments(data[1].documents);
+                        }
                     } else {
-                        console.error('Error:', data.error);
+                        console.error('Error:', data[1].error);
                     }
                 })
                 .catch(error => {
@@ -172,6 +175,21 @@
             }
         }
     
+        function displaySourceDocuments(documents) {
+            var sourceDocumentsDiv = document.getElementById('source-documents');
+            sourceDocuments.innerHTML = '<h2>Source Documents:</h2>';
+    
+            if (documents.length > 0) {
+                documents.forEach(document => {
+                    var documentDiv = document.createElement('div');
+                    documentDiv.innerHTML = '<h3>' + document.metadata.source + '</h3><p>' + document.page_content + '</p>';
+                    sourceDocumentsDiv.appendChild(documentDiv);
+                });
+            } else {
+                sourceDocumentsDiv.innerHTML = '<p>No documents available.</p>';
+            }
+        }
+
         function clearQueryBox() {
             document.getElementById('query').value = '';
         }
