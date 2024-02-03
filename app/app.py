@@ -32,8 +32,7 @@ def chat():
         res = qa(query)
         answer, docs = res["result"], res["source_documents"]
         serialized_docs = [doc.__dict__ for doc in docs]
-        response = {"query": query, "answer": answer, "documents": serialized_docs}
-        return response
+        return jsonify('answer', {"query": query, "answer": answer, "documents": serialized_docs})
     else:
         return jsonify({'error': 'Invalid query'}), 400
 
