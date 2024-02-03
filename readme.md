@@ -20,6 +20,8 @@ V0.1.0
 
 <!-- To-Do -->
 
+Connect ingested document database to llm.
+
 ---
 <!-- CONTACT -->
 ## Contact
