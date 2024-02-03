@@ -3,7 +3,8 @@ from flask_cors import CORS
 from langchain_community.llms import Ollama
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
-from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY, target_source_chunks
+from constants import BASE_URL, model, embeddings_model_name, PERSIST_DIRECTORY, target_source_chunks, CHROMA_SETTINGS
+from ingest import process_documents, does_vectorstore_exist, persist_directory
 
 app = Flask(__name__)
 CORS(app)
@@ -30,7 +31,27 @@ def chat():
 
 @app.route('/embed')
 def embed_documents():  
-    return 'Hello, World!'
+        # Create embeddings
+    embeddings = OllamaEmbeddings(model=embeddings_model_name)
+
+    if does_vectorstore_exist(persist_directory):
+        # Update and store locally vectorstore
+        print(f"Appending to existing vectorstore at {persist_directory}")
+        db = Chroma(persist_directory=persist_directory, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
+        collection = db.get()
+        texts = process_documents([metadata['source'] for metadata in collection['metadatas']])
+        print(f"Creating embeddings. May take some minutes...")
+        db.add_documents(texts)
+    else:
+        # Create and store locally vectorstore
+        print("Creating new vectorstore")
+        texts = process_documents()
+        print(f"Creating embeddings. May take some minutes...")
+        db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory)
+    db.persist()
+    db = None
+
+    return(f"Ingestion complete!")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
