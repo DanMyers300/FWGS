@@ -33,7 +33,7 @@ body {
     padding: 10px;
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .chat-display {
@@ -68,12 +68,10 @@ body {
 }
 
 .upload-button {
-    background-color: #007704;
-    color: white;
-    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    left: 0;
 }
 
 #query {
