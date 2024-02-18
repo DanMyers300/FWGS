@@ -31,9 +31,9 @@ body {
     background-color: #28882c;
     color: white;
     padding: 10px;
-    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Changed from center to space-between */
+    align-items: center; /* Added for vertical alignment */
 }
 
 .chat-display {
@@ -68,10 +68,23 @@ body {
 }
 
 .upload-button {
+    /* Removed unnecessary styling */
+}
+
+.upload-button form {
+    margin: 0; /* Removed default margin */
+}
+
+.upload-button button {
+    background: none;
     border: none;
-    border-radius: 5px;
+    color: white;
     cursor: pointer;
-    left: 0;
+    padding: 0; /* Removed padding */
+}
+
+.upload-button button:hover {
+    text-decoration: underline;
 }
 
 #query {
