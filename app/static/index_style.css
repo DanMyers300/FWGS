@@ -106,4 +106,5 @@ body {
 .warning {
     position: relative;
     text-align: center;
+    height: fit-content;
 }
