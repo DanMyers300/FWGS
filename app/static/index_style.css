@@ -104,10 +104,8 @@ body {
 }
 
 .warning {
-    position: fixed;
-    bottom: calc(20px + 100vh);
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 20px; 
     background-color: #ffcc00;
     padding: 10px;
     border-radius: 5px;
@@ -115,4 +113,5 @@ body {
     width: 80%;
     max-width: 400px;
 }
+
 
