@@ -1,7 +1,7 @@
 var chatForm = document.getElementById('chat-form');
 var chatDisplay = document.getElementById('chat-display');
 
-chatForm!.addEventListener('submit', function (e) {
+chatForm.addEventListener('submit', function (e) {
     e.preventDefault();
     submitForm();
 });
