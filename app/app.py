@@ -19,7 +19,6 @@ from ingest import process_documents, does_vectorstore_exist, persist_directory
 app = Flask(__name__)
 CORS(app)
 
-# Set a secret key for the session
 app.secret_key = os.urandom(24)
 
 embeddings = OllamaEmbeddings(model=embeddings_model_name, base_url=BASE_URL)
@@ -65,22 +64,17 @@ def allowed_file(filename):
 @app.route("/upload", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
-        # check if the post request has the file part
         if "file" not in request.files:
             flash("No file part")
             return redirect(request.url)
         file = request.files["file"]
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
         if file.filename == "":
             flash("No selected file")
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            return "File uploaded successfully!"  # or any message you want to display
-    # If the request method is GET or if the file is not uploaded via POST,
-    # return the HTML form for uploading files.
+            return redirect(url_for("embed_documents"))
     return """
     <!doctype html>
     <title>Upload new File</title>
@@ -117,7 +111,7 @@ def embed_documents():
     db.persist()
     db = None
 
-    return f"Ingestion complete!"
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
