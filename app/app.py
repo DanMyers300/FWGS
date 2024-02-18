@@ -62,7 +62,7 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOW_EXTENSIONS
 
 
-@app.route("/upload", methods=["POST"])
+@app.route("/upload", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
         # check if the post request has the file part
@@ -79,6 +79,8 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
             return redirect(url_for("download_file", name=filename))
+    # If the request method is GET or if the file is not uploaded via POST,
+    # return the HTML form for uploading files.
     return """
     <!doctype html>
     <title>Upload new File</title>
