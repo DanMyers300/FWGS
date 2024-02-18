@@ -102,3 +102,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.warning {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
