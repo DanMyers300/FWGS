@@ -32,8 +32,8 @@ body {
     color: white;
     padding: 10px;
     display: flex;
-    justify-content: space-between; /* Changed from center to space-between */
-    align-items: center; /* Added for vertical alignment */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .chat-display {
@@ -67,20 +67,17 @@ body {
     display: none;
 }
 
-.upload-button {
-    /* Removed unnecessary styling */
-}
-
 .upload-button form {
-    margin: 0; /* Removed default margin */
+    margin: 0;
 }
 
 .upload-button button {
-    background: none;
+    background: 10px;
+    background-color: grey;
     border: none;
     color: white;
     cursor: pointer;
-    padding: 0; /* Removed padding */
+    padding: 10px;
 }
 
 .upload-button button:hover {
