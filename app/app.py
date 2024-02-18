@@ -86,7 +86,7 @@ def upload_file():
     """
 
 
-@app.route("/embed", methods=["POST"])
+@app.route("/embed", methods=["GET", "POST"])
 def embed_documents():
     if does_vectorstore_exist(persist_directory):
         print(f"Appending to existing vectorstore at {persist_directory}")
