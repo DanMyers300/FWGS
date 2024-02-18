@@ -73,12 +73,14 @@ body {
 
 .upload-button button {
     background: 10px;
-    background-color: grey;
+    background-color: linear-gradient(to bottom, #4c4c4c, #333);
     border: none;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
     padding: 10px;
 }
+
 
 .upload-button button:hover {
     text-decoration: underline;
