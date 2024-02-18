@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, jsonify, Response
+import os
+from flask import Flask, render_template, request, jsonify, flash, request, redirect, url_for
+from werkzeug.utils import secure_filename
 from flask_cors import CORS
 from langchain_community.llms import Ollama
 from langchain_community.embeddings import OllamaEmbeddings
@@ -19,6 +21,11 @@ qa = RetrievalQA.from_chain_type(
     llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
 )
 
+UPLOAD_FOLDER = 'data/loading'
+ALLOW_EXTENSIONS = {'txt', 'pdf'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -36,10 +43,41 @@ def chat():
     else:
         return jsonify({'error': 'Invalid query'}), 400
 
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() \
+            in ALLOW_EXTENSIONS
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('download_file', name=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
+
 @app.route('/embed', methods=['POST'])
 def embed_documents():
     if does_vectorstore_exist(persist_directory):
-        # Update and store locally vectorstore
         print(f"Appending to existing vectorstore at {persist_directory}")
         db = Chroma(persist_directory=persist_directory, embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
         collection = db.get()
@@ -47,7 +85,6 @@ def embed_documents():
         print(f"Creating embeddings. May take some minutes...")
         db.add_documents(texts)
     else:
-        # Create and store locally vectorstore
         print("Creating new vectorstore")
         texts = process_documents()
         print(f"Creating embeddings. May take some minutes...")

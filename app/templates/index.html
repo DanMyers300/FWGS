@@ -97,8 +97,8 @@
 
 <body>
     <div class="util-container">
-        <form action="/init" method="post">
-            <button type="submit">Pull Model</button>
+        <form action="/upload" method="post">
+            <button type="submit">Upload documents</button>
         </form>
         
         <form action="/embed" method="post">
@@ -107,7 +107,7 @@
 
         <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
 
-        <div class="collapsible-box" id="source-documents">
+        <div class="collapsible-box" id="source-documents">I was 
             <h2>Source Documents:</h2>
             {% if documents %}
                 {% for document in documents %}
