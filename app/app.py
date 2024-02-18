@@ -62,10 +62,10 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOW_EXTENSIONS
 
 
-@app.route("/upload", methods=["POST"])
+@app.route("/upload", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
-        # check if the post request has the file part
+        # Check if the post request has the file part
         if "file" not in request.files:
             flash("No file part")
             return redirect(request.url)
@@ -79,15 +79,17 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
             return redirect(url_for("download_file", name=filename))
-    return """
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    """
+    else:
+        # This block handles the GET request, i.e., when the user accesses the upload page
+        return """
+        <!doctype html>
+        <title>Upload new File</title>
+        <h1>Upload new File</h1>
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
+        """
 
 
 @app.route("/embed", methods=["POST"])
