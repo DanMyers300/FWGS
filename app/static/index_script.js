@@ -8,7 +8,7 @@ chatForm.addEventListener('submit', function (e) {
 
 function submitForm() {
     var queryInput = document.getElementById('query');
-    var query = (queryInput as HTMLInputElement)?.value.trim();
+    var query = queryInput.value.trim();
     if (query !== '') {
         appendMessage('user', query);
         clearQueryBox();
@@ -60,7 +60,7 @@ function displaySourceDocuments(documents) {
 }
 
 function clearQueryBox() {
-    var queryInput = document.getElementById('query') as HTMLInputElement;
+    var queryInput = document.getElementById('query');
     if (queryInput) {
         queryInput.value = '';
     }
@@ -86,7 +86,7 @@ function toggleCollapsibleBox() {
 }
 
 function closeWarning() {
-    var warningDiv = document.querySelector('.warning') as HTMLElement;
+    var warningDiv = document.querySelector('.warning');
     if (warningDiv) {
         warningDiv.style.display = 'none';
     }
