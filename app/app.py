@@ -38,11 +38,13 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 @app.route("/")
 def index():
+    """Display main page"""
     return render_template("index.html")
 
 
 @app.route("/chat", methods=["POST"])
 def chat():
+    """Chat with the model"""
     data = request.get_json()
     query = data.get("query")
 
@@ -58,11 +60,13 @@ def chat():
 
 
 def allowed_file(filename):
+    """Checks if the file extension is allowed."""
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOW_EXTENSIONS
 
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload_file():
+    """Uploads a file to the server."""
     if request.method == "POST":
         if "file" not in request.files:
             flash("No file part")
@@ -88,6 +92,7 @@ def upload_file():
 
 @app.route("/embed", methods=["GET", "POST"])
 def embed_documents():
+    """Embeds documents and creates a new vectorstore."""
     if does_vectorstore_exist(persist_directory):
         print(f"Appending to existing vectorstore at {persist_directory}")
         db = Chroma(
@@ -99,12 +104,12 @@ def embed_documents():
         texts = process_documents(
             [metadata["source"] for metadata in collection["metadatas"]]
         )
-        print(f"Creating embeddings. May take some minutes...")
+        print("Creating embeddings. May take some minutes...")
         db.add_documents(texts)
     else:
         print("Creating new vectorstore")
         texts = process_documents()
-        print(f"Creating embeddings. May take some minutes...")
+        print("Creating embeddings. May take some minutes...")
         db = Chroma.from_documents(
             texts, embeddings, persist_directory=persist_directory
         )
