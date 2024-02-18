@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index_style.css') }}">
 </head>
 
-
-<body>
     <!-- <div class="util-container">
 
         <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
@@ -27,29 +25,29 @@
         </div>
     </div> -->
 
-<div class="chat-container">
-    <div class="chat-header">
-        <h1>FWGS bot</h1>
-        <div class="upload-button">
-            <form action="/upload" method="post">
-                <button type="submit">Upload documents</button>
-            </form>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>FWGS bot</h1>
+            <div class="upload-button">
+                <form action="/upload" method="post">
+                    <button type="submit">Upload documents</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="chat-display" id="chat-display"></div>
+
+        <form class="chat-form" id="chat-form" autocomplete="off" onsubmit="submitForm(event)">
+            <input type="text" id="query" name="query" required>
+            <button type="submit" id="ask-btn">Send</button>
+        </form>
+        
+        <div class="warning">
+            <p>Warning: Language models may produce false information.</p>
+            <span class="close-btn" onclick="closeWarning()">x</span>
         </div>
     </div>
-
-    <div class="chat-display" id="chat-display">
-    </div>
-
-    <form class="chat-form" id="chat-form" autocomplete="off" onsubmit="submitForm(event)">
-        <input type="text" id="query" name="query" required>
-        <button type="submit" id="ask-btn">Send</button>
-    </form>
-    
-    <div class="warning">
-        <p>Warning: Language models may produce false information.</p>
-    </div>
-</div>
-
 
     <script src="{{ url_for('static', filename='index_script.ts') }}"></script>
 </body>

@@ -108,3 +108,16 @@ body {
     text-align: center;
     height: fit-content;
 }
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #000;
+}
