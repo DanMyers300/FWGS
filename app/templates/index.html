@@ -10,7 +10,7 @@
 
 
 <body>
-    <div class="util-container">
+    <!-- <div class="util-container">
 
         <button class="collapsible-button" onclick="toggleCollapsibleBox()">Toggle Source Documents</button>
 
@@ -25,13 +25,16 @@
                 <p>No documents available.</p>
             {% endif %}
         </div>
-    </div>
+    </div> -->
 
     <div class="chat-container">
         <div class="chat-header">
-            <form action="/upload" method="post">
-                <button type="submit">Upload documents</button>
-            </form>
+            <div class="upload-button">
+                <form action="/upload" method="post">
+                    <button type="submit">Upload documents</button>
+                </form>
+            </div>
+
             <h1>FWGS bot</h1>
         </div>
 
