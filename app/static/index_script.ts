@@ -1,14 +1,14 @@
         var chatForm = document.getElementById('chat-form');
         var chatDisplay = document.getElementById('chat-display');
     
-        chatForm.addEventListener('submit', function (e) {
+        chatForm!.addEventListener('submit', function (e) {
             e.preventDefault();
             submitForm();
         });
     
         function submitForm() {
             var queryInput = document.getElementById('query');
-            var query = queryInput.value.trim();
+            var query = (queryInput as HTMLInputElement)?.value.trim();
     
             if (query !== '') {
                 appendMessage('user', query);
@@ -45,21 +45,28 @@
     
         function displaySourceDocuments(documents) {
             var sourceDocumentsDiv = document.getElementById('source-documents');
-            sourceDocumentsDiv.innerHTML = '<h2>Source Documents:</h2>';
+            if (sourceDocumentsDiv) {
+                sourceDocumentsDiv.innerHTML = '<h2>Source Documents:</h2>';
 
-            if (documents.length > 0) {
-                documents.forEach(document => {
-                    var documentDiv = document.createElement('div');
-                    documentDiv.innerHTML = '<h3>' + document.metadata.source + '</h3><p>' + document.page_content + '</p>';
-                    sourceDocumentsDiv.appendChild(documentDiv);
-                });
-            } else {
-                sourceDocumentsDiv.innerHTML = '<p>No documents available.</p>';
+                if (documents.length > 0) {
+                    documents.forEach(document => {
+                        var documentDiv = document.createElement('div');
+                        documentDiv.innerHTML = '<h3>' + document.metadata.source + '</h3><p>' + document.page_content + '</p>';
+                        if (sourceDocumentsDiv) {
+                            sourceDocumentsDiv.appendChild(documentDiv);
+                        }
+                    });
+                } else {
+                    sourceDocumentsDiv.innerHTML = '<p>No documents available.</p>';
+                }
             }
         }
 
         function clearQueryBox() {
-            document.getElementById('query').value = '';
+            var queryInput = document.getElementById('query') as HTMLInputElement;
+            if (queryInput) {
+                queryInput.value = '';
+            }
         }
     
         function appendMessage(sender, message) {
@@ -67,15 +74,17 @@
             messageDiv.className = 'message ' + sender + '-message';
             messageDiv.innerHTML = '<strong>' + sender.charAt(0).toUpperCase() + sender.slice(1) + ':</strong> ' + message;
     
-            chatDisplay.appendChild(messageDiv);
-            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            if (chatDisplay) {
+                chatDisplay.appendChild(messageDiv);
+                chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            }
         }
     
         function toggleCollapsibleBox() {
             var box = document.getElementById('source-documents');
-            if (box.style.display === 'none' || box.style.display === '') {
+            if (box && (box.style.display === 'none' || box.style.display === '')) {
                 box.style.display = 'block';
-            } else {
+            } else if (box) {
                 box.style.display = 'none';
             }
         }
