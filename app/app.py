@@ -78,7 +78,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            return redirect(url_for("download_file", name=filename))
+            return "File uploaded successfully!"  # or any message you want to display
     # If the request method is GET or if the file is not uploaded via POST,
     # return the HTML form for uploading files.
     return """
