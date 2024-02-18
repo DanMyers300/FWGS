@@ -73,7 +73,7 @@ body {
 
 .upload-button button {
     background: 10px;
-    background-color: linear-gradient(to bottom, #4c4c4c, #333);
+    background-color: #646464;
     border: none;
     border-radius: 5px;
     color: white;
