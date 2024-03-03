@@ -19,7 +19,7 @@ V0.1.0
 - Basic UI
 
 <!-- To-Do -->
-
+## Roadmap
 - Enable persistant storage for ChromaDB
 - Once ChromaDB size hits a certain amount, fine tune the LLM and update program to use new tuned LLM.
 - Once new llm has been tuned, clear DB.
